@@ -56,7 +56,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Platformer 2D"
+config/name="Platformer 2D Softwarepraktikum"
 config/description="This demo is a pixel art 2D platformer with graphics and sound.
 
 It shows you how to code characters and physics-based objects

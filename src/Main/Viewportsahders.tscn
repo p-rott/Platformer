@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/Main/GrayscaleColor.shader" type="Shader" id=1]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/gray_ratio = Vector3( 0.21, 0.72, 0.07 )
+shader_param/ignore_pure_red = true
+shader_param/ignore_pure_green = false
+shader_param/ignore_pure_blue = false
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[node name="Viewportsahders" type="CanvasLayer"]
+
+[node name="Grayscale+Color" type="TextureRect" parent="."]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 3 )
+expand = true
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
