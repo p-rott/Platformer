@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/art/tileset/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://src/Level/PlayerTestLevel.gd" type="Script" id=2]
-[ext_resource path="res://src/Main/Viewportsahders.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Main/Viewportshaders.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Level/ParallaxBackground.tscn" type="PackedScene" id=7]
 
 [node name="Level" type="Node2D"]
@@ -10,6 +10,7 @@ pause_mode = 1
 script = ExtResource( 2 )
 
 [node name="Viewportsahders" parent="." instance=ExtResource( 3 )]
+colorKey = 0
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )

@@ -6,7 +6,7 @@ uniform bool ignore_pure_red;
 uniform bool ignore_pure_green;
 uniform bool ignore_pure_blue;
 void fragment() {
-	vec4 color = texture(SCREEN_TEXTURE, UV);
+	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV);
 	
 	if(ignore_pure_red && color.g < 0.01 && color.b < 0.01)
 	{
