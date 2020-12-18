@@ -18,4 +18,4 @@ visible = false
 [node name="TestLevel" parent="." instance=ExtResource( 3 )]
 
 [node name="Player" parent="TestLevel" instance=ExtResource( 4 )]
-position = Vector2( 90, 546 )
+position = Vector2( -111.768, 19.7004 )

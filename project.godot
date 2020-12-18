@@ -29,10 +29,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Actors/Enemy.gd"
 }, {
+"base": "State",
+"class": "FallingState",
+"language": "GDScript",
+"path": "res://src/Actors/PlayerStateMachine/falling_state.gd"
+}, {
 "base": "Position2D",
 "class": "Gun",
 "language": "GDScript",
 "path": "res://src/Actors/Gun.gd"
+}, {
+"base": "State",
+"class": "IdleState",
+"language": "GDScript",
+"path": "res://src/Actors/PlayerStateMachine/idle_state.gd"
+}, {
+"base": "State",
+"class": "JumpState",
+"language": "GDScript",
+"path": "res://src/Actors/PlayerStateMachine/jump_state.gd"
 }, {
 "base": "Actor",
 "class": "Player",
@@ -43,15 +58,42 @@ _global_script_classes=[ {
 "class": "Player__",
 "language": "GDScript",
 "path": "res://src/Actors/PlayerBackup.gd"
+}, {
+"base": "State",
+"class": "RunState",
+"language": "GDScript",
+"path": "res://src/Actors/PlayerStateMachine/run_state.gd"
+}, {
+"base": "State",
+"class": "SlideState",
+"language": "GDScript",
+"path": "res://src/Actors/PlayerStateMachine/slide_state.gd"
+}, {
+"base": "Node2D",
+"class": "State",
+"language": "GDScript",
+"path": "res://src/Actors/PlayerStateMachine/State.gd"
+}, {
+"base": "Reference",
+"class": "StateFactory",
+"language": "GDScript",
+"path": "res://src/Actors/PlayerStateMachine/state_factory.gd"
 } ]
 _global_script_class_icons={
 "Actor": "",
 "Bullet": "",
 "Coin": "",
 "Enemy": "",
+"FallingState": "",
 "Gun": "",
+"IdleState": "",
+"JumpState": "",
 "Player": "",
-"Player__": ""
+"Player__": "",
+"RunState": "",
+"SlideState": "",
+"State": "",
+"StateFactory": ""
 }
 
 [application]
@@ -170,7 +212,7 @@ sprint={
 
 [physics]
 
-2d/default_gravity=900
+2d/default_gravity=10
 
 [rasterizer]
 

@@ -206,8 +206,9 @@ tracks/0/keys = {
 "values": [ 10, 11, 12, 13, 14, 5 ]
 }
 
-[sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 10, 14 )
+[sub_resource type="CapsuleShape2D" id=13]
+radius = 8.85451
+height = 10.4838
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 30
@@ -236,7 +237,7 @@ position = Vector2( 0, -14 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 16
-frame = 22
+frame = 23
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.6
