@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/art/traps/LaserEmitter.png" type="Texture" id=1]
+[ext_resource path="res://src/Traps/LaserEmitter.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15.7495, 28.6379 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Fire"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.8, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0 ]
+}
+
+[node name="LaserEmitter" type="StaticBody2D"]
+collision_layer = 2147483664
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 34.1203, 3.33986 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 19.6219, -0.743252 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Fire = SubResource( 2 )
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="WallFinder" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -500, 0 )
+collision_mask = 24
+collide_with_areas = true
+
+[node name="LaserVisibleTimer" type="Timer" parent="."]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]
+[connection signal="timeout" from="LaserVisibleTimer" to="." method="_on_LaserVisibleTimer_timeout"]
