@@ -18,4 +18,7 @@ visible = false
 [node name="TestLevel" parent="." instance=ExtResource( 3 )]
 
 [node name="Player" parent="TestLevel" instance=ExtResource( 4 )]
-position = Vector2( -111.768, 19.7004 )
+position = Vector2( 4.14466, -0.458338 )
+sprintIncrease = 1.3
+jumpAccelerationDecrease = 0.1
+acceleration = 40

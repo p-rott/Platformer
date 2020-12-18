@@ -207,29 +207,31 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=13]
-radius = 8.85451
-height = 10.4838
+height = 10.0
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 30
 script = ExtResource( 1 )
+sprintIncrease = 1.5
+acceleration = 100
 
 [node name="PlatformDetector" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 0, 6 )
-collision_mask = 8
+collision_mask = 16
 
 [node name="WallDetectorLeft" type="RayCast2D" parent="."]
-position = Vector2( 0, -15 )
+position = Vector2( -5, -15 )
 enabled = true
 cast_to = Vector2( -6, 0 )
-collision_mask = 8
+collision_mask = 2147483664
+collide_with_areas = true
 
 [node name="WallDetectorRight" type="RayCast2D" parent="."]
-position = Vector2( 0, -15 )
+position = Vector2( 5, -15 )
 enabled = true
 cast_to = Vector2( 6, 0 )
-collision_mask = 8
+collision_mask = 16
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 2 )

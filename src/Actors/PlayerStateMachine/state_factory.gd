@@ -6,8 +6,10 @@ func _init():
 	states = {
 		"idle": IdleState,
 		"run": RunState,
-		"slide": SlideState,
+		"sprint": SprintRunState,
+		"wallSlide": WallSlideState,
 		"jump": JumpState,
+		"wallJump": WallJumpState,
 		"falling": FallingState
 }
 

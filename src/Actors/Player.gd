@@ -5,9 +5,11 @@ const FLOOR_DETECT_DISTANCE = 20.0
 export var maxRunSpeed = 300
 export var maxFallSpeed = 500
 export var sprintIncrease = 1.1
+export var jumpAccelerationDecrease = 0.2
 export var acceleration = 75
+export var changeMoveDirectionTempo = 0
 
-var state
+var state : State
 var state_factory
 
 
@@ -34,8 +36,11 @@ func move_right():
 	
 func jump():
 	state.jump()
+func sprint():
+	state.sprint_pressed()
 
 func change_state(new_state_name):
+	print(new_state_name)
 	if is_instance_valid(state):
 		state.queue_free()
 	state = state_factory.get_state(new_state_name).new()
@@ -50,6 +55,8 @@ func _physics_process(_delta):
 		move_right()
 	if Input.is_action_pressed("jump"):
 		jump()
+	elif Input.is_action_pressed("sprint"):
+		sprint()
 
 
 	#var is_jump_interrupted = Input.is_action_just_released("jump") and _velocity.y < 0.0 Pail meinte ich soll mir das anschauen
