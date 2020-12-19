@@ -4,7 +4,7 @@
 [ext_resource path="res://src/Traps/LaserEmitter.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15.7495, 28.6379 )
+extents = Vector2( 7.92508, 13.9215 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Fire"
@@ -41,12 +41,11 @@ collision_layer = 2147483664
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 34.1203, 3.33986 )
+position = Vector2( 1, -1.05701e-06 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 19, 0 )
-scale = Vector2( 2, 2 )
+position = Vector2( -6, -2 )
 texture = ExtResource( 1 )
 vframes = 2
 hframes = 2
@@ -59,6 +58,7 @@ anims/Fire = SubResource( 2 )
 wait_time = 5.0
 
 [node name="WallFinder" type="RayCast2D" parent="."]
+position = Vector2( -9, -2 )
 enabled = true
 cast_to = Vector2( -500, 0 )
 collision_mask = 24

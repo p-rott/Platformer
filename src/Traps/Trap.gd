@@ -1,10 +1,9 @@
 extends StaticBody2D
 
 func _ready():
-	name = "Trap"
+	name = "Trap" + name
+	print(name)
 
-#code for collision in player script:
-#	if collision != null and collision.collider.name == "Trap":
+#TODO code for collision in player script:
+#	if collision != null and collision.collider.name.begins_with("Trap"):
 #		#DIE
-#		print("Trap hit")
-
