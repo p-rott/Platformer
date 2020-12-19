@@ -1,14 +1,23 @@
+tool
 extends "res://src/Traps/Trap.gd"
 
 var l = preload("res://src/Traps/Laser.tscn")
 var laser
 onready var wallfinder = $WallFinder
+export(int, 0, 360, 90) var rot
+export(bool) var flip = false
 
 func _ready():
+	rotation_degrees = rot
+	$Sprite.flip_v = flip
 	wallfinder.force_raycast_update()
 	var wall = wallfinder.get_collision_point() 
 	if wall != null:
-		var dist = abs(wall.x + 5 - position.x)
+		var dist = 0
+		if rot == 90 or rot == 270:
+			dist = abs(wall.y - position.y) - 5
+		else:
+			dist = abs(wall.x - position.x) - 5
 		#var dist = abs(wall.position.x + 2 * wall.cell_size.x - position.x)
 		laser = l.instance()
 		laser.setLength(dist)
