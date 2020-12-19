@@ -1,5 +1,6 @@
 extends Node2D
 
+#Camera limits
 const LIMIT_LEFT = -315
 const LIMIT_TOP = -250
 const LIMIT_RIGHT = 955
