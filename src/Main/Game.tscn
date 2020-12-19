@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/UserInterface/PauseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Main/Game.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/Traps/LargeSaw.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Traps/LaserEmitter.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Traps/SmallSaw.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Traps/LaserEmitterGroup.tscn" type="PackedScene" id=8]
 
 [node name="Game" type="Node"]
 pause_mode = 2
@@ -23,12 +24,33 @@ visible = false
 [node name="Player" parent="TestLevel" instance=ExtResource( 4 )]
 position = Vector2( 486.176, 275.458 )
 
-[node name="LaserEmitter" parent="TestLevel" instance=ExtResource( 6 )]
-position = Vector2( 651.531, 506.691 )
-rot = 180
-
 [node name="LargeSaw" parent="TestLevel" instance=ExtResource( 5 )]
 position = Vector2( 283.306, 418.722 )
 
 [node name="SmallSaw" parent="TestLevel" instance=ExtResource( 7 )]
 position = Vector2( 170.807, 530.401 )
+
+[node name="LaserEmitterGroup" parent="TestLevel" instance=ExtResource( 8 )]
+laserCooldown = 1.0
+
+[node name="Trap" parent="TestLevel/LaserEmitterGroup" instance=ExtResource( 6 )]
+position = Vector2( 372.661, 500.745 )
+rot = 90
+
+[node name="Trap2" parent="TestLevel/LaserEmitterGroup" instance=ExtResource( 6 )]
+position = Vector2( 498.123, 495.394 )
+rot = 90
+
+[node name="LaserEmitterGroup2" parent="TestLevel" instance=ExtResource( 8 )]
+laserCooldown = 1.0
+firstDelay = 1.0
+
+[node name="Trap" parent="TestLevel/LaserEmitterGroup2" instance=ExtResource( 6 )]
+position = Vector2( 570.665, 498.367 )
+rot = 90
+flip = true
+
+[node name="Trap2" parent="TestLevel/LaserEmitterGroup2" instance=ExtResource( 6 )]
+position = Vector2( 436.284, 500.15 )
+rot = 90
+flip = true

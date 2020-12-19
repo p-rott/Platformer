@@ -1,11 +1,14 @@
 tool
-extends "res://src/Traps/Trap.gd"
+extends StaticBody2D
 
 var l = preload("res://src/Traps/Laser.tscn")
 var laser
 onready var wallfinder = $WallFinder
 export(int, 0, 360, 90) var rot
 export(bool) var flip = false
+export var laserCooldown = 5.0
+export var laserActive = 1.0
+export var firstDelay = 0.0
 
 func _ready():
 	rotation_degrees = rot
@@ -18,22 +21,33 @@ func _ready():
 			dist = abs(wall.y - position.y) - 5
 		else:
 			dist = abs(wall.x - position.x) - 5
-		#var dist = abs(wall.position.x + 2 * wall.cell_size.x - position.x)
 		laser = l.instance()
 		laser.setLength(dist)
 		laser.hide()
 		add_child(laser)
-	$CooldownTimer.start()
+	setTimersAndStart()
+
+func setTimersAndStart():
+	$CooldownTimer.set_wait_time(laserCooldown - 0.5)
+	$LaserVisibleTimer.set_wait_time(laserActive)
+	if firstDelay != 0.0:
+		$FirstDelayTimer.set_wait_time(firstDelay)
+		$FirstDelayTimer.start()
+	else:
+		$CooldownTimer.start()
 
 func _on_LaserVisibleTimer_timeout():
 	$LaserVisibleTimer.stop()
-	print("_on_LaserVisibleTimer_timeout")
 	laser.hide()
 	$CooldownTimer.start()
 
-func _on_CooldownTimer_timeout():
-	$CooldownTimer.stop()
-	print("_on_CooldownTimer_timeout")
-	$AnimationPlayer.play("Fire")
+func enableLaser():
 	laser.show()
 	$LaserVisibleTimer.start()
+
+func _on_CooldownTimer_timeout():
+	$CooldownTimer.stop()
+	$AnimationPlayer.play("Fire")
+
+func _on_FirstDelayTimer_timeout():
+	$CooldownTimer.start()
