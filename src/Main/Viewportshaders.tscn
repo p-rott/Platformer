@@ -65,7 +65,7 @@ shader_param/ignore_pure_red = true
 shader_param/ignore_pure_green = null
 shader_param/ignore_pure_blue = null
 shader_param/offset = 20.0
-shader_param/amount = 0.092
+shader_param/amount = 0.0
 shader_param/noise = SubResource( 6 )
 
 [sub_resource type="Environment" id=8]
@@ -75,6 +75,7 @@ glow_enabled = true
 script = ExtResource( 2 )
 
 [node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+visible = false
 scale = Vector2( 2, 2 )
 copy_mode = 2
 rect = Rect2( 0, 0, 800, 480 )
@@ -92,12 +93,13 @@ __meta__ = {
 }
 
 [node name="BackBufferCopy2" type="BackBufferCopy" parent="."]
+visible = false
 scale = Vector2( 2, 2 )
 copy_mode = 2
 rect = Rect2( 0, 0, 800, 480 )
 script = ExtResource( 3 )
 
-[node name="GrayscaleColor2" type="TextureRect" parent="BackBufferCopy2"]
+[node name="ColorAbbreviation" type="TextureRect" parent="BackBufferCopy2"]
 material = SubResource( 7 )
 anchor_right = 1.0
 anchor_bottom = 1.0
