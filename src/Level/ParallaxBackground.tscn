@@ -9,22 +9,23 @@
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 follow_viewport_enable = true
+scroll_base_scale = Vector2( 0.5, 0.5 )
 
 [node name="Sky" type="ParallaxLayer" parent="."]
 motion_mirroring = Vector2( 448, 0 )
 
 [node name="Sprite" type="Sprite" parent="Sky"]
-position = Vector2( -222.61, 262.882 )
+position = Vector2( -227.65, 164.608 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )
 
 [node name="Sprite2" type="Sprite" parent="Sky"]
-position = Vector2( 1569.39, 262.885 )
+position = Vector2( 1564.35, 164.611 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )
 
 [node name="Sprite3" type="Sprite" parent="Sky"]
-position = Vector2( 673.39, 262.881 )
+position = Vector2( 668.35, 164.607 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )
 

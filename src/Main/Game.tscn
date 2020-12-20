@@ -9,13 +9,6 @@
 [ext_resource path="res://src/Traps/SmallSaw.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Traps/LaserEmitterGroup.tscn" type="PackedScene" id=8]
 
-[sub_resource type="Environment" id=1]
-background_mode = 4
-background_color = Color( 1, 0, 0, 1 )
-glow_enabled = true
-glow_intensity = 2.17
-glow_strength = 0.86
-
 [node name="Game" type="Node"]
 pause_mode = 2
 script = ExtResource( 2 )
@@ -42,18 +35,31 @@ laserCooldown = 1.0
 
 [node name="LaserEmitterTrap" parent="TestLevel/LaserEmitterGroup" instance=ExtResource( 6 )]
 position = Vector2( 660, 340 )
+rot = 0
+laserCooldown = 5.0
+laserActive = 1.0
+firstDelay = 0.0
 
 [node name="LaserEmitterTrap2" parent="TestLevel/LaserEmitterGroup" instance=ExtResource( 6 )]
 position = Vector2( 596, 340 )
 rotation = 1.5708
 rot = 90
+laserCooldown = 5.0
+laserActive = 1.0
+firstDelay = 0.0
 
 [node name="LaserEmitterTrap3" parent="TestLevel/LaserEmitterGroup" instance=ExtResource( 6 )]
 position = Vector2( 660, 404 )
 rotation = 4.71239
 rot = 270
+laserCooldown = 5.0
+laserActive = 1.0
+firstDelay = 0.0
 
 [node name="LaserEmitterTrap4" parent="TestLevel/LaserEmitterGroup" instance=ExtResource( 6 )]
 position = Vector2( 596, 404 )
 rotation = 3.14159
 rot = 180
+laserCooldown = 5.0
+laserActive = 1.0
+firstDelay = 0.0
