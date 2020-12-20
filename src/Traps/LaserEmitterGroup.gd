@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name LaserEmitterGroup
 #Add laser emitters as children to have them be synchronized
 #Use two groups, one with delay, to have interchanging lasers
 

@@ -1,13 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/UserInterface/PauseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Main/Game.gd" type="Script" id=2]
 [ext_resource path="res://src/Level/PlayerTestLevel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/Traps/LargeSaw.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/Traps/LaserEmitter.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/Traps/SmallSaw.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/Traps/LaserEmitterGroup.tscn" type="PackedScene" id=8]
 
 [node name="Game" type="Node"]
 pause_mode = 2
@@ -21,45 +17,5 @@ visible = false
 
 [node name="TestLevel" parent="." instance=ExtResource( 3 )]
 
-[node name="Player" parent="TestLevel" instance=ExtResource( 4 )]
-position = Vector2( 619.322, 380.323 )
-
-[node name="LargeSaw" parent="TestLevel" instance=ExtResource( 5 )]
-position = Vector2( 283.306, 418.722 )
-
-[node name="SmallSaw" parent="TestLevel" instance=ExtResource( 7 )]
-position = Vector2( 170.807, 530.401 )
-
-[node name="LaserEmitterGroup" parent="TestLevel" instance=ExtResource( 8 )]
-laserCooldown = 1.0
-
-[node name="LaserEmitterTrap" parent="TestLevel/LaserEmitterGroup" instance=ExtResource( 6 )]
-position = Vector2( 660, 340 )
-rot = 0
-laserCooldown = 5.0
-laserActive = 1.0
-firstDelay = 0.0
-
-[node name="LaserEmitterTrap2" parent="TestLevel/LaserEmitterGroup" instance=ExtResource( 6 )]
-position = Vector2( 596, 340 )
-rotation = 1.5708
-rot = 90
-laserCooldown = 5.0
-laserActive = 1.0
-firstDelay = 0.0
-
-[node name="LaserEmitterTrap3" parent="TestLevel/LaserEmitterGroup" instance=ExtResource( 6 )]
-position = Vector2( 660, 404 )
-rotation = 4.71239
-rot = 270
-laserCooldown = 5.0
-laserActive = 1.0
-firstDelay = 0.0
-
-[node name="LaserEmitterTrap4" parent="TestLevel/LaserEmitterGroup" instance=ExtResource( 6 )]
-position = Vector2( 596, 404 )
-rotation = 3.14159
-rot = 180
-laserCooldown = 5.0
-laserActive = 1.0
-firstDelay = 0.0
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 78.482, 561.547 )

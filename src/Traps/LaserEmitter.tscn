@@ -37,6 +37,7 @@ tracks/1/keys = {
 }
 
 [node name="LaserEmitterTrap" type="StaticBody2D"]
+position = Vector2( 20, 20 )
 collision_layer = 2147483664
 script = ExtResource( 2 )
 

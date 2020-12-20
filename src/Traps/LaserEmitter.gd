@@ -21,6 +21,7 @@ func _ready():
 		else:
 			dist = abs(wall.x - position.x) - 5
 		laser = l.instance()
+		
 		laser.setLength(dist)
 		laser.hide()
 		add_child(laser)

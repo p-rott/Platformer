@@ -4,7 +4,7 @@
 [ext_resource path="res://src/Main/Viewportshaders.gd" type="Script" id=2]
 [ext_resource path="res://src/Main/SetViewportSize.gd" type="Script" id=3]
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
 shader_param/gray_ratio = Vector3( 0.21, 0.72, 0.07 )
 shader_param/ignore_pure_red = true
@@ -12,14 +12,14 @@ shader_param/ignore_pure_green = false
 shader_param/ignore_pure_blue = false
 shader_param/threshold = 0.04
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0 )
 colors = PoolColorArray( 1, 1, 1, 1 )
 
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
 
-[sub_resource type="Shader" id=7]
+[sub_resource type="Shader" id=4]
 code = "shader_type canvas_item;
 
 uniform bool ignore_pure_red;
@@ -48,27 +48,27 @@ void fragment()
 	COLOR = color;
 }"
 
-[sub_resource type="OpenSimplexNoise" id=1]
+[sub_resource type="OpenSimplexNoise" id=5]
 seed = 2
 octaves = 6
 period = 20.8
 persistence = 0.034
 lacunarity = 4.0
 
-[sub_resource type="NoiseTexture" id=2]
+[sub_resource type="NoiseTexture" id=6]
 seamless = true
-noise = SubResource( 1 )
+noise = SubResource( 5 )
 
-[sub_resource type="ShaderMaterial" id=8]
-shader = SubResource( 7 )
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 4 )
 shader_param/ignore_pure_red = true
 shader_param/ignore_pure_green = null
 shader_param/ignore_pure_blue = null
 shader_param/offset = 20.0
-shader_param/amount = 0.0
-shader_param/noise = SubResource( 2 )
+shader_param/amount = 0.092
+shader_param/noise = SubResource( 6 )
 
-[sub_resource type="Environment" id=9]
+[sub_resource type="Environment" id=8]
 glow_enabled = true
 
 [node name="Viewportshaders" type="CanvasLayer"]
@@ -77,14 +77,14 @@ script = ExtResource( 2 )
 [node name="BackBufferCopy" type="BackBufferCopy" parent="."]
 scale = Vector2( 2, 2 )
 copy_mode = 2
-rect = Rect2( 0, 0, 0, 0 )
+rect = Rect2( 0, 0, 800, 480 )
 script = ExtResource( 3 )
 
 [node name="GrayscaleColor" type="TextureRect" parent="BackBufferCopy"]
-material = SubResource( 3 )
+material = SubResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = SubResource( 5 )
+texture = SubResource( 3 )
 expand = true
 flip_v = true
 __meta__ = {
@@ -94,14 +94,14 @@ __meta__ = {
 [node name="BackBufferCopy2" type="BackBufferCopy" parent="."]
 scale = Vector2( 2, 2 )
 copy_mode = 2
-rect = Rect2( 0, 0, 10, 10 )
+rect = Rect2( 0, 0, 800, 480 )
 script = ExtResource( 3 )
 
 [node name="GrayscaleColor2" type="TextureRect" parent="BackBufferCopy2"]
-material = SubResource( 8 )
+material = SubResource( 7 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = SubResource( 5 )
+texture = SubResource( 3 )
 expand = true
 flip_v = true
 __meta__ = {
@@ -109,4 +109,4 @@ __meta__ = {
 }
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 9 )
+environment = SubResource( 8 )

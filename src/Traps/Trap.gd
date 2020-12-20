@@ -1,5 +1,5 @@
 extends StaticBody2D
-
+class_name Trap
 func _ready():
 	name = "Trap" + name
 
