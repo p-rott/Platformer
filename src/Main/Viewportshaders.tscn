@@ -1,32 +1,112 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Main/GrayscaleColor.shader" type="Shader" id=1]
 [ext_resource path="res://src/Main/Viewportshaders.gd" type="Script" id=2]
+[ext_resource path="res://src/Main/SetViewportSize.gd" type="Script" id=3]
 
-[sub_resource type="ShaderMaterial" id=1]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 1 )
 shader_param/gray_ratio = Vector3( 0.21, 0.72, 0.07 )
 shader_param/ignore_pure_red = true
 shader_param/ignore_pure_green = false
 shader_param/ignore_pure_blue = false
+shader_param/threshold = 0.04
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0 )
 colors = PoolColorArray( 1, 1, 1, 1 )
 
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="Shader" id=7]
+code = "shader_type canvas_item;
+
+uniform bool ignore_pure_red;
+uniform bool ignore_pure_green;
+uniform bool ignore_pure_blue;
+
+uniform float offset = 1f;
+uniform float amount : hint_range(0, 2) = 1f;
+uniform sampler2D noise : hint_white;
+
+void fragment()
+{
+	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV);
+
+	vec4 noiseOffset = texture(noise,vec2(SCREEN_UV.x + (offset * SCREEN_PIXEL_SIZE.x * sin(TIME*2f)), SCREEN_UV.y + (offset * SCREEN_PIXEL_SIZE.y * cos(TIME*5f))));
+	
+	vec3 offsetColorG = texture(SCREEN_TEXTURE, vec2(SCREEN_UV.x + (offset * SCREEN_PIXEL_SIZE.x * sin(TIME*2f) * noiseOffset.r * amount), SCREEN_UV.y + (offset * SCREEN_PIXEL_SIZE.y * cos(TIME*3f) * noiseOffset.r * amount)) ).rgb;
+	vec3 offsetColorB = texture(SCREEN_TEXTURE, vec2(SCREEN_UV.x - (offset * SCREEN_PIXEL_SIZE.x * sin(TIME*3f) * noiseOffset.r * amount), SCREEN_UV.y - (offset * SCREEN_PIXEL_SIZE.y * cos(TIME*2f) * noiseOffset.r * amount))).rgb;
+	
+	if(!(ignore_pure_red && color.g < 0.01 && color.b < 0.01) && !(ignore_pure_green && color.r < 0.01 && color.b < 0.01) && !(ignore_pure_blue && color.g < 0.01 && color.r < 0.01))
+	{
+	color.g = offsetColorG.g;
+	color.r = color.r;
+	color.b = offsetColorB.b;
+	}
+	COLOR = color;
+}"
+
+[sub_resource type="OpenSimplexNoise" id=1]
+seed = 2
+octaves = 6
+period = 20.8
+persistence = 0.034
+lacunarity = 4.0
+
+[sub_resource type="NoiseTexture" id=2]
+seamless = true
+noise = SubResource( 1 )
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = SubResource( 7 )
+shader_param/ignore_pure_red = true
+shader_param/ignore_pure_green = null
+shader_param/ignore_pure_blue = null
+shader_param/offset = 20.0
+shader_param/amount = 0.0
+shader_param/noise = SubResource( 2 )
+
+[sub_resource type="Environment" id=9]
+glow_enabled = true
 
 [node name="Viewportshaders" type="CanvasLayer"]
 script = ExtResource( 2 )
 
-[node name="GrayscaleColor" type="TextureRect" parent="."]
-material = SubResource( 1 )
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+scale = Vector2( 2, 2 )
+copy_mode = 2
+rect = Rect2( 0, 0, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="GrayscaleColor" type="TextureRect" parent="BackBufferCopy"]
+material = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = SubResource( 3 )
+texture = SubResource( 5 )
 expand = true
 flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BackBufferCopy2" type="BackBufferCopy" parent="."]
+scale = Vector2( 2, 2 )
+copy_mode = 2
+rect = Rect2( 0, 0, 10, 10 )
+script = ExtResource( 3 )
+
+[node name="GrayscaleColor2" type="TextureRect" parent="BackBufferCopy2"]
+material = SubResource( 8 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 5 )
+expand = true
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 9 )

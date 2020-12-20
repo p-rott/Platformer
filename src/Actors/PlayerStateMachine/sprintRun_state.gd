@@ -10,12 +10,16 @@ class_name SprintRunState
 func _ready():
 	acceleration = persistent_state.acceleration * persistent_state.sprintIncrease
 	maxRunSpeed = persistent_state.maxRunSpeed  * persistent_state.sprintIncrease
+
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-func sprint_pressed():
+func _physics_process(delta):
 
 	pass
+func sprint_pressed():
+	pass
+func sprint_released():
+	print("released")
+	change_state.call_func("run")

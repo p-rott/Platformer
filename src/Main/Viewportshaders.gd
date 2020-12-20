@@ -10,6 +10,7 @@ func _ready():
 	if Engine.editor_hint:
 		for _i in self.get_children(): #hides all shaders in Editor
 			_i.hide()
+			
 	pass # Replace with function body.
 
 
@@ -21,19 +22,19 @@ func _ready():
 func setColorKey(newVal): 
 	print()
 	if newVal == 0:
-		$GrayscaleColor.get_material().set_shader_param("ignore_pure_red", true)
-		$GrayscaleColor.get_material().set_shader_param("ignore_pure_green", false)
-		$GrayscaleColor.get_material().set_shader_param("ignore_pure_blue", false)
+		$"BackBufferCopy/GrayscaleColor".get_material().set_shader_param("ignore_pure_red", true)
+		$"BackBufferCopy/GrayscaleColor".get_material().set_shader_param("ignore_pure_green", false)
+		$"BackBufferCopy/GrayscaleColor".get_material().set_shader_param("ignore_pure_blue", false)
 		pass
 	elif newVal == 1:
-		$GrayscaleColor.get_material().set_shader_param("ignore_pure_red", false)
-		$GrayscaleColor.get_material().set_shader_param("ignore_pure_green", true)
-		$GrayscaleColor.get_material().set_shader_param("ignore_pure_blue", false)
+		$"BackBufferCopy/GrayscaleColor".get_material().set_shader_param("ignore_pure_red", false)
+		$"BackBufferCopy/GrayscaleColor".get_material().set_shader_param("ignore_pure_green", true)
+		$"BackBufferCopy/GrayscaleColor".get_material().set_shader_param("ignore_pure_blue", false)
 		pass
 	else:
-		$GrayscaleColor.get_material().set_shader_param("ignore_pure_red", false)
-		$GrayscaleColor.get_material().set_shader_param("ignore_pure_green", false)
-		$GrayscaleColor.get_material().set_shader_param("ignore_pure_blue", true)
+		$"BackBufferCopy/GrayscaleColor".get_material().set_shader_param("ignore_pure_red", false)
+		$"BackBufferCopy/GrayscaleColor".get_material().set_shader_param("ignore_pure_green", false)
+		$"BackBufferCopy/GrayscaleColor".get_material().set_shader_param("ignore_pure_blue", true)
 		pass
 	
 	colorKey = newVal

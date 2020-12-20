@@ -30,3 +30,6 @@ func move_right():
 
 func jump():
 	change_state.call_func("jump")
+	
+func sprint_pressed():
+	pass#change_state.call_func("sprint")

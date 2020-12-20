@@ -36,8 +36,12 @@ func move_right():
 	
 func jump():
 	state.jump()
-func sprint():
+func jump_released():
+	state.jump_released()
+func sprint_pressed():
 	state.sprint_pressed()
+func sprint_released():
+	state.sprint_released()
 
 func change_state(new_state_name):
 	print(new_state_name)
@@ -55,8 +59,12 @@ func _physics_process(_delta):
 		move_right()
 	if Input.is_action_pressed("jump"):
 		jump()
+	elif Input.is_action_just_released("jump"):
+		jump_released()
 	elif Input.is_action_pressed("sprint"):
-		sprint()
+		sprint_pressed()
+	elif Input.is_action_just_released("sprint"):
+		sprint_released()
 
 
 	#var is_jump_interrupted = Input.is_action_just_released("jump") and _velocity.y < 0.0 Pail meinte ich soll mir das anschauen

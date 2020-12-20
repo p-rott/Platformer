@@ -7,6 +7,8 @@ var animationPlayer
 var sprite : Sprite
 var persistent_state 
 # Writing _delta instead of delta here prevents the unused variable warning.
+
+
 func _physics_process(_delta):
 	persistent_state._velocity.y = min(persistent_state._velocity.y +persistent_state.gravity, persistent_state.maxRunSpeed)
 	var collision = persistent_state.move_and_collide(persistent_state._velocity * _delta)
@@ -31,7 +33,12 @@ func move_right():
 func jump():
 	pass
 
+func jump_released():
+	pass
+
 func sprint_pressed():
+	pass
+func sprint_released():
 	pass
 func is_on_floor():
 	return persistent_state.platform_detector.is_colliding()

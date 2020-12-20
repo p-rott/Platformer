@@ -37,6 +37,11 @@ func move_right():
 func jump():
 	pass
 	
+func jump_released():
+	print("released")
+	persistent_state._velocity.y += 100 
+	pass
+	
 func sprint_pressed():
 	if(persistent_state.wall_detector_left.is_colliding()  or persistent_state.wall_detector_right.is_colliding()):
 		change_state.call_func("wallSlide")

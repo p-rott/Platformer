@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/robot_demo.png" type="Texture" id=2]
 [ext_resource path="res://assets/audio/sfx/jump.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/art/Glow/glow.png" type="Texture" id=4]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -232,6 +233,12 @@ position = Vector2( 5, -15 )
 enabled = true
 cast_to = Vector2( 6, 0 )
 collision_mask = 16
+
+[node name="Sprite2" type="Sprite" parent="."]
+visible = false
+material = SubResource( 2 )
+texture = ExtResource( 4 )
+offset = Vector2( -2, -16 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 2 )

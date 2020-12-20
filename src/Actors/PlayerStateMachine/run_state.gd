@@ -25,6 +25,7 @@ func _physics_process(_delta):
 		persistent_state._velocity.y = 0
 		change_state.call_func("falling")
 
+
 func move_left():
 	if sprite.flip_h:
 		persistent_state._velocity.x = max(persistent_state._velocity.x-acceleration, -maxRunSpeed)
@@ -45,5 +46,4 @@ func jump():
 func sprint_pressed():
 	change_state.call_func("sprint")
 	pass
-
 
