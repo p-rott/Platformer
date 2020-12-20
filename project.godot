@@ -29,10 +29,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Actors/Enemy.gd"
 }, {
+"base": "State",
+"class": "FallingState",
+"language": "GDScript",
+"path": "res://src/Actors/PlayerStateMachine/falling_state.gd"
+}, {
 "base": "Position2D",
 "class": "Gun",
 "language": "GDScript",
 "path": "res://src/Actors/Gun.gd"
+}, {
+"base": "State",
+"class": "IdleState",
+"language": "GDScript",
+"path": "res://src/Actors/PlayerStateMachine/idle_state.gd"
+}, {
+"base": "State",
+"class": "JumpState",
+"language": "GDScript",
+"path": "res://src/Actors/PlayerStateMachine/jump_state.gd"
 }, {
 "base": "Actor",
 "class": "Player",
@@ -43,15 +58,60 @@ _global_script_classes=[ {
 "class": "Player__",
 "language": "GDScript",
 "path": "res://src/Actors/PlayerBackup.gd"
+}, {
+"base": "State",
+"class": "RunState",
+"language": "GDScript",
+"path": "res://src/Actors/PlayerStateMachine/run_state.gd"
+}, {
+"base": "State",
+"class": "SlideState",
+"language": "GDScript",
+"path": "res://src/Actors/PlayerStateMachine/slide_state.gd"
+}, {
+"base": "RunState",
+"class": "SprintRunState",
+"language": "GDScript",
+"path": "res://src/Actors/PlayerStateMachine/sprintRun_state.gd"
+}, {
+"base": "Node2D",
+"class": "State",
+"language": "GDScript",
+"path": "res://src/Actors/PlayerStateMachine/State.gd"
+}, {
+"base": "Reference",
+"class": "StateFactory",
+"language": "GDScript",
+"path": "res://src/Actors/PlayerStateMachine/state_factory.gd"
+}, {
+"base": "JumpState",
+"class": "WallJumpState",
+"language": "GDScript",
+"path": "res://src/Actors/PlayerStateMachine/wallJump_state.gd"
+}, {
+"base": "State",
+"class": "WallSlideState",
+"language": "GDScript",
+"path": "res://src/Actors/PlayerStateMachine/wallSlide_statet.gd"
 } ]
 _global_script_class_icons={
 "Actor": "",
 "Bullet": "",
 "Coin": "",
 "Enemy": "",
+"FallingState": "",
 "Gun": "",
+"IdleState": "",
+"JumpState": "",
 "Player": "",
-"Player__": ""
+"Player__": "",
+"RunState": "",
+"SlideState": "",
+"SprintRunState": "",
+"State": "",
+"StateFactory": "",
+"WallJumpState": "",
+"WallSlideState": ""
 }
 
 [application]
@@ -80,6 +140,7 @@ gdscript/warnings/unsafe_call_argument=true
 
 window/size/width=800
 window/size/height=480
+window/size/always_on_top=true
 window/dpi/allow_hidpi=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep_height"
@@ -157,6 +218,7 @@ toggle_pause={
 sprint={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":6,"axis_value":1.0,"script":null)
  ]
 }
 
@@ -170,7 +232,7 @@ sprint={
 
 [physics]
 
-2d/default_gravity=900
+2d/default_gravity=10
 
 [rasterizer]
 
@@ -187,6 +249,7 @@ quality/intended_usage/framebuffer_allocation.mobile=1
 quality/2d/use_pixel_snap=true
 quality/filters/anisotropic_filter_level=2
 quality/filters/use_nearest_mipmap_filter=true
+environment/default_clear_color=Color( 1, 1, 1, 1 )
 quality/depth/hdr=false
 
 [texture_import]

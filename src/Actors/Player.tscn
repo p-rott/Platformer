@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/robot_demo.png" type="Texture" id=2]
 [ext_resource path="res://assets/audio/sfx/jump.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/art/Glow/glow.png" type="Texture" id=4]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -206,29 +207,38 @@ tracks/0/keys = {
 "values": [ 10, 11, 12, 13, 14, 5 ]
 }
 
-[sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 10, 14 )
+[sub_resource type="CapsuleShape2D" id=13]
+height = 10.0
 
 [node name="Player" type="KinematicBody2D"]
-collision_layer = 2147483649
 collision_mask = 30
 script = ExtResource( 1 )
+sprintIncrease = 1.5
+acceleration = 100
 
 [node name="PlatformDetector" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 0, 6 )
-collision_mask = 8
+collision_mask = 16
 
 [node name="WallDetectorLeft" type="RayCast2D" parent="."]
-position = Vector2( 0, -15 )
+position = Vector2( -5, -15 )
 enabled = true
 cast_to = Vector2( -6, 0 )
-collision_mask = 8
+collision_mask = 2147483664
+collide_with_areas = true
 
 [node name="WallDetectorRight" type="RayCast2D" parent="."]
+position = Vector2( 5, -15 )
 enabled = true
 cast_to = Vector2( 6, 0 )
-collision_mask = 8
+collision_mask = 16
+
+[node name="Sprite2" type="Sprite" parent="."]
+visible = false
+material = SubResource( 2 )
+texture = ExtResource( 4 )
+offset = Vector2( -2, -16 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 2 )
@@ -236,7 +246,7 @@ position = Vector2( 0, -14 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 16
-frame = 22
+frame = 23
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.6

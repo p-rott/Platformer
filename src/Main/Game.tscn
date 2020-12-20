@@ -9,6 +9,13 @@
 [ext_resource path="res://src/Traps/SmallSaw.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Traps/LaserEmitterGroup.tscn" type="PackedScene" id=8]
 
+[sub_resource type="Environment" id=1]
+background_mode = 4
+background_color = Color( 1, 0, 0, 1 )
+glow_enabled = true
+glow_intensity = 2.17
+glow_strength = 0.86
+
 [node name="Game" type="Node"]
 pause_mode = 2
 script = ExtResource( 2 )
