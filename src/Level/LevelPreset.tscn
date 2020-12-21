@@ -472,11 +472,12 @@ a = Vector2( -24, 640 )
 b = Vector2( -17.5176, 66.1906 )
 
 [sub_resource type="SegmentShape2D" id=51]
-a = Vector2( -278, -594 )
-b = Vector2( -278, 6 )
+a = Vector2( 6.48193, -583.809 )
+b = Vector2( 2.48193, 2.19098 )
 
 [sub_resource type="SegmentShape2D" id=52]
-a = Vector2( 1624.48, 8.19055 )
+a = Vector2( 1412.46, 32.0171 )
+b = Vector2( -39.8416, 25.3428 )
 
 [node name="Level" type="Node2D"]
 pause_mode = 1
