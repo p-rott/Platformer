@@ -18,8 +18,9 @@ func _ready():
 func _physics_process(delta):
 
 	pass
+
 func sprint_pressed():
 	pass
+
 func sprint_released():
-	print("released")
 	change_state.call_func("run")

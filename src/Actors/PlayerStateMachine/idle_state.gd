@@ -11,8 +11,6 @@ func _physics_process(_delta):
 	if(not is_on_floor()):
 		change_state.call_func("falling")
 
-
-
 func _flip_direction():
 	sprite.flip_h = not sprite.flip_h
 
@@ -30,6 +28,6 @@ func move_right():
 
 func jump():
 	change_state.call_func("jump")
-	
+
 func sprint_pressed():
-	pass#change_state.call_func("sprint")
+	pass

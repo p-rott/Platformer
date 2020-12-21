@@ -14,6 +14,10 @@ func _physics_process(_delta):
 	var collision = persistent_state.move_and_collide(persistent_state._velocity * _delta)
 	if collision:
 		persistent_state._velocity = persistent_state._velocity.slide(collision.normal)
+		if collision.collider is Trap:
+			persistent_state.change_state("die")
+		elif collision.collider is PlayerGoal:
+			persistent_state.goalReached()
 	persistent_state.move_and_slide(persistent_state._velocity, Vector2.UP, true)
 	pass
 

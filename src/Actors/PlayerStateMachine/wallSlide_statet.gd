@@ -25,7 +25,6 @@ func _physics_process(_delta):
 	pass
 
 func move_left():
-	
 	pass
 
 func move_right():
@@ -33,9 +32,9 @@ func move_right():
 
 func jump():
 	change_state.call_func("wallJump")
-	
+
 func sprint_pressed():
 	pass
+
 func sprint_released():
-	print("released")
 	change_state.call_func("falling")

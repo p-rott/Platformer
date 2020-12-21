@@ -12,7 +12,6 @@ export var changeMoveDirectionTempo = 0
 var state : State
 var state_factory
 
-
 onready var platform_detector = $PlatformDetector
 onready var wall_detector_left = $WallDetectorLeft
 onready var wall_detector_right = $WallDetectorRight
@@ -20,20 +19,29 @@ onready var animation_player = $AnimationPlayer
 onready var sprite = $Sprite
 
 func _ready():
-	# Static types are necessary here to avoid warnings.
 	var camera: Camera2D = $Camera
 	camera.custom_viewport = $"../.."
 	state_factory = StateFactory.new()
-	change_state("idle")
+	setIdleState()
 
+func spawn(pos: Vector2):
+	position = pos
+	_velocity = Vector2.ZERO
+	change_state("spawn")
+
+func informLevelOfDeath():
+	get_parent().playerDeath()
+
+func goalReached():
+	get_parent().playerGoal()
+
+func setIdleState():
+	change_state("idle")
 
 func move_left():
 	state.move_left()
-
-
 func move_right():
 	state.move_right()
-	
 func jump():
 	state.jump()
 func jump_released():
@@ -44,7 +52,6 @@ func sprint_released():
 	state.sprint_released()
 
 func change_state(new_state_name):
-	print(new_state_name)
 	if is_instance_valid(state):
 		state.queue_free()
 	state = state_factory.get_state(new_state_name).new()
@@ -65,14 +72,3 @@ func _physics_process(_delta):
 		sprint_pressed()
 	elif Input.is_action_just_released("sprint"):
 		sprint_released()
-
-
-	#var is_jump_interrupted = Input.is_action_just_released("jump") and _velocity.y < 0.0 Pail meinte ich soll mir das anschauen
-
-	pass
-
-
-# This function calculates a new velocity whenever you need it.
-
-
-

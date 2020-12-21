@@ -10,7 +10,9 @@ func _init():
 		"wallSlide": WallSlideState,
 		"jump": JumpState,
 		"wallJump": WallJumpState,
-		"falling": FallingState
+		"falling": FallingState,
+		"die" : DeathState,
+		"spawn" : SpawnState,
 }
 
 func get_state(state_name):

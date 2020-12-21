@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Objects/Coin.gd"
 }, {
+"base": "State",
+"class": "DeathState",
+"language": "GDScript",
+"path": "res://src/Actors/PlayerStateMachine/death_state.gd"
+}, {
 "base": "Actor",
 "class": "Enemy",
 "language": "GDScript",
@@ -64,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Actors/Player.gd"
 }, {
+"base": "Node2D",
+"class": "PlayerGoal",
+"language": "GDScript",
+"path": "res://src/Level/PlayerGoal.gd"
+}, {
 "base": "Actor",
 "class": "Player__",
 "language": "GDScript",
@@ -83,6 +93,11 @@ _global_script_classes=[ {
 "class": "SmallSaw",
 "language": "GDScript",
 "path": "res://src/Traps/SmallSaw.gd"
+}, {
+"base": "State",
+"class": "SpawnState",
+"language": "GDScript",
+"path": "res://src/Actors/PlayerStateMachine/spawn_state.gd"
 }, {
 "base": "RunState",
 "class": "SprintRunState",
@@ -118,6 +133,7 @@ _global_script_class_icons={
 "Actor": "",
 "Bullet": "",
 "Coin": "",
+"DeathState": "",
 "Enemy": "",
 "FallingState": "",
 "Gun": "",
@@ -126,10 +142,12 @@ _global_script_class_icons={
 "LargeSaw": "",
 "LaserEmitterGroup": "",
 "Player": "",
+"PlayerGoal": "",
 "Player__": "",
 "RunState": "",
 "SlideState": "",
 "SmallSaw": "",
+"SpawnState": "",
 "SprintRunState": "",
 "State": "",
 "StateFactory": "",
