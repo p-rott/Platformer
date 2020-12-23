@@ -13,7 +13,7 @@ func _ready():
 
 func move_left():
 	frameCount = frameCount +1
-	if(frameCount>3):
+	if(frameCount> persistent_state.blocked_wall_jump_frames):
 		if sprite.flip_h:
 			persistent_state._velocity.x = max(persistent_state._velocity.x-persistent_state.acceleration*persistent_state.jumpAccelerationDecrease, -persistent_state.maxRunSpeed)
 		else:

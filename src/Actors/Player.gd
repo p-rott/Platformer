@@ -20,6 +20,9 @@ export(float, 0,1) var jump_cancel_factor = 0 # When zero, jump ist instantly ca
 export(float, 0,1) var grounded_hDamping = 1 #Factor how much the movement is damped when stopping, 1 for instant stop
 export(float, 0,1) var jumping_hDamping = 1 #Factor how much the horizontalmovement while jumping is damped when stopping, 1 for instant stop
 export(float, 0,1) var falling_hDamping = 1 #Factor how much the horizontalmovement while falling is damped when stopping, 1 for instant stop
+
+export(int, 0, 60) var blocked_wall_jump_frames = 5
+
 var state : State
 var state_factory
 
