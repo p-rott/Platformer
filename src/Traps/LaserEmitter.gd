@@ -23,7 +23,7 @@ func _ready():
 			dist = abs(wall.x - position.x) - 5
 		laser = l.instance()
 		
-		laser.setLength(dist)
+		laser.setLaserLength(dist)
 		laser.disableLaser()
 		add_child(laser)
 	setTimersAndStart()

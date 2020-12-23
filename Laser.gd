@@ -1,6 +1,6 @@
 extends "res://src/Traps/Trap.gd"
 
-func setLength(length):
+func setLaserLength(length):
 	var factor = length / 32
 	$Sprite.scale.x = factor
 	$CollisionShape2D.scale.x = factor

@@ -1,7 +1,7 @@
 [gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://assets/art/tileset/Platforms.png" type="Texture" id=1]
-[ext_resource path="res://src/Level/PlayerTestLevel.gd" type="Script" id=2]
+[ext_resource path="res://src/Level/LevelPreset.gd" type="Script" id=2]
 [ext_resource path="res://src/Main/Viewportshaders.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Level/PlayerGoal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Level/PlayerSpawn.tscn" type="PackedScene" id=5]

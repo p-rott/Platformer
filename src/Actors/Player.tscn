@@ -54,7 +54,7 @@ tracks/0/keys = {
 "values": [ 22 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=4]
 resource_name = "die"
 length = 1.2
 tracks/0/type = "value"
@@ -108,7 +108,7 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.01
 loop = true
 step = 0.25
@@ -125,7 +125,7 @@ tracks/0/keys = {
 "values": [ 21 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.5
 loop = true
 step = 0.25
@@ -142,7 +142,7 @@ tracks/0/keys = {
 "values": [ 26 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 7.0
 loop = true
 step = 0.25
@@ -159,7 +159,7 @@ tracks/0/keys = {
 "values": [ 16, 17, 18, 16, 19, 20, 19, 16 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.5
 loop = true
 step = 0.25
@@ -176,7 +176,7 @@ tracks/0/keys = {
 "values": [ 25 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 0.5
 loop = true
 step = 0.25
@@ -193,7 +193,7 @@ tracks/0/keys = {
 "values": [ 23, 24, 23 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 length = 0.5
 loop = true
 step = 0.25
@@ -210,7 +210,7 @@ tracks/0/keys = {
 "values": [ 26 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 1.25
 loop = true
 step = 0.25
@@ -227,7 +227,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 length = 1.25
 loop = true
 step = 0.25
@@ -244,7 +244,7 @@ tracks/0/keys = {
 "values": [ 5, 6, 7, 8, 9, 5 ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=13]
 resource_name = "spawn"
 length = 1.2
 tracks/0/type = "value"
@@ -298,7 +298,7 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=14]
 length = 1.25
 loop = true
 step = 0.25
@@ -315,7 +315,7 @@ tracks/0/keys = {
 "values": [ 10, 11, 12, 13, 14, 5 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=13]
+[sub_resource type="CapsuleShape2D" id=15]
 height = 10.0
 
 [node name="Player" type="KinematicBody2D"]
@@ -362,17 +362,17 @@ frame = 18
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.6
 anims/crouch = SubResource( 3 )
-anims/die = SubResource( 14 )
-anims/falling = SubResource( 4 )
-anims/falling_weapon = SubResource( 5 )
-anims/idle = SubResource( 6 )
-anims/idle_weapon = SubResource( 7 )
-anims/jumping = SubResource( 8 )
-anims/jumping_weapon = SubResource( 9 )
-anims/run = SubResource( 10 )
-anims/run_weapon = SubResource( 11 )
-anims/spawn = SubResource( 15 )
-anims/standing_weapon_ready = SubResource( 12 )
+anims/die = SubResource( 4 )
+anims/falling = SubResource( 5 )
+anims/falling_weapon = SubResource( 6 )
+anims/idle = SubResource( 7 )
+anims/idle_weapon = SubResource( 8 )
+anims/jumping = SubResource( 9 )
+anims/jumping_weapon = SubResource( 10 )
+anims/run = SubResource( 11 )
+anims/run_weapon = SubResource( 12 )
+anims/spawn = SubResource( 13 )
+anims/standing_weapon_ready = SubResource( 14 )
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2( 0, -28 )
@@ -381,9 +381,8 @@ zoom = Vector2( 0.5, 0.5 )
 process_mode = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, -14 )
-shape = SubResource( 13 )
+shape = SubResource( 15 )
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )

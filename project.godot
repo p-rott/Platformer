@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Actors/Enemy.gd"
 }, {
+"base": "StaticBody2D",
+"class": "FallingPlatform",
+"language": "GDScript",
+"path": "res://src/Traps/FallingPlatform.gd"
+}, {
 "base": "State",
 "class": "FallingState",
 "language": "GDScript",
@@ -67,7 +72,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Level",
 "language": "GDScript",
-"path": "res://src/Level/PlayerTestLevel.gd"
+"path": "res://src/Level/LevelPreset.gd"
 }, {
 "base": "Actor",
 "class": "Player",
@@ -132,7 +137,7 @@ _global_script_classes=[ {
 "base": "State",
 "class": "WallSlideState",
 "language": "GDScript",
-"path": "res://src/Actors/PlayerStateMachine/wallSlide_statet.gd"
+"path": "res://src/Actors/PlayerStateMachine/wallSlide_state.gd"
 } ]
 _global_script_class_icons={
 "Actor": "",
@@ -140,6 +145,7 @@ _global_script_class_icons={
 "Coin": "",
 "DeathState": "",
 "Enemy": "",
+"FallingPlatform": "",
 "FallingState": "",
 "Gun": "",
 "IdleState": "",

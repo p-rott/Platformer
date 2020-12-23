@@ -1,12 +1,10 @@
 extends Node2D
-
 class_name State
 
 var change_state
 var animationPlayer
 var sprite : Sprite
 var persistent_state 
-# Writing _delta instead of delta here prevents the unused variable warning.
 
 
 func _physics_process(_delta):
@@ -18,6 +16,8 @@ func _physics_process(_delta):
 			persistent_state.change_state("die")
 		elif collision.collider is PlayerGoal:
 			persistent_state.goalReached()
+		elif collision.collider is FallingPlatform:
+			collision.collider.touched()
 	persistent_state.move_and_slide(persistent_state._velocity, Vector2.UP, true)
 	pass
 
@@ -30,10 +30,9 @@ func setup(change_state, animationPlayer, sprite, persistent_state):
 func move_left():
 	pass
 
-
 func move_right():
 	pass
-	
+
 func jump():
 	pass
 
@@ -42,8 +41,9 @@ func jump_released():
 
 func sprint_pressed():
 	pass
+
 func sprint_released():
 	pass
+
 func is_on_floor():
 	return persistent_state.platform_detector.is_colliding()
-
