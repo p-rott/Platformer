@@ -8,14 +8,13 @@ var friction = 0.1
 func _ready():
 	sprite.flip_h = persistent_state.wall_detector_left.is_colliding()
 	animationPlayer.play("falling")
-	persistent_state._velocity.y = 0
+	persistent_state._velocity.y = min(persistent_state._velocity.y + 10, persistent_state.maxWallSlideSpeed)
 	persistent_state._velocity.x = 0
 
 func _physics_process(_delta):
 	if(is_on_floor()):
 		change_state.call_func("idle")
-	persistent_state._velocity.y = min(persistent_state._velocity.y + 10, 50)
-	#persistent_state._velocity.x = -0.5 if persistent_state.wall_detector_left.is_colliding() else 0.5
+	persistent_state._velocity.y = min(persistent_state._velocity.y + 10, persistent_state.maxWallSlideSpeed)
 	if(not persistent_state.wall_detector_left.is_colliding() and sprite.flip_h):
 		change_state.call_func("falling")
 	elif(not persistent_state.wall_detector_right.is_colliding() and not sprite.flip_h):

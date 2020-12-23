@@ -7,10 +7,11 @@ var min_move_speed = 20
 var friction = 0.2
 var acceleration
 var maxRunSpeed
-
+var coyote_buffer 
 func _ready():
 	acceleration = persistent_state.acceleration
 	maxRunSpeed = persistent_state.maxRunSpeed
+	coyote_buffer = persistent_state.coyote_time_s
 	animationPlayer.play("run")
 	if sprite.flip_h:
 	   persistent_state._velocity.x = max(persistent_state._velocity.x-acceleration, -maxRunSpeed )
@@ -20,8 +21,9 @@ func _ready():
 func _physics_process(_delta):
 	if abs(persistent_state._velocity.x) < min_move_speed:
 		 change_state.call_func("idle")
-	persistent_state._velocity.x = lerp(persistent_state._velocity.x, 0, friction)
-	if(not is_on_floor()):
+	if(not is_on_floor() && coyote_buffer > 0):
+		coyote_buffer -=_delta
+	elif(not is_on_floor()):
 		persistent_state._velocity.y = 0
 		change_state.call_func("falling")
 
@@ -35,11 +37,17 @@ func move_left():
 
 func move_right():
 	if not sprite.flip_h:
-		persistent_state._velocity.x = min(persistent_state._velocity.x+acceleration, maxRunSpeed )
+		var horizontalVelocity: float = persistent_state._velocity.x
+		horizontalVelocity += persistent_state.acceleration
+		
+		persistent_state._velocity.x = min(horizontalVelocity, maxRunSpeed )
 	else:
 		sprite.flip_h = false
 		persistent_state._velocity.x *=-persistent_state.changeMoveDirectionTempo
-		
+
+func horizontal_stop():
+	persistent_state._velocity.x *= 1 - persistent_state.grounded_hDamping
+
 func jump():
 	change_state.call_func("jump")
 	

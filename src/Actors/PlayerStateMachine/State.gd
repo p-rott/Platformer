@@ -7,7 +7,16 @@ var sprite : Sprite
 var persistent_state 
 
 
-func _physics_process(_delta):
+
+func _physics_process(_delta):#
+	if(persistent_state.jump_buffer > 0 and is_on_floor()):
+		persistent_state.change_state("jump")
+		persistent_state.jump_buffer = 0
+	elif persistent_state.jump_buffer > 0:
+		persistent_state.jump_buffer -= _delta
+	else:
+		persistent_state.jump_buffer = 0
+	
 	persistent_state._velocity.y = min(persistent_state._velocity.y +persistent_state.gravity, persistent_state.maxRunSpeed)
 	var collision = persistent_state.move_and_collide(persistent_state._velocity * _delta)
 	if collision:
@@ -29,8 +38,16 @@ func setup(change_state, animationPlayer, sprite, persistent_state):
 
 func move_left():
 	pass
+func move_left_released():
+	pass
 
 func move_right():
+	pass
+	
+func move_right_released():
+	pass
+	
+func horizontal_stop():
 	pass
 
 func jump():

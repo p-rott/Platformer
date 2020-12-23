@@ -6,6 +6,7 @@ var min_move_speed = 20
 func _ready():
 	animationPlayer.play("falling")
 	persistent_state._velocity.y = 0
+	
 
 func _physics_process(_delta):
 	persistent_state._velocity.x = lerp(persistent_state._velocity.x, 0, 0.01)
@@ -30,14 +31,17 @@ func move_left():
 		persistent_state._velocity.x *=-persistent_state.changeMoveDirectionTempo
 
 
-
 func move_right():
 	if not sprite.flip_h:
 		persistent_state._velocity.x = min(persistent_state._velocity.x+persistent_state.acceleration*persistent_state.jumpAccelerationDecrease, persistent_state.maxRunSpeed )
 	else:
 		sprite.flip_h = false
 		persistent_state._velocity.x *=-persistent_state.changeMoveDirectionTempo
+		
+func horizontal_stop():
+	persistent_state._velocity.x *= 1 - persistent_state.falling_hDamping
 func jump():
+	persistent_state.jump_buffer = persistent_state.jump_buffer_time_s
 	pass
 	
 func sprint_pressed():

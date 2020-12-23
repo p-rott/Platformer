@@ -27,7 +27,6 @@ func move_left():
 		persistent_state._velocity.x *=-persistent_state.changeMoveDirectionTempo
 
 
-
 func move_right():
 	if not sprite.flip_h:
 		persistent_state._velocity.x = min(persistent_state._velocity.x+persistent_state.acceleration*persistent_state.jumpAccelerationDecrease, persistent_state.maxRunSpeed )
@@ -35,11 +34,14 @@ func move_right():
 		sprite.flip_h = false
 		persistent_state._velocity.x *=-persistent_state.changeMoveDirectionTempo
 
+func horizontal_stop():
+	persistent_state._velocity.x *= 1 - persistent_state.jumping_hDamping 
+
 func jump():
 	pass
 
 func jump_released():
-	persistent_state._velocity.y += 100 
+	persistent_state._velocity.y *= persistent_state.jump_cancel_factor
 
 func sprint_pressed():
 	if(persistent_state.wall_detector_left.is_colliding()  or persistent_state.wall_detector_right.is_colliding()):

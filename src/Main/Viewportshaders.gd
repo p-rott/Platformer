@@ -10,7 +10,9 @@ func _ready():
 	if Engine.editor_hint:
 		for _i in self.get_children(): #hides all shaders in Editor
 			_i.hide()
-			
+	else:
+		for _i in self.get_children(): #hides all shaders in Editor
+			_i.show()
 	pass # Replace with function body.
 
 

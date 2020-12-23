@@ -7,7 +7,7 @@ func _ready():
 	persistent_state._velocity.x = 0
 
 func _physics_process(_delta):
-	persistent_state._velocity.x = lerp(persistent_state._velocity.x, 0, 1)
+	persistent_state._velocity.x = 0
 	if(not is_on_floor()):
 		change_state.call_func("falling")
 
