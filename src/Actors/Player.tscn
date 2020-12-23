@@ -13,6 +13,7 @@ uniform bool only_blue;
 
 void fragment() {
 	vec4 tex_color = texture(TEXTURE, UV);
+	
 	if(only_red)
 	{
 		COLOR= vec4(tex_color.r, 0, 0, tex_color.a);
@@ -106,6 +107,18 @@ tracks/3/keys = {
 "args": [  ],
 "method": "informLevelOfDeath"
 } ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -319,13 +332,13 @@ tracks/0/keys = {
 radius = 7.5
 height = 12.5
 
-[sub_resource type="Gradient" id=17]
+[sub_resource type="Gradient" id=16]
 colors = PoolColorArray( 0.552941, 0, 0, 1, 0.157715, 0.157715, 0.157715, 1 )
 
-[sub_resource type="GradientTexture" id=18]
-gradient = SubResource( 17 )
+[sub_resource type="GradientTexture" id=17]
+gradient = SubResource( 16 )
 
-[sub_resource type="ParticlesMaterial" id=16]
+[sub_resource type="ParticlesMaterial" id=18]
 flag_disable_z = true
 direction = Vector3( 0, -1, 0 )
 spread = 26.02
@@ -339,7 +352,7 @@ damping = 4.62
 damping_random = 0.1
 scale = 3.0
 scale_random = 0.51
-color_ramp = SubResource( 18 )
+color_ramp = SubResource( 17 )
 
 [sub_resource type="Curve" id=19]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.984894, 0 ), -0.0313447, 0.0, 0, 0 ]
@@ -366,7 +379,7 @@ damping_random = 0.1
 angle = 158.2
 scale = 3.0
 scale_random = 0.51
-color_ramp = SubResource( 18 )
+color_ramp = SubResource( 17 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 30
@@ -375,13 +388,11 @@ sprintIncrease = 1.5
 acceleration = 100
 
 [node name="PlatformDetector" type="RayCast2D" parent="."]
-visible = false
 enabled = true
 cast_to = Vector2( 0, 3 )
 collision_mask = 16
 
 [node name="WallDetectorLeft" type="RayCast2D" parent="."]
-visible = false
 position = Vector2( -5, -15 )
 enabled = true
 cast_to = Vector2( -6, 0 )
@@ -389,7 +400,6 @@ collision_mask = 2147483664
 collide_with_areas = true
 
 [node name="WallDetectorRight" type="RayCast2D" parent="."]
-visible = false
 position = Vector2( 5, -15 )
 enabled = true
 cast_to = Vector2( 6, 0 )
@@ -407,7 +417,7 @@ position = Vector2( 0, -14 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 16
-frame = 18
+frame = 17
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.6
@@ -444,7 +454,7 @@ explosiveness = 0.24
 randomness = 0.43
 local_coords = false
 draw_order = 1
-process_material = SubResource( 16 )
+process_material = SubResource( 18 )
 
 [node name="Puff" type="Particles2D" parent="."]
 emitting = false
