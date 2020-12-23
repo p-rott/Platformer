@@ -28,7 +28,8 @@ onready var wall_detector_left = $WallDetectorLeft
 onready var wall_detector_right = $WallDetectorRight
 onready var animation_player = $AnimationPlayer
 onready var sprite = $Sprite
-
+onready var trail = $Trail 
+onready var puff = $Puff
 func _ready():
 	coyote_time_s = coyote_time_ms / 1000.0
 	var camera: Camera2D = $Camera

@@ -11,6 +11,9 @@ func _ready():
 func _physics_process(_delta):
 	persistent_state._velocity.x = lerp(persistent_state._velocity.x, 0, 0.01)
 	if is_on_floor():
+		
+		persistent_state.puff.emitting = true
+		persistent_state.puff.restart()
 		if abs(persistent_state._velocity.x) < min_move_speed:
 				change_state.call_func("idle")
 		else:

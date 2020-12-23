@@ -9,6 +9,7 @@ var acceleration
 var maxRunSpeed
 var coyote_buffer 
 func _ready():
+	persistent_state.trail.emitting = true
 	acceleration = persistent_state.acceleration
 	maxRunSpeed = persistent_state.maxRunSpeed
 	coyote_buffer = persistent_state.coyote_time_s
@@ -20,11 +21,13 @@ func _ready():
 
 func _physics_process(_delta):
 	if abs(persistent_state._velocity.x) < min_move_speed:
-		 change_state.call_func("idle")
+		persistent_state.trail.emitting = false
+		change_state.call_func("idle")
 	if(not is_on_floor() && coyote_buffer > 0):
 		coyote_buffer -=_delta
 	elif(not is_on_floor()):
 		persistent_state._velocity.y = 0
+		persistent_state.trail.emitting = false
 		change_state.call_func("falling")
 
 
@@ -49,6 +52,7 @@ func horizontal_stop():
 	persistent_state._velocity.x *= 1 - persistent_state.grounded_hDamping
 
 func jump():
+	persistent_state.trail.emitting = false
 	change_state.call_func("jump")
 	
 func sprint_pressed():

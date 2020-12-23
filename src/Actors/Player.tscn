@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/robot_demo.png" type="Texture" id=2]
@@ -316,7 +316,57 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=15]
-height = 10.0
+radius = 7.5
+height = 12.5
+
+[sub_resource type="Gradient" id=17]
+colors = PoolColorArray( 0.552941, 0, 0, 1, 0.157715, 0.157715, 0.157715, 1 )
+
+[sub_resource type="GradientTexture" id=18]
+gradient = SubResource( 17 )
+
+[sub_resource type="ParticlesMaterial" id=16]
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 26.02
+gravity = Vector3( 0, 50, 0 )
+initial_velocity = 28.79
+angular_velocity = 482.77
+angular_velocity_random = 0.2
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 4.62
+damping_random = 0.1
+scale = 3.0
+scale_random = 0.51
+color_ramp = SubResource( 18 )
+
+[sub_resource type="Curve" id=19]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.984894, 0 ), -0.0313447, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=20]
+width = 32
+curve = SubResource( 19 )
+
+[sub_resource type="ParticlesMaterial" id=21]
+trail_divisor = 2
+trail_size_modifier = SubResource( 20 )
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+flatness = 0.76
+gravity = Vector3( 0, 20, 0 )
+initial_velocity = 23.32
+initial_velocity_random = 0.41
+angular_velocity = 482.77
+angular_velocity_random = 0.88
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 4.62
+damping_random = 0.1
+angle = 158.2
+scale = 3.0
+scale_random = 0.51
+color_ramp = SubResource( 18 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 30
@@ -381,8 +431,26 @@ zoom = Vector2( 0.5, 0.5 )
 process_mode = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -14 )
+position = Vector2( 0, -13.5 )
 shape = SubResource( 15 )
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+
+[node name="Trail" type="Particles2D" parent="."]
+emitting = false
+amount = 50
+explosiveness = 0.24
+randomness = 0.43
+local_coords = false
+draw_order = 1
+process_material = SubResource( 16 )
+
+[node name="Puff" type="Particles2D" parent="."]
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+draw_order = 1
+process_material = SubResource( 21 )

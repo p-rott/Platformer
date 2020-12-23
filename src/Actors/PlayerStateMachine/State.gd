@@ -22,7 +22,7 @@ func _physics_process(_delta):#
 	if collision:
 		persistent_state._velocity = persistent_state._velocity.slide(collision.normal)
 		if collision.collider is Trap:
-			persistent_state.change_state("die")
+			die()
 		elif collision.collider is PlayerGoal:
 			persistent_state.goalReached()
 		elif collision.collider is FallingPlatform:
@@ -64,3 +64,5 @@ func sprint_released():
 
 func is_on_floor():
 	return persistent_state.platform_detector.is_colliding()
+func die():
+	persistent_state.change_state("die")
