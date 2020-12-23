@@ -7,6 +7,7 @@ onready var wallfinder = $WallFinder
 export(int, 0, 360, 90) var rot
 export var laserCooldown = 5.0
 export var laserActive = 1.0
+export var laserWarning = 1.0
 export var firstDelay = 0.0
 
 func _ready():
@@ -23,7 +24,7 @@ func _ready():
 		laser = l.instance()
 		
 		laser.setLength(dist)
-		laser.hide()
+		laser.disableLaser()
 		add_child(laser)
 	setTimersAndStart()
 
@@ -34,25 +35,28 @@ func snapToGrid():
 
 func setTimersAndStart():
 	$CooldownTimer.set_wait_time(laserCooldown - 0.5)
-	$LaserVisibleTimer.set_wait_time(laserActive)
+	$LaserActiveTimer.set_wait_time(laserActive)
+	$LaserWarningTimer.set_wait_time(laserWarning)
 	if firstDelay != 0.0:
 		$FirstDelayTimer.set_wait_time(firstDelay)
 		$FirstDelayTimer.start()
 	else:
 		$CooldownTimer.start()
 
-func _on_LaserVisibleTimer_timeout():
-	$LaserVisibleTimer.stop()
-	laser.hide()
-	$CooldownTimer.start()
-
-func enableLaser():
-	laser.show()
-	$LaserVisibleTimer.start()
-
 func _on_CooldownTimer_timeout():
 	$CooldownTimer.stop()
-	$AnimationPlayer.play("Fire")
+	laser.enableLaserWarning()
+	$LaserWarningTimer.start()
 
 func _on_FirstDelayTimer_timeout():
 	$CooldownTimer.start()
+
+func _on_LaserActiveTimer_timeout():
+	$LaserActiveTimer.stop()
+	laser.disableLaser()
+	$CooldownTimer.start()
+
+func _on_LaserWarningTimer_timeout():
+	$LaserWarningTimer.stop()
+	laser.enableLaser()
+	$LaserActiveTimer.start()

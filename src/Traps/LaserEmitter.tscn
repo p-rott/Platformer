@@ -40,6 +40,7 @@ tracks/1/keys = {
 position = Vector2( 20, 20 )
 collision_layer = 2147483664
 script = ExtResource( 2 )
+laserCooldown = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1, -1.05701e-06 )
@@ -50,7 +51,6 @@ position = Vector2( -6, -2 )
 texture = ExtResource( 1 )
 vframes = 2
 hframes = 2
-frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Fire = SubResource( 2 )
@@ -65,10 +65,13 @@ cast_to = Vector2( -500, 0 )
 collision_mask = 24
 collide_with_areas = true
 
-[node name="LaserVisibleTimer" type="Timer" parent="."]
+[node name="LaserWarningTimer" type="Timer" parent="."]
+
+[node name="LaserActiveTimer" type="Timer" parent="."]
 
 [node name="FirstDelayTimer" type="Timer" parent="."]
 one_shot = true
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]
-[connection signal="timeout" from="LaserVisibleTimer" to="." method="_on_LaserVisibleTimer_timeout"]
+[connection signal="timeout" from="LaserWarningTimer" to="." method="_on_LaserWarningTimer_timeout"]
+[connection signal="timeout" from="LaserActiveTimer" to="." method="_on_LaserActiveTimer_timeout"]
 [connection signal="timeout" from="FirstDelayTimer" to="." method="_on_FirstDelayTimer_timeout"]

@@ -5,6 +5,7 @@ class_name LaserEmitterGroup
 
 export var laserCooldown = 5.0
 export var laserActive = 1.0
+export var laserWarning = 1.0
 export var firstDelay = 0.0
 
 func _ready():
@@ -12,4 +13,5 @@ func _ready():
 		c.laserCooldown = laserCooldown
 		c.laserActive = laserActive
 		c.firstDelay = firstDelay
+		c.laserWarning = laserWarning
 		c.setTimersAndStart()
