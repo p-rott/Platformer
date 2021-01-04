@@ -109,6 +109,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Actors/PlayerStateMachine/spawn_state.gd"
 }, {
+"base": "JumpState",
+"class": "SprintJumpState",
+"language": "GDScript",
+"path": "res://src/Actors/PlayerStateMachine/sprintJump_state.gd"
+}, {
 "base": "RunState",
 "class": "SprintRunState",
 "language": "GDScript",
@@ -160,6 +165,7 @@ _global_script_class_icons={
 "SlideState": "",
 "SmallSaw": "",
 "SpawnState": "",
+"SprintJumpState": "",
 "SprintRunState": "",
 "State": "",
 "StateFactory": "",

@@ -24,3 +24,7 @@ func sprint_pressed():
 
 func sprint_released():
 	change_state.call_func("run")
+
+func jump():
+	persistent_state.trail.emitting = false
+	change_state.call_func("sprintJump")

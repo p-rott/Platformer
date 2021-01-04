@@ -9,6 +9,7 @@ func _init():
 		"sprint": SprintRunState,
 		"wallSlide": WallSlideState,
 		"jump": JumpState,
+		"sprintJump": SprintJumpState,
 		"wallJump": WallJumpState,
 		"falling": FallingState,
 		"die" : DeathState,
