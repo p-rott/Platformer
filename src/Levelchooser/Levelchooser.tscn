@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/theme/MainTheme.tres" type="Theme" id=1]
+[ext_resource path="res://src/Levelchooser/Levelchooser.gd" type="Script" id=2]
+[ext_resource path="res://src/Levelchooser/templateButton.gd" type="Script" id=3]
+
+[node name="Levelchooser" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0627451, 0, 0, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginBox" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 40.0
+margin_right = -40.0
+margin_bottom = -40.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginBox"]
+margin_right = 720.0
+margin_bottom = 400.0
+
+[node name="TabContainer" type="TabContainer" parent="MarginBox/VBoxContainer"]
+margin_right = 720.0
+margin_bottom = 366.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tab_align = 0
+use_hidden_tabs_for_min_size = true
+
+[node name="Back" type="Button" parent="MarginBox/VBoxContainer"]
+margin_top = 370.0
+margin_right = 50.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 15, 15 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Template Gridbox" type="GridContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 45.0
+margin_top = 75.0
+margin_right = 35.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Template Button" type="Button" parent="."]
+visible = false
+margin_left = 45.0
+margin_top = 75.0
+margin_right = 307.0
+margin_bottom = 95.0
+rect_min_size = Vector2( 15, 15 )
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+text = "1"
+script = ExtResource( 3 )
+[connection signal="pressed" from="MarginBox/VBoxContainer/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="Template Button" to="Template Button" method="_on_pressed"]
