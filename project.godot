@@ -74,6 +74,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Level/LevelPreset.gd"
 }, {
+"base": "Control",
+"class": "LoadingscreenScript",
+"language": "GDScript",
+"path": "res://src/LoadingScreen/Loadingscreen.gd"
+}, {
 "base": "Actor",
 "class": "Player",
 "language": "GDScript",
@@ -158,6 +163,7 @@ _global_script_class_icons={
 "LargeSaw": "",
 "LaserEmitterGroup": "",
 "Level": "",
+"LoadingscreenScript": "",
 "Player": "",
 "PlayerGoal": "",
 "Player__": "",
@@ -184,10 +190,14 @@ in a real game context. This is a relatively complete demo
 where the player can jump, walk on slopes, fire bullets,
 interact with enemies, and more. It contains one closed
 level, and the player is invincible, unlike the enemies."
-run/main_scene="res://src/Main/Game.tscn"
+run/main_scene="res://src/Startscreen/Startscreen.tscn"
 boot_splash/bg_color=Color( 0.101961, 0.101961, 0.101961, 1 )
 config/icon="res://icon.png"
 target_fps="60"
+
+[autoload]
+
+Global="*res://src/Autoload/Global.gd"
 
 [debug]
 
