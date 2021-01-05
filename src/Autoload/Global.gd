@@ -39,7 +39,7 @@ func goto_scene(path): # Game requests to switch to this scene.
 
 	wait_frames = 1
 
-func _process(time):
+func _process(_time):
 	if loader == null:
 		# no need to process anymore
 		set_process(false)

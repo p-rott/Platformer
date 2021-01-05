@@ -2,7 +2,6 @@ extends ColorRect
 var worlds : Dictionary = {}
 func _ready():
 	dir_worlds("res://src/Level/areas")
-	$"MarginBox/VBoxContainer/TabContainer"
 
 
 func _on_Back_pressed():
@@ -42,7 +41,7 @@ func dir_levels(path, world):
 				level.set_text(String(levelCount))
 				levelCount +=1
 				level.show()
-				(worlds[world] as GridContainer).add_child(level)
+				(worlds[world]).add_child(level)
 			file_name = dir.get_next()
 	else:
 		print("An error occurred when trying to access the path.")
