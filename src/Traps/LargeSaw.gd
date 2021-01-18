@@ -1,5 +1,11 @@
 extends Trap
-class_name LargeSaw
+class_name SparkTrap
+
+export var alwaysDeadly = false
 
 func _ready():
-	$AnimationPlayer.play("Spin")
+	if alwaysDeadly:
+		var alwaysOnCollision = $CollisionShape2D.duplicate()
+		alwaysOnCollision.disabled = false
+		add_child(alwaysOnCollision)
+	$AnimationPlayer.play("Flicker")
