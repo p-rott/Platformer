@@ -1,9 +1,15 @@
 extends "res://src/Traps/Trap.gd"
 
 func setLaserLength(length):
-	var factor = length / 32
+	var factor = (length + 22) / 32
 	$Sprite.scale.x = factor
 	$CollisionShape2D.scale.x = factor
+
+func setPositionAndTarget(pos, target):
+	var dist = pos.distance_to(target)
+	position = pos + (pos + target) / 2
+	var factor = abs(dist) / 32
+	scale.x = factor
 
 func enableLaserWarning():
 	$Sprite.visible = true

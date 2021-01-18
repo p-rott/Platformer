@@ -7,15 +7,17 @@
 b = Vector2( -32, 0 )
 
 [node name="Laser" type="StaticBody2D"]
-position = Vector2( -5, 0 )
+show_behind_parent = true
+position = Vector2( -21, 0 )
 collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 21, 0 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, 16 )
+position = Vector2( 21, 16.5 )
 rotation = 3.14159
 texture = ExtResource( 1 )
 centered = false

@@ -5,33 +5,25 @@ var l = preload("res://src/Traps/Laser.tscn")
 var laser
 onready var wallfinder = $WallFinder
 export(int, 0, 360, 90) var rot
+export var scl = Vector2(1,1)
 export var laserCooldown = 5.0
 export var laserActive = 1.0
 export var laserWarning = 1.0
 export var firstDelay = 0.0
 
 func _ready():
-	snapToGrid()
 	rotation_degrees = rot
+	scale = scl
 	wallfinder.force_raycast_update()
-	var wall = wallfinder.get_collision_point() 
+	var wall = to_local(wallfinder.get_collision_point()) 
 	if wall != null:
-		var dist = 0
-		if rot == 90 or rot == 270:
-			dist = abs(wall.y - position.y) - 5
-		else:
-			dist = abs(wall.x - position.x) - 5
 		laser = l.instance()
-		
-		laser.setLaserLength(dist)
+		#laser.setPositionAndTarget(wallfinder.position, wall)
+		laser.position = wallfinder.position
+		laser.setLaserLength(abs(wall.distance_to(wallfinder.position)))
 		laser.disableLaser()
 		add_child(laser)
 	setTimersAndStart()
-
-#TODO is fukked
-func snapToGrid():
-	position = (position / 32).floor() * 32
-	position += Vector2(20,20)
 
 func setTimersAndStart():
 	$CooldownTimer.set_wait_time(laserCooldown - 0.5)

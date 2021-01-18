@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/beam.ogg-03d52fa204f9b089d5369a32fb38daad.oggstr"
+
+[deps]
+
+source_file="res://assets/art/tileset/warped city files/demo/assets/sounds/beam.ogg"
+dest_files=[ "res://.import/beam.ogg-03d52fa204f9b089d5369a32fb38daad.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

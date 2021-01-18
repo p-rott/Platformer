@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/art/background/buildings-layer.png" type="Texture" id=1]
+[ext_resource path="res://assets/art/tileset/warped city files/demo/assets/environment/bg-1.png" type="Texture" id=1]
 [ext_resource path="res://assets/art/background/Sky-layer.png" type="Texture" id=2]
 [ext_resource path="res://assets/art/background/cloud_1.png" type="Texture" id=3]
 [ext_resource path="res://assets/art/background/cloud_2.png" type="Texture" id=4]
@@ -171,7 +171,7 @@ motion_scale = Vector2( 0.4, 1 )
 motion_mirroring = Vector2( 768, 0 )
 
 [node name="Sprite" type="Sprite" parent="Mountains2"]
-position = Vector2( 325.465, -29.9716 )
+position = Vector2( 523.679, 107.834 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 1 )
 
