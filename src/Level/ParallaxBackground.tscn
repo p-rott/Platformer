@@ -8,8 +8,11 @@
 [ext_resource path="res://assets/art/background/distant_platforms_1.png" type="Texture" id=6]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
+offset = Vector2( 0, -130 )
+scale = Vector2( 1, 1.5 )
+transform = Transform2D( 1, 0, 0, 1.5, 0, -130 )
 follow_viewport_enable = true
-scroll_base_scale = Vector2( 0.5, 0.5 )
+scroll_base_scale = Vector2( 0.1, 0.1 )
 
 [node name="Sky" type="ParallaxLayer" parent="."]
 motion_mirroring = Vector2( 448, 0 )

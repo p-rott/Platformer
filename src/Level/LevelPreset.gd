@@ -5,7 +5,7 @@ extends Node2D
 const LIMIT_LEFT = -315
 const LIMIT_TOP = -250
 const LIMIT_RIGHT = 2000
-const LIMIT_BOTTOM = 690
+const LIMIT_BOTTOM = 950
 onready var player = $Player
 onready var playerSpawn = $ControlNodes/PlayerSpawn
 
@@ -25,6 +25,10 @@ func resetLevel():
 	for child in $Traps.get_children():
 		if child is FallingPlatform:
 			child.reset()
+		elif child is LaserEmitterGroup:
+			child.setTimers()
+		elif child is LaserEmitter:
+			child.setTimersAndStart()
 
 func spawnPlayer():
 	print("spawn player")

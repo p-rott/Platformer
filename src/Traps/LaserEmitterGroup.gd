@@ -9,6 +9,9 @@ export var laserWarning = 1.0
 export var firstDelay = 0.0
 
 func _ready():
+	setTimers()
+
+func setTimers():
 	for c in get_children():
 		c.laserCooldown = laserCooldown
 		c.laserActive = laserActive

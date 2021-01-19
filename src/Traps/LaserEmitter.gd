@@ -1,5 +1,6 @@
 tool
 extends StaticBody2D
+class_name LaserEmitter
 
 var l = preload("res://src/Traps/Laser.tscn")
 var laser
@@ -18,16 +19,23 @@ func _ready():
 	var wall = to_local(wallfinder.get_collision_point()) 
 	if wall != null:
 		laser = l.instance()
-		#laser.setPositionAndTarget(wallfinder.position, wall)
 		laser.position = wallfinder.position
 		laser.setLaserLength(abs(wall.distance_to(wallfinder.position)))
 		laser.disableLaser()
 		add_child(laser)
-	setTimersAndStart()
+	if !get_parent() is LaserEmitterGroup:
+		setTimersAndStart()
 
 func setTimersAndStart():
-	$CooldownTimer.set_wait_time(laserCooldown - 0.5)
+	laser.disableLaser()
+	$CooldownTimer.stop()
+	$CooldownTimer.set_one_shot(true)
+	$CooldownTimer.set_wait_time(laserCooldown)
+	$LaserActiveTimer.stop()
+	$LaserActiveTimer.set_one_shot(true)
 	$LaserActiveTimer.set_wait_time(laserActive)
+	$LaserWarningTimer.stop()
+	$LaserWarningTimer.set_one_shot(true)
 	$LaserWarningTimer.set_wait_time(laserWarning)
 	if firstDelay != 0.0:
 		$FirstDelayTimer.set_wait_time(firstDelay)
