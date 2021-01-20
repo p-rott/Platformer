@@ -1,4 +1,5 @@
-extends "res://src/Traps/Trap.gd"
+extends Trap
+class_name Laser
 
 var active = false
 

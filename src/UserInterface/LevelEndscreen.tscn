@@ -1,7 +1,25 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/theme/MainTheme.tres" type="Theme" id=1]
 [ext_resource path="res://src/UserInterface/LevelEndscreen.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "bounce"
+length = 3.0
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.85, 1.55, 2.25, 3 ),
+"transitions": PoolRealArray( 1, 2, 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 313, 115 ), Vector2( 313, 110 ), Vector2( 313, 115 ), Vector2( 313, 120 ), Vector2( 313, 115 ) ]
+}
 
 [node name="LevelEndscreen" type="Control"]
 pause_mode = 2
@@ -16,7 +34,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.211765 )
+color = Color( 0, 0, 0, 0.368627 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -27,40 +45,97 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -87.0
-margin_top = -125.0
+margin_top = -125.066
 margin_right = 87.0
-margin_bottom = 126.0
+margin_bottom = 125.972
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 35.0
+margin_right = 174.0
+margin_bottom = 55.0
+text = "Level beaten!"
+align = 1
+
+[node name="HBoCurrentTime" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 59.0
 margin_right = 174.0
 margin_bottom = 79.0
-text = "Level beaten!"
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoCurrentTime"]
+margin_left = 8.0
+margin_right = 118.0
+margin_bottom = 20.0
+text = "Current time:"
 align = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="LabelCurrentTime" type="Label" parent="VBoxContainer/HBoCurrentTime"]
+margin_left = 122.0
+margin_right = 166.0
+margin_bottom = 20.0
+text = "23:46"
+align = 1
+
+[node name="HBoxBestTime" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 83.0
 margin_right = 174.0
 margin_bottom = 103.0
-text = "Level beaten!"
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxBestTime"]
+margin_left = 25.0
+margin_right = 105.0
+margin_bottom = 20.0
+text = "Best time:"
+align = 1
+
+[node name="LabelBestTime" type="Label" parent="VBoxContainer/HBoxBestTime"]
+margin_left = 109.0
+margin_right = 149.0
+margin_bottom = 20.0
+text = "21:06"
+align = 1
+
+[node name="HBoxDeaths" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 107.0
+margin_right = 174.0
+margin_bottom = 127.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxDeaths"]
+margin_left = 47.0
+margin_right = 113.0
+margin_bottom = 20.0
+text = "Deaths: "
+align = 1
+
+[node name="LabelDeaths" type="Label" parent="VBoxContainer/HBoxDeaths"]
+margin_left = 117.0
+margin_right = 127.0
+margin_bottom = 20.0
+text = "3"
 align = 1
 
 [node name="ResumeButton" type="Button" parent="VBoxContainer"]
-margin_top = 107.0
+margin_top = 131.0
 margin_right = 174.0
-margin_bottom = 147.0
+margin_bottom = 171.0
 rect_min_size = Vector2( 0, 40 )
 text = "Next Level"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
-margin_top = 151.0
+margin_top = 175.0
 margin_right = 174.0
-margin_bottom = 191.0
+margin_bottom = 215.0
 rect_min_size = Vector2( 0, 40 )
 text = "Main Menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "bounce"
+anims/bounce = SubResource( 1 )
 [connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

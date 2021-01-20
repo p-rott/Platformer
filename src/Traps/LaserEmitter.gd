@@ -2,7 +2,7 @@ tool
 extends StaticBody2D
 class_name LaserEmitter
 
-var l = preload("res://src/Traps/Laser.tscn")
+onready var l = preload("res://src/Traps/Laser.tscn")
 var laser
 onready var wallfinder = $WallFinder
 export(int, 0, 360, 90) var rot

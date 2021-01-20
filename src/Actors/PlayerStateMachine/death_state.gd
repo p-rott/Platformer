@@ -23,5 +23,6 @@ func jump():
 
 func sprint_pressed():
 	pass
+
 func die():
 	pass

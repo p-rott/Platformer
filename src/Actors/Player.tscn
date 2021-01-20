@@ -382,6 +382,7 @@ scale_random = 0.51
 color_ramp = SubResource( 17 )
 
 [node name="Player" type="KinematicBody2D"]
+z_index = 100
 collision_mask = 30
 script = ExtResource( 1 )
 sprintIncrease = 1.5

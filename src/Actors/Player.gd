@@ -33,6 +33,7 @@ onready var animation_player = $AnimationPlayer
 onready var sprite = $Sprite
 onready var trail = $Trail 
 onready var puff = $Puff
+var alive = true
 
 func _ready():
 	coyote_time_s = coyote_time_ms / 1000.0
@@ -43,6 +44,7 @@ func _ready():
 
 func spawn(pos: Vector2):
 	position = pos
+	alive = true
 	_velocity = Vector2.ZERO
 	change_state("spawn")
 

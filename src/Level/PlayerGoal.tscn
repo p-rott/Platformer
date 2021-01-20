@@ -38,11 +38,12 @@ tracks/1/keys = {
 
 [node name="PlayerGoal" type="StaticBody2D"]
 scale = Vector2( 2, 2 )
+z_index = 99
 collision_layer = 0
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.690402, 0.605779, 0.717234, 1 )
+modulate = Color( 0.690403, 0.605779, 0.717234, 1 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 hframes = 4
@@ -53,4 +54,5 @@ position = Vector2( -0.552208, -0.179201 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "flicker"
 anims/flicker = SubResource( 2 )

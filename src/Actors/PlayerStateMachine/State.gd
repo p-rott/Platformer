@@ -6,8 +6,6 @@ var animationPlayer
 var sprite : Sprite
 var persistent_state 
 
-
-
 func _physics_process(_delta):#
 	if(persistent_state.jump_buffer > 0 and is_on_floor()):
 		persistent_state.change_state("jump")
@@ -22,8 +20,10 @@ func _physics_process(_delta):#
 	if collision:
 		persistent_state._velocity = persistent_state._velocity.slide(collision.normal)
 		if collision.collider is Trap:
-			die()
-		elif collision.collider is PlayerGoal:
+			print("trap touched")
+			persistent_state.alive = false
+			persistent_state.change_state("die")
+		elif collision.collider is PlayerGoal and persistent_state.alive:
 			persistent_state.goalReached()
 		elif collision.collider is FallingPlatform:
 			collision.collider.touched()
@@ -64,5 +64,3 @@ func sprint_released():
 
 func is_on_floor():
 	return persistent_state.platform_detector.is_colliding()
-func die():
-	persistent_state.change_state("die")
