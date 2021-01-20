@@ -24,6 +24,7 @@ func goto_startscreen():
 	get_node("/root").add_child(startscreen.instance())
 
 func goto_scene(path): # Game requests to switch to this scene.
+	print("goto_scene(path):" + path)
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
 	loader = ResourceLoader.load_interactive(path)
@@ -31,12 +32,9 @@ func goto_scene(path): # Game requests to switch to this scene.
 		#loader.show_error()
 		return
 	set_process(true)
-
 	current_scene.queue_free() # Get rid of the old scene.
-
 	# Start your "loading..." animation.
 	get_node("/root").add_child(loadingscreen.instance())
-
 	wait_frames = 1
 
 func _process(_time):
@@ -64,16 +62,16 @@ func _process(_time):
 		elif err == OK:
 			update_progress()
 		else: # Error during loading.
-			#show_error()
+			print("Error loading scene")
 			loader = null
 			break
-			
+
 func update_progress():
 	var progress = float(loader.get_stage()) / loader.get_stage_count()
 	# Update progressbar
 	var progressbar: LoadingscreenScript = get_node("../Loadingscreen")
 	progressbar.set_progress(progress)
-	
+
 func set_new_scene(scene_resource):
 	current_scene = scene_resource.instance()
 	get_node("../Loadingscreen").queue_free()

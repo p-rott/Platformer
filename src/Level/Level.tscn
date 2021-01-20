@@ -4,14 +4,32 @@
 [ext_resource path="res://src/Actors/Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Platforms/Platform.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Objects/Coin.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/Level/Level.gd" type="Script" id=5]
 [ext_resource path="res://assets/art/platforms/moving_platform.png" type="Texture" id=6]
 [ext_resource path="res://src/Level/ParallaxBackground.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/audio/music/music.ogg" type="AudioStream" id=8]
 [ext_resource path="res://src/Level/Music.gd" type="Script" id=9]
 
-[sub_resource type="Animation" id=1]
-resource_name = "move"
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+const LIMIT_LEFT = -315
+const LIMIT_TOP = -250
+const LIMIT_RIGHT = 955
+const LIMIT_BOTTOM = 690
+
+func _ready():
+	for child in get_children():
+		if child is Player:
+			var camera = child.get_node(\"Camera\")
+			camera.limit_left = LIMIT_LEFT
+			camera.limit_top = LIMIT_TOP
+			camera.limit_right = LIMIT_RIGHT
+			camera.limit_bottom = LIMIT_BOTTOM
+
+
+"
+
+[sub_resource type="Animation" id=2]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -27,7 +45,7 @@ tracks/0/keys = {
 "values": [ Vector2( 707, 400 ), Vector2( 566, 303 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 length = 8.0
 loop = true
 tracks/0/type = "value"
@@ -45,7 +63,7 @@ tracks/0/keys = {
 
 [node name="Level" type="Node2D"]
 pause_mode = 1
-script = ExtResource( 5 )
+script = SubResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -216,7 +234,7 @@ position = Vector2( 707, 400 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform"]
 autoplay = "move"
 playback_process_mode = 0
-anims/move = SubResource( 1 )
+anims/move = SubResource( 2 )
 
 [node name="Platform2" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( -47, 80 )
@@ -224,7 +242,7 @@ position = Vector2( -47, 80 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform2"]
 autoplay = "move"
 playback_process_mode = 0
-anims/move = SubResource( 2 )
+anims/move = SubResource( 3 )
 
 [node name="PlatformStatic" type="StaticBody2D" parent="Platforms"]
 position = Vector2( 569.935, 105.877 )

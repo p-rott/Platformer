@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Level/LevelPreset.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Traps/LaserEmitter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Traps/LaserEmitterGroup.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Traps/SparkTrap.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Level/areas/1/Roof1.gd" type="Script" id=5]
 
 [node name="Roof1" instance=ExtResource( 1 )]
+script = ExtResource( 5 )
 
 [node name="PlayerGoal" parent="ControlNodes" index="0"]
 position = Vector2( 816.893, 676.592 )

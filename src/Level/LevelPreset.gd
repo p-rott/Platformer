@@ -9,6 +9,7 @@ const LIMIT_BOTTOM = 950
 onready var player = $Player
 onready var playerSpawn = $ControlNodes/PlayerSpawn
 onready var pauseMenu = $CanvasLayer/PauseMenu
+onready var levelEndscreen = $CanvasLayer/LevelEndscreen
 
 var attemptStartTime : int
 var attemptEndTime : int
@@ -45,3 +46,12 @@ func playerDeath():
 
 func playerGoal():
 	attemptEndTime = OS.get_ticks_msec()
+	levelEndscreen.open()
+
+#overriden in each level
+func nextLevel():
+	pass
+
+func gotToMainMenu():
+	levelEndscreen.hide()
+	Global.goto_startscreen()
