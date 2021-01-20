@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=1]
+[ext_resource path="res://assets/theme/MainTheme.tres" type="Theme" id=1]
 [ext_resource path="res://src/UserInterface/PauseMenu.gd" type="Script" id=2]
 
 [node name="PauseMenu" type="Control"]
