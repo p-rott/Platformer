@@ -69,7 +69,6 @@ margin_right = 394.0
 margin_bottom = 45.0
 custom_fonts/font = SubResource( 1 )
 text = "Unser Spielname"
-percent_visible = 0.0
 
 [node name="MenuOptions" type="VBoxContainer" parent="MarginBox/HBoxContainer/VBoxContainer"]
 margin_top = 146.0

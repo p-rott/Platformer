@@ -25,13 +25,16 @@ func _ready():
 	levelEndscreen.levelName = name
 
 func resetLevel():
-	for child in $Traps.get_children():
+	for child in $Platforms.get_children():
+		if child is FallingPlatformWithLaserNotifier:
+			child.reset()
+	for child in $Platforms.get_children():
 		if child is FallingPlatform:
 			child.reset()
-		elif child is LaserEmitterGroup:
-			child.setTimers()
-		elif child is LaserEmitter:
+	for child in $Traps.get_children():
+		if child is LaserEmitter or child is LaserEmitterGroup:
 			child.setTimersAndStart()
+			child.updateLaserReach()
 
 func spawnPlayer():
 	resetLevel()
@@ -55,14 +58,9 @@ func playerGoal():
 
 func nextLevel():
 	var nextId = name.to_int() + 1
-	var bSide = false
-	if nextId == 4 and bSide == true:
-		#TODO game won
+	if nextId == 4:
 		Global.goto_startscreen()
-	elif nextId == 4:
-		nextId = 0
-		bSide = true
-	var nextLevelname = "Roof" + str(nextId) + ("B" if bSide else "")
+	var nextLevelname = "Roof" + str(nextId)
 	Global.goto_scene("res://src/Level/areas/1/" + nextLevelname + ".tscn")
 
 func gotToMainMenu():

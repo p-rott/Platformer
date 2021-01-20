@@ -16,7 +16,7 @@ func dir_worlds(path):
 			if dir.current_is_dir():
 				if not (file_name == "." or file_name ==".."):
 					var world = $"Template Gridbox".duplicate()
-					world.set_name("World "+file_name)
+					world.set_name(file_name)
 					worlds[file_name] = world
 					$"MarginBox/VBoxContainer/TabContainer".add_child(world)
 					dir_levels(path,file_name)

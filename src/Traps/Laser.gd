@@ -1,7 +1,10 @@
-extends Trap
 class_name Laser
+extends Trap
 
 var active = false
+
+func _ready():
+	disableLaser()
 
 func _process(delta):
 	if active:

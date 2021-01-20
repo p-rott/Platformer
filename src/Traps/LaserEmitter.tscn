@@ -36,7 +36,7 @@ tracks/1/keys = {
 } ]
 }
 
-[node name="LaserEmitterTrap" type="StaticBody2D"]
+[node name="LaserEmitter" type="StaticBody2D"]
 collision_layer = 2147483664
 script = ExtResource( 2 )
 laserCooldown = 2.0

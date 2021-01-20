@@ -20,7 +20,6 @@ func _physics_process(_delta):#
 	if collision:
 		persistent_state._velocity = persistent_state._velocity.slide(collision.normal)
 		if collision.collider is Trap:
-			print("trap touched")
 			persistent_state.alive = false
 			persistent_state.change_state("die")
 		elif collision.collider is PlayerGoal and persistent_state.alive:
