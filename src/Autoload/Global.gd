@@ -76,3 +76,25 @@ func set_new_scene(scene_resource):
 	current_scene = scene_resource.instance()
 	get_node("../Loadingscreen").queue_free()
 	get_node("/root").add_child(current_scene)
+
+#Zu Anfang des Spiels i guess
+func load_savefile():
+	pass
+
+#Wenn Spiel beendet wird, evtl hier dann auch exitGame oder so einbauen
+func save_savefile():
+	pass
+
+func get_level_time(levelname):
+	
+	return 0
+
+func set_level_time(levelname, time):
+	pass
+
+func get_level_deaths(levelname):
+	
+	return 0
+
+func set_level_deaths(levelname, deaths):
+	pass

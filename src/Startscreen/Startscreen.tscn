@@ -88,6 +88,7 @@ text = "Levels"
 margin_top = 40.0
 margin_right = 394.0
 margin_bottom = 70.0
+shortcut_in_tooltip = false
 shortcut = SubResource( 3 )
 text = "Continue"
 
