@@ -1,2 +1,2 @@
-extends StaticBody2D
 class_name Trap
+extends StaticBody2D
