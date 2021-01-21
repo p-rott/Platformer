@@ -58,10 +58,11 @@ func playerGoal():
 
 func nextLevel():
 	var nextId = name.to_int() + 1
-	if nextId == 4:
-		Global.goto_startscreen()
-	var nextLevelname = "Roof" + str(nextId)
-	Global.goto_scene("res://src/Level/areas/Levels/" + nextLevelname + ".tscn")
+	if nextId == 1:
+		Global.goto_victoryscreen()
+	else:
+		var nextLevelname = "Roof" + str(nextId)
+		Global.goto_scene("res://src/Level/areas/Levels/" + nextLevelname + ".tscn")
 
 func gotToMainMenu():
 	levelEndscreen.hide()

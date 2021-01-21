@@ -7,6 +7,7 @@ var current_scene
 onready var levelchooser = preload("res://src/Levelchooser/Levelchooser.tscn")
 onready var loadingscreen = load("res://src/LoadingScreen/Loadingscreen.tscn")
 onready var startscreen = preload("res://src/Startscreen/Startscreen.tscn")
+onready var mainLevelsClearedScreen = preload("res://src/UserInterface/MainLevelsClearedScreen.tscn")
 
 func _ready():
 	var root = get_tree().get_root()
@@ -20,6 +21,9 @@ func goto_levelchooser():
 
 func goto_startscreen():
 	Global.goto_scene("res://src/Startscreen/Startscreen.tscn")
+
+func goto_victoryscreen():
+	Global.goto_scene("res://src/UserInterface/MainLevelsClearedScreen.tscn")
 
 func goto_scene(path): # Game requests to switch to this scene.
 	print("goto_scene(path):" + path)

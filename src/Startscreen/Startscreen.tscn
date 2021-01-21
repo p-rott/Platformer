@@ -38,7 +38,7 @@ script = ExtResource( 2 )
 layer = 0
 
 [node name="StartscreenLevel" parent="CanvasLayer" instance=ExtResource( 5 )]
-position = Vector2( 398.395, 65.4767 )
+position = Vector2( 398, 65 )
 setPlayerCurrentCamera = false
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
