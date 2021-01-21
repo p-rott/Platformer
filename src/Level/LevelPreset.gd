@@ -64,8 +64,9 @@ func nextLevel():
 	if nextId == 4:
 		Global.goto_startscreen()
 	var nextLevelname = "Roof" + str(nextId)
-	Global.goto_scene("res://src/Level/areas/1/" + nextLevelname + ".tscn")
+	Global.goto_scene("res://src/Level/areas/Levels/" + nextLevelname + ".tscn")
 
 func gotToMainMenu():
 	levelEndscreen.hide()
-	Global.goto_startscreen()
+	#Global.goto_startscreen()
+	Global.goto_scene("res://src/Startscreen/Startscreen.tscn")

@@ -5,6 +5,3 @@ func _on_Continue_pressed():
 
 func _on_Levels_pressed():
 	Global.goto_levelchooser()
-
-func _ready():
-	$CanvasLayer/StartscreenLevel/Player.set_process_input(false)

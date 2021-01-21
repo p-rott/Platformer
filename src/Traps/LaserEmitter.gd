@@ -2,7 +2,6 @@ tool
 class_name LaserEmitter
 extends StaticBody2D
 
-
 onready var l = preload("res://src/Traps/Laser.tscn")
 var laserBeam = null
 onready var wallfinder = $WallFinder
@@ -12,6 +11,7 @@ export var laserCooldown = 5.0
 export var laserActive = 1.0
 export var laserWarning = 1.0
 export var firstDelay = 0.0
+export var autostart = true
 
 func _ready():
 	rotation_degrees = rot

@@ -5,8 +5,9 @@ var wait_frames
 var time_max = 100 # msec
 var current_scene
 onready var levelchooser = preload("res://src/Levelchooser/Levelchooser.tscn")
-onready var loadingscreen = preload("res://src/LoadingScreen/Loadingscreen.tscn")
+onready var loadingscreen = load("res://src/LoadingScreen/Loadingscreen.tscn")
 onready var startscreen = preload("res://src/Startscreen/Startscreen.tscn")
+
 func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
@@ -18,10 +19,7 @@ func goto_levelchooser():
 	get_node("/root").add_child(levelchooser.instance())
 
 func goto_startscreen():
-	var root = get_tree().get_root()
-	current_scene = root.get_child(root.get_child_count() - 1)
-	current_scene.queue_free() # Get rid of the old scene.
-	get_node("/root").add_child(startscreen.instance())
+	Global.goto_scene("res://src/Startscreen/Startscreen.tscn")
 
 func goto_scene(path): # Game requests to switch to this scene.
 	print("goto_scene(path):" + path)

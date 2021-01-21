@@ -1,10 +1,83 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Level/LevelPreset.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Traps/LaserEmitter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Level/StartscreenLevel.gd" type="Script" id=3]
+[ext_resource path="res://assets/art/tileset/warped city files/SPRITES/vehicles/v-police.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
+resource_name = "intro"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.3, 2.2 ),
+"transitions": PoolRealArray( 4.92458, 1 ),
+"update": 0,
+"values": [ Vector2( -800, 69.296 ), Vector2( -297.772, 69.2957 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "startAnimationLoop"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Traps/LaserEmitter:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:z_index")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "police_ship"
+length = 0.5
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.01, 0.28, 0.48 ),
+"transitions": PoolRealArray( 1, 0.392292, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.490196, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
 resource_name = "jump_over_laser"
 length = 2.0
 loop = true
@@ -16,7 +89,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 1.5 ),
+"times": PoolRealArray( 1.4 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -28,25 +101,45 @@ tracks/0/keys = {
 script = ExtResource( 3 )
 
 [node name="PlayerSpawn" parent="ControlNodes" index="1"]
-position = Vector2( 245.753, 48.0542 )
+position = Vector2( 230, -800 )
 
 [node name="Level" parent="." index="2"]
-tile_data = PoolIntArray( 65563, 9, 0, 131099, 9, 0, 196635, 9, 0, 262171, 9, 0, 327707, 9, 0, 393229, 1, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 2, 0, 1048580, 4, 0, 1048602, 4, 0, 1245188, 4, 0, 1245210, 4, 0, 1507332, 4, 0, 1507354, 4, 0, 1703940, 4, 0, 1703962, 4, 0 )
+tile_data = PoolIntArray( 18, 8, 0, 65554, 9, 0, 196626, 9, 0, 262162, 9, 0, 327698, 9, 0, 393229, 1, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 458770, 9, 0, 524306, 9, 0, 589842, 9, 0, 655378, 9, 0, 786450, 9, 0, 851986, 9, 0, 917522, 9, 0, 983058, 9, 0, 1048580, 4, 0, 1048594, 9, 0, 1048602, 4, 0, 1114130, 9, 0, 1245188, 4, 0, 1245202, 9, 0, 1245210, 4, 0, 1376274, 9, 0, 1441810, 9, 0, 1507332, 4, 0, 1507346, 9, 0, 1507354, 4, 0, 1572882, 9, 0, 1572886, 10, 0, 1572888, 10, 0, 1638418, 9, 0, 1703940, 4, 0, 1703962, 4, 0, 1769490, 9, 0, 1835026, 9, 0, 1900562, 9, 0, 1966098, 9, 0 )
 
 [node name="Decoration" parent="." index="3"]
-tile_data = PoolIntArray( 131088, 13, 0, 327695, 17, 0, 458769, 37, 0, 524305, 37, 0 )
+tile_data = PoolIntArray( -196587, 13, 0, 65556, 25, 0, 65557, 25, 0, 65558, 25, 0, 65559, 25, 0, 65560, 25, 0, 65561, 25, 0, 131088, 13, 0, 131092, 3, 0, 131093, 3, 0, 131094, 12, 0, 131095, 3, 0, 131096, 12, 0, 131097, 3, 0, 196628, 3, 0, 196629, 16, 0, 196630, 3, 0, 196631, 3, 0, 196632, 12, 0, 196633, 3, 0, 262164, 3, 0, 262165, 3, 0, 262166, 3, 0, 262167, 3, 0, 262169, 3, 0, 327695, 17, 0, 327700, 3, 0, 327701, 3, 0, 327702, 3, 0, 327703, 3, 0, 327704, 12, 0, 327705, 3, 0, 393236, 11, 0, 393237, 3, 0, 393238, 3, 0, 393239, 3, 0, 393241, 3, 0, 458768, 37, 0, 458772, 3, 0, 458773, 3, 0, 458774, 3, 0, 458775, 3, 0, 458776, 12, 0, 458777, 3, 0, 524304, 37, 0, 524308, 3, 0, 524309, 3, 0, 524310, 3, 0, 524311, 3, 0, 524312, 3, 0, 524313, 3, 0, 589840, 37, 0, 589844, 25, 0, 589845, 25, 0, 589846, 25, 0, 589847, 25, 0, 589848, 25, 0, 589849, 25, 0, 655376, 37, 0, 655380, 3, 0, 655381, 3, 0, 655382, 12, 0, 655383, 3, 0, 655384, 3, 0, 655385, 3, 0, 720916, 3, 0, 720917, 3, 0, 720919, 3, 0, 720920, 3, 0, 720921, 3, 0, 786452, 3, 0, 786453, 3, 0, 786454, 12, 0, 786455, 3, 0, 786456, 3, 0, 786457, 3, 0, 851988, 3, 0, 851989, 3, 0, 851990, 12, 0, 851991, 3, 0, 851992, 3, 0, 851993, 3, 0, 917524, 9, 0, 917525, 8, 0, 917526, 12, 0, 917527, 7, 0, 917528, 3, 0, 917529, 3, 0, 983060, 3, 0, 983061, 3, 0, 983063, 3, 0, 983064, 3, 0, 983065, 3, 0, 1048596, 25, 0, 1048597, 25, 0, 1048598, 25, 0, 1048599, 25, 0, 1048600, 25, 0, 1048601, 25, 0, 1114132, 3, 0, 1114133, 3, 0, 1114134, 3, 0, 1114135, 3, 0, 1114136, 10, 0, 1114137, 3, 0, 1179662, 17, 0, 1179663, 17, 0, 1179664, 17, 0, 1179668, 3, 0, 1179669, 3, 0, 1179670, 3, 0, 1179671, 3, 0, 1179672, 3, 0, 1179673, 3, 0, 1245197, 20, 0, 1245198, 26, 0, 1245199, 26, 0, 1245200, 26, 0, 1245201, 26, 0, 1245203, 3, 0, 1245204, 3, 0, 1245205, 5, 0, 1245206, 3, 0, 1245207, 3, 0, 1245208, 10, 0, 1245209, 3, 0, 1310736, 31, 0, 1310740, 3, 0, 1310741, 3, 0, 1310742, 3, 0, 1310743, 3, 0, 1310744, 3, 0, 1310745, 3, 0, 1376276, 3, 0, 1376277, 3, 0, 1376278, 3, 0, 1376279, 3, 0, 1376280, 10, 0, 1376281, 3, 0, 1441812, 3, 0, 1441813, 3, 0, 1441814, 3, 0, 1441815, 3, 0, 1441816, 3, 0, 1441817, 3, 0, 1507348, 25, 0, 1507349, 25, 0, 1507350, 25, 0, 1507351, 25, 0, 1507352, 25, 0, 1507353, 25, 0, 1572884, 3, 0, 1572885, 3, 0, 1572886, 32, 0, 1572887, 3, 0, 1572889, 3, 0, 1638420, 3, 0, 1638421, 3, 0, 1638422, 3, 0, 1638423, 3, 0, 1638424, 3, 0, 1638425, 3, 0, 1703956, 3, 0, 1703957, 3, 0, 1703958, 3, 0, 1703959, 3, 0, 1703960, 3, 0, 1703961, 3, 0, 1769492, 3, 0, 1769493, 3, 0, 1769494, 3, 0, 1769495, 3, 0, 1769496, 3, 0, 1769497, 3, 0, 1835028, 3, 0, 1835029, 3, 0, 1835030, 3, 0, 1835031, 3, 0, 1835032, 3, 0, 1835033, 3, 0, 1900564, 3, 0, 1900565, 3, 0, 1900566, 3, 0, 1900567, 3, 0, 1900568, 3, 0, 1900569, 3, 0, 1966100, 3, 0, 1966101, 3, 0, 1966102, 3, 0, 1966103, 3, 0, 1966104, 3, 0, 1966105, 3, 0, 2031636, 3, 0, 2031637, 3, 0, 2031638, 3, 0, 2031639, 3, 0, 2031640, 3, 0, 2031641, 3, 0, 2097172, 3, 0, 2097173, 3, 0, 2097174, 3, 0, 2097175, 3, 0, 2097176, 3, 0, 2097177, 3, 0 )
+
+[node name="ParallaxBackground" parent="." index="4"]
+offset = Vector2( -800, -100 )
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, -800, -100 )
+scroll_base_scale = Vector2( 1, 1 )
 
 [node name="Player" parent="." index="5"]
 disableInput = true
 
 [node name="LaserEmitter" parent="Traps" index="0" instance=ExtResource( 2 )]
-position = Vector2( -92, 118.169 )
+visible = false
+position = Vector2( 92, 150.169 )
 scale = Vector2( -1, 1 )
+z_index = 2
 scl = Vector2( -1, 1 )
-laserCooldown = 1.4
-laserActive = 0.3
-laserWarning = 0.3
+laserCooldown = 1.2
+laserActive = 0.4
+laserWarning = 0.4
+firstDelay = -1.0
+autostart = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="10"]
-autoplay = "jump_over_laser"
-anims/jump_over_laser = SubResource( 1 )
+autoplay = "intro"
+anims/intro = SubResource( 1 )
+anims/police_ship = SubResource( 2 )
+
+[node name="AnimationLoop" type="AnimationPlayer" parent="." index="11"]
+anims/jump_over_laser = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="." index="12"]
+position = Vector2( -800, 69.296 )
+z_index = 1
+texture = ExtResource( 4 )
+flip_h = true
