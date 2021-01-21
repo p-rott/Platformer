@@ -31,6 +31,8 @@ func updateLaserReach():
 		laserBeam.setLaserLength(abs(wall.distance_to(wallfinder.position)))
 
 func setTimersAndStart():
+	if firstDelay == -1:
+		return
 	laserBeam.disableLaser()
 	$CooldownTimer.stop()
 	$CooldownTimer.set_one_shot(true)

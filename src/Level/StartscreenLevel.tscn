@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/Level/LevelPreset.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Traps/LaserEmitter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Level/StartscreenLevel.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "jump_over_laser"
+length = 2.0
+loop = true
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "letPlayerJump"
+} ]
+}
+
+[node name="StartscreenLevel" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="PlayerSpawn" parent="ControlNodes" index="1"]
+position = Vector2( 245.753, 48.0542 )
+
+[node name="Level" parent="." index="2"]
+tile_data = PoolIntArray( 65563, 9, 0, 131099, 9, 0, 196635, 9, 0, 262171, 9, 0, 327707, 9, 0, 393229, 1, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 2, 0, 1048580, 4, 0, 1048602, 4, 0, 1245188, 4, 0, 1245210, 4, 0, 1507332, 4, 0, 1507354, 4, 0, 1703940, 4, 0, 1703962, 4, 0 )
+
+[node name="Decoration" parent="." index="3"]
+tile_data = PoolIntArray( 131088, 13, 0, 327695, 17, 0, 458769, 37, 0, 524305, 37, 0 )
+
+[node name="Player" parent="." index="5"]
+disableInput = true
+
+[node name="LaserEmitter" parent="Traps" index="0" instance=ExtResource( 2 )]
+position = Vector2( -92, 118.169 )
+scale = Vector2( -1, 1 )
+scl = Vector2( -1, 1 )
+laserCooldown = 1.4
+laserActive = 0.3
+laserWarning = 0.3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="10"]
+autoplay = "jump_over_laser"
+anims/jump_over_laser = SubResource( 1 )

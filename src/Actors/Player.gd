@@ -34,6 +34,7 @@ onready var sprite = $Sprite
 onready var trail = $Trail 
 onready var puff = $Puff
 var alive = true
+export var disableInput = false
 
 func _ready():
 	coyote_time_s = coyote_time_ms / 1000.0
@@ -86,6 +87,8 @@ func change_state(new_state_name):
 	add_child(state)
 
 func _physics_process(_delta):
+	if disableInput:
+		return
 	if Input.is_action_pressed("move_left"):
 		move_left()
 	if Input.is_action_pressed("move_right"):

@@ -436,7 +436,6 @@ anims/standing_weapon_ready = SubResource( 14 )
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2( 0, -28 )
-current = true
 process_mode = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
