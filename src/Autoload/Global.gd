@@ -7,9 +7,22 @@ var current_scene
 onready var levelchooser = preload("res://src/Levelchooser/Levelchooser.tscn")
 onready var loadingscreen = preload("res://src/LoadingScreen/Loadingscreen.tscn")
 onready var startscreen = preload("res://src/Startscreen/Startscreen.tscn")
+
+var _options = {} 
+const defaultOptions = {
+	"masterVolume": 100,
+	"musicVolume": 12,
+	"sfxVolume": 100,
+	"grayscale": true,
+	"chromaticAberration":true,
+	"chromaticAberrationAmount":11,
+	"currentTrack":1
+} 
+
 func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
+	loadOptions()
 
 func goto_levelchooser():
 	var root = get_tree().get_root()
@@ -98,3 +111,46 @@ func get_level_deaths(levelname):
 
 func set_level_deaths(levelname, deaths):
 	pass
+	
+func set_masterVolume(value:int):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"),linear2db(value/100.0))
+	saveOption("masterVolume", value)
+	
+func set_musicVolume(value:int):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"),linear2db(value/100.0))
+	saveOption("musicVolume", value)
+	
+func set_sfxVolume(value:int):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"),linear2db(value/100.0))
+	saveOption("sfxVolume", value)
+
+func getOption(key):
+	if _options.has(key):
+		return _options[key]
+	elif defaultOptions.has(key):
+		_options[key] = defaultOptions[key]
+		saveOption(key, defaultOptions[key])
+	else:
+		print("No Option with this key")
+		return null
+
+func saveOption(key, value):
+	if defaultOptions.has(key):
+		_options[key] = value
+		var file = File.new()
+		file.open("user://options.save", File.WRITE)
+		file.store_string(to_json(_options))
+	else:
+		print("No Option with this key")
+
+func loadOptions():
+	var file = File.new()
+	if(file.file_exists("user://options.save")):
+		file.open("user://options.save", File.READ)
+		_options = parse_json(file.get_as_text())
+	else:
+		file.open("user://options.save", File.WRITE)
+		file.store_string(to_json(defaultOptions))
+		_options = defaultOptions
+	file.close()
+	#return content

@@ -27,7 +27,7 @@ uniform bool ignore_pure_green;
 uniform bool ignore_pure_blue;
 
 uniform float offset = 1f;
-uniform float amount : hint_range(0, 2) = 1f;
+uniform float amount : hint_range(0, 1) = 1f;
 uniform sampler2D noise : hint_white;
 
 void fragment()
@@ -65,21 +65,20 @@ shader_param/ignore_pure_red = true
 shader_param/ignore_pure_green = null
 shader_param/ignore_pure_blue = null
 shader_param/offset = 20.0
-shader_param/amount = 0.0
+shader_param/amount = 0.177
 shader_param/noise = SubResource( 6 )
 
 [node name="Viewportshaders" type="CanvasLayer"]
 script = ExtResource( 2 )
 
-[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+[node name="GrayscaleBuffer" type="BackBufferCopy" parent="."]
 visible = false
 scale = Vector2( 1.5, 1.5 )
 copy_mode = 2
 rect = Rect2( 0, 0, 800, 480 )
 script = ExtResource( 3 )
 
-[node name="GrayscaleColor" type="TextureRect" parent="BackBufferCopy"]
-visible = false
+[node name="GrayscaleColor" type="TextureRect" parent="GrayscaleBuffer"]
 material = SubResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -90,14 +89,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackBufferCopy2" type="BackBufferCopy" parent="."]
+[node name="ChromaticAberrationBuffer" type="BackBufferCopy" parent="."]
 visible = false
 scale = Vector2( 1.5, 1.5 )
 copy_mode = 2
 rect = Rect2( 0, 0, 800, 480 )
 script = ExtResource( 3 )
 
-[node name="ColorAbbreviation" type="TextureRect" parent="BackBufferCopy2"]
+[node name="ChromaticAberration" type="TextureRect" parent="ChromaticAberrationBuffer"]
 material = SubResource( 7 )
 anchor_right = 1.0
 anchor_bottom = 1.0

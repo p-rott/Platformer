@@ -1,4 +1,7 @@
-[gd_resource type="Theme" load_steps=11 format=2]
+[gd_resource type="Theme" load_steps=14 format=2]
+
+[ext_resource path="res://assets/art/HSlider/grabber.png" type="Texture" id=1]
+[ext_resource path="res://assets/art/HSlider/tick.png" type="Texture" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 5.0
@@ -38,6 +41,11 @@ border_width_bottom = 2
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.643137, 0.643137, 0.643137, 1 )
+border_width_top = 6
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id=5]
 content_margin_left = 5.0
 content_margin_right = 5.0
 content_margin_top = 5.0
@@ -49,7 +57,7 @@ border_width_right = 2
 border_width_bottom = 2
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=6]
 content_margin_left = 5.0
 content_margin_right = 5.0
 content_margin_top = 5.0
@@ -62,7 +70,7 @@ border_width_bottom = 2
 border_color = Color( 0.8, 0.8, 0.8, 0 )
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=7]
 content_margin_left = 5.0
 content_margin_right = 5.0
 content_margin_top = 5.0
@@ -75,7 +83,7 @@ border_width_bottom = 2
 expand_margin_bottom = 2.0
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=8]
 content_margin_left = 5.0
 content_margin_right = 5.0
 content_margin_top = 5.0
@@ -89,7 +97,7 @@ expand_margin_right = 5.0
 expand_margin_top = 5.0
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=9]
 content_margin_left = 5.0
 content_margin_right = 5.0
 content_margin_top = 5.0
@@ -103,14 +111,14 @@ expand_margin_top = 3.0
 expand_margin_bottom = 2.0
 anti_aliasing = false
 
-[sub_resource type="DynamicFontData" id=9]
+[sub_resource type="DynamicFontData" id=10]
 font_path = "res://assets/theme/fonts/kenney_mini_square.ttf"
 
-[sub_resource type="DynamicFont" id=10]
-font_data = SubResource( 9 )
+[sub_resource type="DynamicFont" id=11]
+font_data = SubResource( 10 )
 
 [resource]
-default_font = SubResource( 10 )
+default_font = SubResource( 11 )
 Button/colors/font_color = Color( 1, 1, 1, 1 )
 Button/colors/font_color_disabled = Color( 1, 1, 1, 1 )
 Button/colors/font_color_hover = Color( 1, 1, 1, 1 )
@@ -240,13 +248,13 @@ HScrollBar/styles/scroll = null
 HScrollBar/styles/scroll_focus = null
 HSeparator/constants/separation = 4
 HSeparator/styles/separator = null
-HSlider/icons/grabber = null
+HSlider/icons/grabber = ExtResource( 1 )
 HSlider/icons/grabber_disabled = null
-HSlider/icons/grabber_highlight = null
-HSlider/icons/tick = null
-HSlider/styles/grabber_area = null
-HSlider/styles/grabber_area_highlight = null
-HSlider/styles/slider = null
+HSlider/icons/grabber_highlight = ExtResource( 1 )
+HSlider/icons/tick = ExtResource( 2 )
+HSlider/styles/grabber_area = SubResource( 4 )
+HSlider/styles/grabber_area_highlight = SubResource( 4 )
+HSlider/styles/slider = SubResource( 4 )
 HSplitContainer/constants/autohide = 1
 HSplitContainer/constants/separation = 12
 HSplitContainer/icons/grabber = null
@@ -269,7 +277,7 @@ ItemList/styles/selected_focus = null
 Label/colors/font_color = Color( 1, 1, 1, 1 )
 Label/colors/font_color_shadow = Color( 0.658824, 0.658824, 0.658824, 1 )
 Label/colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-Label/constants/line_spacing = 3
+Label/constants/line_spacing = 4
 Label/constants/shadow_as_outline = 0
 Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
@@ -322,8 +330,8 @@ OptionButton/styles/focus = null
 OptionButton/styles/hover = null
 OptionButton/styles/normal = null
 OptionButton/styles/pressed = null
-Panel/styles/panel = SubResource( 4 )
-PanelContainer/styles/panel = SubResource( 4 )
+Panel/styles/panel = SubResource( 5 )
+PanelContainer/styles/panel = SubResource( 5 )
 PopupDialog/styles/panel = null
 PopupMenu/colors/font_color = Color( 0, 0, 0, 1 )
 PopupMenu/colors/font_color_accel = Color( 0, 0, 0, 1 )
@@ -347,8 +355,8 @@ PopupPanel/styles/panel = null
 ProgressBar/colors/font_color = Color( 1, 1, 1, 1 )
 ProgressBar/colors/font_color_shadow = Color( 0, 0, 0, 1 )
 ProgressBar/fonts/font = null
-ProgressBar/styles/bg = SubResource( 4 )
-ProgressBar/styles/fg = SubResource( 5 )
+ProgressBar/styles/bg = SubResource( 5 )
+ProgressBar/styles/fg = SubResource( 6 )
 RichTextLabel/colors/default_color = Color( 0, 0, 0, 1 )
 RichTextLabel/colors/font_color_selected = Color( 0, 0, 0, 1 )
 RichTextLabel/colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -383,10 +391,10 @@ TabContainer/icons/increment = null
 TabContainer/icons/increment_highlight = null
 TabContainer/icons/menu = null
 TabContainer/icons/menu_highlight = null
-TabContainer/styles/panel = SubResource( 4 )
-TabContainer/styles/tab_bg = SubResource( 6 )
-TabContainer/styles/tab_disabled = SubResource( 7 )
-TabContainer/styles/tab_fg = SubResource( 8 )
+TabContainer/styles/panel = SubResource( 5 )
+TabContainer/styles/tab_bg = SubResource( 7 )
+TabContainer/styles/tab_disabled = SubResource( 8 )
+TabContainer/styles/tab_fg = SubResource( 9 )
 Tabs/colors/font_color_bg = Color( 1, 1, 1, 1 )
 Tabs/colors/font_color_disabled = Color( 0, 0, 0, 1 )
 Tabs/colors/font_color_fg = Color( 0, 0, 0, 1 )

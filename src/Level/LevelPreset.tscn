@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://assets/art/tileset/warped city files/demo/assets/environment/tileset.png" type="Texture" id=1]
 [ext_resource path="res://src/Level/LevelPreset.gd" type="Script" id=2]
@@ -626,6 +626,17 @@ b = Vector2( 2.48193, 2.19098 )
 a = Vector2( 1412.46, 32.0171 )
 b = Vector2( -39.8416, 25.3428 )
 
+[sub_resource type="Environment" id=14]
+background_mode = 4
+background_canvas_max_layer = 1
+glow_enabled = true
+glow_intensity = 0.27
+glow_strength = 1.55
+glow_hdr_threshold = 0.53
+glow_hdr_scale = 1.0
+glow_bicubic_upscale = true
+adjustment_enabled = true
+
 [node name="Level" type="Node2D"]
 pause_mode = 1
 script = ExtResource( 2 )
@@ -639,7 +650,6 @@ position = Vector2( 908.007, 534.233 )
 position = Vector2( 55.4178, 284.237 )
 
 [node name="Viewportshaders" parent="." instance=ExtResource( 3 )]
-colorKey = 0
 
 [node name="Level" type="TileMap" parent="."]
 tile_set = SubResource( 9 )
@@ -676,6 +686,9 @@ shape = SubResource( 12 )
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Killbox"]
 position = Vector2( -22, 624 )
 shape = SubResource( 13 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 14 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

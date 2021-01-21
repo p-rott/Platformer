@@ -10,6 +10,7 @@ onready var player = $Player
 onready var playerSpawn = $ControlNodes/PlayerSpawn
 onready var pauseMenu = $CanvasLayer/PauseMenu
 onready var levelEndscreen = $CanvasLayer/LevelEndscreen
+onready var WorldEnviromnent:WorldEnvironment = $WorldEnvironment 
 
 var attemptStartTime : int
 var attemptEndTime : int

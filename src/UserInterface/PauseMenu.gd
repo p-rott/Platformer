@@ -1,7 +1,6 @@
 extends Control
 
 onready var resume_button = $VBoxContainer/ResumeButton
-
 func _ready():
 	visible = false
 
@@ -28,3 +27,6 @@ func _unhandled_input(event):
 		else:
 			close()
 		get_tree().set_input_as_handled()
+
+
+
