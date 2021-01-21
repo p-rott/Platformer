@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Level/LevelPreset.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/Traps/FallingPlatform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Traps/SparkTrap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Traps/LaserEmitterGroup.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Traps/LaserEmitter.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/Traps/FallingPlatformWithLaserNotifier.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Traps/FallingPlatform.tscn" type="PackedScene" id=6]
 
 [node name="Roof4" instance=ExtResource( 1 )]
 
@@ -94,44 +93,44 @@ position = Vector2( -16.3877, 750.838 )
 [node name="FallingPlatformWithLaserNotifier" parent="Platforms" index="0" instance=ExtResource( 6 )]
 position = Vector2( 240, 64 )
 
-[node name="FallingPlatform" parent="Platforms" index="1" instance=ExtResource( 2 )]
+[node name="FallingPlatform" parent="Platforms" index="1" instance=ExtResource( 6 )]
 position = Vector2( 736, 544 )
 
-[node name="FallingPlatform6" parent="Platforms" index="2" instance=ExtResource( 2 )]
+[node name="FallingPlatform6" parent="Platforms" index="2" instance=ExtResource( 6 )]
 position = Vector2( 112, 400 )
 rotation = 1.5708
 
-[node name="FallingPlatform7" parent="Platforms" index="3" instance=ExtResource( 2 )]
+[node name="FallingPlatform7" parent="Platforms" index="3" instance=ExtResource( 6 )]
 position = Vector2( 176, 400 )
 rotation = 1.5708
 
-[node name="FallingPlatform8" parent="Platforms" index="4" instance=ExtResource( 2 )]
+[node name="FallingPlatform8" parent="Platforms" index="4" instance=ExtResource( 6 )]
 position = Vector2( 240, 400 )
 rotation = 1.5708
 
-[node name="FallingPlatform5" parent="Platforms" index="5" instance=ExtResource( 2 )]
+[node name="FallingPlatform5" parent="Platforms" index="5" instance=ExtResource( 6 )]
 position = Vector2( 576, 416 )
 
-[node name="FallingPlatform9" parent="Platforms" index="6" instance=ExtResource( 2 )]
+[node name="FallingPlatform9" parent="Platforms" index="6" instance=ExtResource( 6 )]
 position = Vector2( 176, 192 )
 
-[node name="FallingPlatform10" parent="Platforms" index="7" instance=ExtResource( 2 )]
+[node name="FallingPlatform10" parent="Platforms" index="7" instance=ExtResource( 6 )]
 position = Vector2( 32, 192 )
 
-[node name="FallingPlatform17" parent="Platforms" index="8" instance=ExtResource( 2 )]
+[node name="FallingPlatform17" parent="Platforms" index="8" instance=ExtResource( 6 )]
 position = Vector2( 592, -16 )
 
-[node name="FallingPlatform11" parent="Platforms" index="9" instance=ExtResource( 2 )]
+[node name="FallingPlatform11" parent="Platforms" index="9" instance=ExtResource( 6 )]
 position = Vector2( 32, 256 )
 
-[node name="FallingPlatform12" parent="Platforms" index="10" instance=ExtResource( 2 )]
+[node name="FallingPlatform12" parent="Platforms" index="10" instance=ExtResource( 6 )]
 position = Vector2( 32, 320 )
 
-[node name="FallingPlatform2" parent="Platforms" index="11" instance=ExtResource( 2 )]
+[node name="FallingPlatform2" parent="Platforms" index="11" instance=ExtResource( 6 )]
 position = Vector2( 736, 480 )
 
-[node name="FallingPlatform3" parent="Platforms" index="12" instance=ExtResource( 2 )]
+[node name="FallingPlatform3" parent="Platforms" index="12" instance=ExtResource( 6 )]
 position = Vector2( 736, 416 )
 
-[node name="FallingPlatform4" parent="Platforms" index="13" instance=ExtResource( 2 )]
+[node name="FallingPlatform4" parent="Platforms" index="13" instance=ExtResource( 6 )]
 position = Vector2( 736, 352 )

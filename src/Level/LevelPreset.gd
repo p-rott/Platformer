@@ -10,6 +10,8 @@ onready var player = $Player
 onready var playerSpawn = $ControlNodes/PlayerSpawn
 onready var pauseMenu = $CanvasLayer/PauseMenu
 onready var levelEndscreen = $CanvasLayer/LevelEndscreen
+onready var traps = $Traps
+onready var platforms = $Platforms
 
 var attemptStartTime : int
 var attemptEndTime : int
@@ -28,16 +30,12 @@ func _ready():
 	levelEndscreen.levelName = name
 
 func resetLevel():
-	for child in $Platforms.get_children():
-		if child is FallingPlatformWithLaserNotifier:
-			child.reset()
-	for child in $Platforms.get_children():
+	for child in platforms.get_children():
 		if child is FallingPlatform:
 			child.reset()
-	for child in $Traps.get_children():
+	for child in traps.get_children():
 		if child is LaserEmitter or child is LaserEmitterGroup:
 			child.setTimersAndStart()
-			child.updateLaserReach()
 
 func spawnPlayer():
 	resetLevel()
@@ -46,7 +44,6 @@ func spawnPlayer():
 	attemptStartTime = OS.get_ticks_msec()
 
 func playerDeath():
-	#death statistics/time etc
 	deathCount = deathCount + 1
 	spawnPlayer()
 
@@ -68,5 +65,4 @@ func nextLevel():
 
 func gotToMainMenu():
 	levelEndscreen.hide()
-	#Global.goto_startscreen()
-	Global.goto_scene("res://src/Startscreen/Startscreen.tscn")
+	Global.goto_startscreen()

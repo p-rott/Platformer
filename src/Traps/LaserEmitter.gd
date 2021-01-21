@@ -2,8 +2,9 @@ tool
 class_name LaserEmitter
 extends StaticBody2D
 
-onready var l = preload("res://src/Traps/Laser.tscn")
-var laserBeam = null
+var l = preload("res://src/Traps/Laser.tscn")
+var laserBeam : Laser
+var lastWall : Vector2
 onready var wallfinder = $WallFinder
 export(int, 0, 360, 90) var rot
 export var scl = Vector2(1,1)
@@ -12,21 +13,24 @@ export var laserActive = 1.0
 export var laserWarning = 1.0
 export var firstDelay = 0.0
 export var autostart = true
-
+ 
 func _ready():
 	rotation_degrees = rot
 	scale = scl
+	laserBeam = l.instance()
+	add_child(laserBeam)
 	updateLaserReach()
 	if !get_parent().name == "LaserEmitterGroup":
 		setTimersAndStart()
 
+func _process(delta):
+	updateLaserReach()
+
 func updateLaserReach():
 	wallfinder.force_raycast_update()
 	var wall = to_local(wallfinder.get_collision_point()) 
-	if wall != null:
-		if get_node("Laser") == null:
-			laserBeam = l.instance()
-			add_child(laserBeam)
+	if wall != lastWall:
+		lastWall = wall
 		laserBeam.position = wallfinder.position
 		laserBeam.setLaserLength(abs(wall.distance_to(wallfinder.position)))
 

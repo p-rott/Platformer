@@ -1,11 +1,16 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/Traps/FallingPlatform.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/Traps/FallingPlatformWithLaserNotifier.gd" type="Script" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "class_name FallingPlatformWithLaserNotifier
+extends FallingPlatform
+
+func fall():
+	.fall()
+	get_parent().get_parent().handlePlatformsAndLasers()
+"
 
 [node name="FallingPlatformWithLaserNotifier" instance=ExtResource( 1 )]
 collision_layer = 24
-script = ExtResource( 2 )
-
-[node name="CollisionShape2D" parent="." index="0"]
-visible = true
+script = SubResource( 1 )
