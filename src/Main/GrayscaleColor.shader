@@ -6,7 +6,7 @@ uniform bool ignore_pure_red;
 uniform bool ignore_pure_green;
 uniform bool ignore_pure_blue;
 
-uniform float threshold  : hint_range(0, 0.2, 0.01) = 0.5;
+uniform float threshold  : hint_range(0, 0.5, 0.01) = 0.5;
 
 void fragment() {
 	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV);

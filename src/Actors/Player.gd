@@ -33,6 +33,8 @@ onready var animation_player = $AnimationPlayer
 onready var sprite = $Sprite
 onready var trail = $Trail 
 onready var puff = $Puff
+onready var landingAudio = $LandingAudio
+onready var jumpingAudio = $JumpAudio
 
 func _ready():
 	coyote_time_s = coyote_time_ms / 1000.0

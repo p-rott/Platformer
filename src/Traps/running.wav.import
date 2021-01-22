@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/running.wav-3c670faa81ff1855677cc6df0a572abf.sample"
+
+[deps]
+
+source_file="res://src/Traps/running.wav"
+dest_files=[ "res://.import/running.wav-3c670faa81ff1855677cc6df0a572abf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

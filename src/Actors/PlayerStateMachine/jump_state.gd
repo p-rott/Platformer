@@ -6,6 +6,7 @@ var min_move_speed = 20
 func _ready():
 	animationPlayer.play("jumping")
 	persistent_state._velocity.y = -250
+	(persistent_state.jumpingAudio as AudioStreamPlayer).play()
 
 func _physics_process(_delta):
 	persistent_state._velocity.x = lerp(persistent_state._velocity.x, 0, 0.01)

@@ -2,7 +2,7 @@ tool
 extends CanvasLayer
 
 
-export(int,"Red", "Green", "Blue") var colorKey = 1 setget setColorKey
+export(int,"Red", "Green", "Blue") var colorKey = 0 setget setColorKey
 
 var grayscale
 var chromaticAberration

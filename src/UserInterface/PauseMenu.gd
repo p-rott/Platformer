@@ -16,7 +16,7 @@ func _on_ResumeButton_pressed():
 	visible = false
 
 func _on_QuitButton_pressed():
-	get_tree().quit()
+	Global.goto_startscreen()
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
