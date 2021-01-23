@@ -12,6 +12,7 @@ onready var pauseMenu = $CanvasLayer/PauseMenu
 onready var levelEndscreen = $CanvasLayer/LevelEndscreen
 onready var traps = $Traps
 onready var platforms = $Platforms
+onready var WorldEnviromnent:WorldEnvironment = $WorldEnvironment 
 
 var attemptStartTime : int
 var attemptEndTime : int

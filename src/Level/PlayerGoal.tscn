@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Level/PlayerGoal.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/goal/goal.png" type="Texture" id=2]
+[ext_resource path="res://assets/audio/sfx/50hzHum.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.08985, 19.5083 )
@@ -10,7 +11,7 @@ extents = Vector2( 6.08985, 19.5083 )
 resource_name = "flicker"
 length = 1.4
 loop = true
-step = 0.05
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -35,6 +36,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.411765, 0.25098, 0.462745, 1 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("AudioStreamPlayer2D:volume_db")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.34, 0.35, 0.95, 1.05 ),
+"transitions": PoolRealArray( 1, 1, 0, 1, 1 ),
+"update": 0,
+"values": [ -15.0, -10.0, -11.0, -15.0, -10.0 ]
+}
 
 [node name="PlayerGoal" type="StaticBody2D"]
 scale = Vector2( 2, 2 )
@@ -43,10 +56,11 @@ collision_layer = 0
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.690403, 0.605779, 0.717234, 1 )
+modulate = Color( 0.449537, 0.299077, 0.497244, 1 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -56,3 +70,11 @@ shape = SubResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "flicker"
 anims/flicker = SubResource( 2 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -12.0046
+autoplay = true
+max_distance = 200.0
+attenuation = 0.482968
+bus = "SFX"

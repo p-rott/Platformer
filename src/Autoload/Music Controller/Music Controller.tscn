@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Autoload/Music Controller/Music Controller.gd" type="Script" id=2]
+
+[node name="Music Controller" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+musicPath = "res://assets/audio/music/"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "Music"
+[connection signal="finished" from="AudioStreamPlayer" to="." method="nextTrack"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Max Brhon - Illusion [NCS Release].wav-c02faefc666113ec9e985d624146df55.sample"
+
+[deps]
+
+source_file="res://assets/audio/music/Max Brhon - Illusion [NCS Release].wav"
+dest_files=[ "res://.import/Max Brhon - Illusion [NCS Release].wav-c02faefc666113ec9e985d624146df55.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

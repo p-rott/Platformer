@@ -198,6 +198,7 @@ target_fps="60"
 [autoload]
 
 Global="*res://src/Autoload/Global.gd"
+MusicController="*res://src/Autoload/Music Controller/Music Controller.tscn"
 
 [debug]
 

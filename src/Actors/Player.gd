@@ -35,6 +35,8 @@ onready var trail = $Trail
 onready var puff = $Puff
 var alive = true
 export var disableInput = false
+onready var landingAudio = $LandingAudio
+onready var jumpingAudio = $JumpAudio
 
 func _ready():
 	coyote_time_s = coyote_time_ms / 1000.0

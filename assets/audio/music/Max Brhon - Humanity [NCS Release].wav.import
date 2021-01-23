@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Max Brhon - Humanity [NCS Release].wav-1a5b02adee4686352c87859da9da4ea9.sample"
+
+[deps]
+
+source_file="res://assets/audio/music/Max Brhon - Humanity [NCS Release].wav"
+dest_files=[ "res://.import/Max Brhon - Humanity [NCS Release].wav-1a5b02adee4686352c87859da9da4ea9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

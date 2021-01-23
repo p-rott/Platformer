@@ -1,7 +1,6 @@
 extends Control
 
 onready var resume_button = $VBoxContainer/ResumeButton
-
 func _ready():
 	visible = false
 
@@ -17,7 +16,7 @@ func _on_ResumeButton_pressed():
 	visible = false
 
 func _on_QuitButton_pressed():
-	get_tree().quit()
+	Global.goto_startscreen()
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
@@ -28,3 +27,6 @@ func _unhandled_input(event):
 		else:
 			close()
 		get_tree().set_input_as_handled()
+
+
+

@@ -6,7 +6,7 @@ extends BackBufferCopy
 # var a = 2
 # var b = "text"
 
-
+var on
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_rect(get_viewport_rect())

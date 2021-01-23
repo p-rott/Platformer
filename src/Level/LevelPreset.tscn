@@ -767,6 +767,14 @@ b = Vector2( 2.48193, 2.19098 )
 a = Vector2( 1412.46, 32.0171 )
 b = Vector2( -39.8416, 25.3428 )
 
+[sub_resource type="Environment" id=14]
+background_mode = 4
+background_canvas_max_layer = 1
+glow_enabled = true
+glow_intensity = 1.06
+glow_strength = 1.36
+glow_hdr_threshold = 0.24
+
 [node name="Level" type="Node2D"]
 pause_mode = 1
 script = ExtResource( 2 )
@@ -779,7 +787,6 @@ position = Vector2( 908.007, 534.233 )
 [node name="PlayerSpawn" parent="ControlNodes" instance=ExtResource( 5 )]
 
 [node name="Viewportshaders" parent="." instance=ExtResource( 3 )]
-colorKey = 0
 
 [node name="Level" type="TileMap" parent="."]
 tile_set = SubResource( 9 )
@@ -796,9 +803,10 @@ collision_layer = 0
 collision_mask = 0
 format = 1
 
-[node name="ParallaxBackground" parent="." instance=ExtResource( 7 )]
-
 [node name="Player" parent="." instance=ExtResource( 6 )]
+z_index = 2
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 7 )]
 
 [node name="Traps" type="Node" parent="."]
 
@@ -817,10 +825,12 @@ shape = SubResource( 12 )
 position = Vector2( -22, 624 )
 shape = SubResource( 13 )
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 14 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 10 )]
-visible = false
 
 [node name="LevelEndscreen" parent="CanvasLayer" instance=ExtResource( 11 )]
 visible = false

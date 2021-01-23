@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/robot_demo.png" type="Texture" id=2]
-[ext_resource path="res://assets/audio/sfx/jump.wav" type="AudioStream" id=3]
-[ext_resource path="res://assets/art/Glow/glow.png" type="Texture" id=4]
+[ext_resource path="res://assets/audio/sfx/landing.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/audio/sfx/jump.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/sfx/running.wav" type="AudioStream" id=5]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -239,6 +240,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 0 ]
 }
+tracks/1/type = "audio"
+tracks/1/path = NodePath("RunningAudio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.674163,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=12]
 length = 1.25
@@ -406,18 +421,13 @@ enabled = true
 cast_to = Vector2( 6, 0 )
 collision_mask = 16
 
-[node name="Sprite2" type="Sprite" parent="."]
-visible = false
-material = SubResource( 2 )
-texture = ExtResource( 4 )
-offset = Vector2( -2, -16 )
-
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 2 )
 position = Vector2( 0, -14 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 16
+frame = 23
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.6
@@ -442,9 +452,6 @@ process_mode = 0
 position = Vector2( 0, -13.5 )
 shape = SubResource( 15 )
 
-[node name="Jump" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 3 )
-
 [node name="Trail" type="Particles2D" parent="."]
 emitting = false
 amount = 50
@@ -462,3 +469,16 @@ explosiveness = 1.0
 local_coords = false
 draw_order = 1
 process_material = SubResource( 21 )
+
+[node name="LandingAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -10.0
+bus = "SFX"
+
+[node name="JumpAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+bus = "SFX"
+
+[node name="RunningAudio" type="AudioStreamPlayer" parent="."]
+bus = "SFX"
