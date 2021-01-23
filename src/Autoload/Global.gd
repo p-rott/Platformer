@@ -140,7 +140,7 @@ func load_savefile():
 		_saves= parse_json(file.get_as_text())
 	else:
 		file.open("user://saves.save", File.WRITE)
-		_options = defaultOptions
+		file.store_string(to_json(_saves))
 	file.close()
 	pass
 
@@ -157,7 +157,10 @@ func get_level_time(levelname):
 		return null
 
 func set_level_time(levelname, time):
-	_saves[levelname]["time"] = time
+	if(_saves.has(levelname)):
+		_saves[levelname]["time"] = time
+	else:
+		_saves[levelname] = {"time": time}
 	pass
 
 func get_level_deaths(levelname):
@@ -167,7 +170,10 @@ func get_level_deaths(levelname):
 		return 0
 
 func set_level_deaths(levelname, deaths):
-	_saves[levelname]["deaths"] = deaths
+	if _saves.has(levelname):
+		_saves[levelname]["deaths"] = deaths
+	else:
+		_saves[levelname] = {"deaths": deaths}
 	pass
 	
 func set_masterVolume(value:int):

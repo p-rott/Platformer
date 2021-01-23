@@ -53,7 +53,7 @@ func playerGoal():
 	Global.set_level_deaths(name, Global.get_level_deaths(name) + deathCount)
 	var currentTime = attemptEndTime - attemptStartTime
 	var bestTime = Global.get_level_time(name)
-	if currentTime < bestTime:
+	if bestTime == null or currentTime < bestTime:
 		Global.set_level_time(name, currentTime)
 	levelEndscreen.open(currentTime)
 

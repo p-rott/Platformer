@@ -6,10 +6,7 @@
 [node name="Options" type="ColorRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 0.561234
-margin_top = 0.561234
-margin_right = 0.561218
-margin_bottom = 0.561218
+margin_bottom = -3.05176e-05
 color = Color( 0.0627451, 0, 0, 1 )
 script = ExtResource( 2 )
 __meta__ = {

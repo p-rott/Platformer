@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/art/tileset/warped city files/demo/assets/environment/tileset.png" type="Texture" id=1]
 [ext_resource path="res://src/Level/LevelPreset.gd" type="Script" id=2]
