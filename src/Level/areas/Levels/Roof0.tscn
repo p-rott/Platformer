@@ -1,9 +1,30 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Level/LevelPreset.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Traps/SparkTrap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Level/Enviroment/Banner/Banner-Big.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Level/Enviroment/Banner/banner-neon.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+background_canvas_max_layer = 3
+ambient_light_color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
+ss_reflections_fade_in = 0.00269226
+ss_reflections_roughness = false
+ssao_intensity = 128.0
+glow_enabled = true
+glow_levels/1 = true
+glow_levels/2 = true
+glow_levels/4 = true
+glow_levels/6 = true
+glow_levels/7 = true
+glow_intensity = 1.25
+glow_strength = 0.99
+glow_blend_mode = 0
+glow_hdr_threshold = 0.48
+glow_bicubic_upscale = true
+adjustment_enabled = true
+adjustment_contrast = 1.09
 
 [node name="Roof0" instance=ExtResource( 1 )]
 
@@ -49,3 +70,6 @@ margin_left = -141.5
 margin_top = -168.5
 margin_right = -141.5
 margin_bottom = -168.5
+
+[node name="WorldEnvironment" parent="." index="13"]
+environment = SubResource( 1 )

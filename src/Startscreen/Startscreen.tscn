@@ -45,9 +45,6 @@ setPlayerCurrentCamera = false
 [node name="PlayerGoal" parent="CanvasLayer/StartscreenLevel/ControlNodes" index="0"]
 position = Vector2( 674.412, 307.219 )
 
-[node name="Level" parent="CanvasLayer/StartscreenLevel" index="2"]
-modulate = Color( 1, 1, 1, 1 )
-
 [node name="RainRect" parent="CanvasLayer/StartscreenLevel/Rain" index="0"]
 pause_mode = 0
 
