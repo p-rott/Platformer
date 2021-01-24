@@ -5,6 +5,7 @@ extends CanvasLayer
 export(int,"Red", "Green", "Blue") var colorKey = 0 setget setColorKey
 
 var grayscale
+var grayscaleAmount
 var chromaticAberration
 var chromaticAberrationAmount
 onready var GrayscaleColor = $"GrayscaleBuffer/GrayscaleColor"
@@ -18,6 +19,7 @@ func _ready():
 	else:
 		for _i in self.get_children(): #hides all shaders in Editor
 			grayscale = Global.getOption("grayscale")
+			grayscaleAmount = Global.getOption("grayscaleAmount")
 			chromaticAberration = Global.getOption("chromaticAberration")
 			chromaticAberrationAmount = Global.getOption("chromaticAberrationAmount")
 			_i.show()
@@ -30,6 +32,7 @@ func _ready():
 		else: 
 			ChromaticAberration.hide()
 		ChromaticAberration.get_material().set_shader_param("amount", chromaticAberrationAmount /100)
+		GrayscaleColor.get_material().set_shader_param("amount", grayscaleAmount/100)
 		
 	pass # Replace with function body.
 
@@ -43,6 +46,9 @@ func _process(_delta):
 				GrayscaleColor.show() 
 			else: 
 				GrayscaleColor.hide()
+		if grayscaleAmount != Global.getOption("grayscaleAmount"):
+			grayscaleAmount = Global.getOption("grayscaleAmount")
+			GrayscaleColor.get_material().set_shader_param("amount", grayscaleAmount/100)
 		if chromaticAberration != Global.getOption("chromaticAberration"):
 			chromaticAberration = Global.getOption("chromaticAberration")
 			if chromaticAberration: 

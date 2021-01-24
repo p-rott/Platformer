@@ -42,7 +42,17 @@ layer = 0
 position = Vector2( 398, 65 )
 setPlayerCurrentCamera = false
 
+[node name="PlayerGoal" parent="CanvasLayer/StartscreenLevel/ControlNodes" index="0"]
+position = Vector2( 674.412, 307.219 )
+
+[node name="RainRect" parent="CanvasLayer/StartscreenLevel/Rain" index="0"]
+pause_mode = 0
+
+[node name="AudioStreamPlayer" parent="CanvasLayer/StartscreenLevel/Rain" index="1"]
+volume_db = -17.272
+
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 4
 
 [node name="Startscreen" type="ColorRect" parent="CanvasLayer2"]
 anchor_right = 1.0
@@ -87,9 +97,9 @@ text = "Unser Spielname"
 percent_visible = 0.0
 
 [node name="MenuOptions" type="VBoxContainer" parent="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer"]
-margin_top = 145.0
+margin_top = 125.0
 margin_right = 394.0
-margin_bottom = 255.0
+margin_bottom = 275.0
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.38
 custom_constants/separation = 10
@@ -112,6 +122,12 @@ margin_top = 80.0
 margin_right = 394.0
 margin_bottom = 110.0
 text = "Options"
+
+[node name="Quit" type="Button" parent="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer/MenuOptions"]
+margin_top = 120.0
+margin_right = 394.0
+margin_bottom = 150.0
+text = "Save'n'Quit"
 
 [node name="Label2" type="Label" parent="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer"]
 margin_top = 356.0
@@ -143,3 +159,6 @@ anims/Gamename = SubResource( 4 )
 [connection signal="pressed" from="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer/MenuOptions/Levels" to="." method="_on_Levels_pressed"]
 [connection signal="pressed" from="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer/MenuOptions/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer/MenuOptions/Options" to="CanvasLayer2/Options" method="show"]
+[connection signal="pressed" from="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer/MenuOptions/Quit" to="." method="_on_Quit_pressed"]
+
+[editable path="CanvasLayer/StartscreenLevel"]

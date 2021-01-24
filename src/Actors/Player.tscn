@@ -3,7 +3,7 @@
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/robot_demo.png" type="Texture" id=2]
 [ext_resource path="res://assets/audio/sfx/landing.wav" type="AudioStream" id=3]
-[ext_resource path="res://assets/audio/sfx/jump.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/sfx/robotJump.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/audio/sfx/running.wav" type="AudioStream" id=5]
 
 [sub_resource type="Shader" id=1]
@@ -248,7 +248,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "clips": [ {
-"end_offset": 0.674163,
+"end_offset": 0.694539,
 "start_offset": 0.0,
 "stream": ExtResource( 5 )
 } ],
@@ -427,7 +427,7 @@ position = Vector2( 0, -14 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 16
-frame = 23
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.6
@@ -477,8 +477,9 @@ bus = "SFX"
 
 [node name="JumpAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = -10.0
+volume_db = -21.277
 bus = "SFX"
 
 [node name="RunningAudio" type="AudioStreamPlayer" parent="."]
+volume_db = -13.157
 bus = "SFX"

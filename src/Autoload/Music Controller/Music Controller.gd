@@ -11,7 +11,7 @@ func _ready():
 		var file_name = dir.get_next()
 		while file_name != "":
 			if not dir.current_is_dir() and not ".import" in file_name:
-				songs.append(musicPath+file_name)
+				songs.append(load(musicPath+file_name))
 			file_name = dir.get_next()
 	else:
 		print("An error occurred when trying to access Music")
@@ -19,8 +19,7 @@ func _ready():
 		play(songs[Global.getOption("currentTrack")])
 		
 # Calling this function will load the given track, and play it
-func play(track_url : String):
-	var track = load(track_url)
+func play(track):
 	_player.stream = track
 	_player.play()
 	_player.stream_paused = false

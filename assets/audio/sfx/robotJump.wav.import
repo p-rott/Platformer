@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/robotJump.wav-11828f5d57b3e722fe72a7e1b7573680.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/robotJump.wav"
+dest_files=[ "res://.import/robotJump.wav-11828f5d57b3e722fe72a7e1b7573680.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0

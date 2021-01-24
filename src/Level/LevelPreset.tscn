@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/art/tileset/warped city files/demo/assets/environment/tileset.png" type="Texture" id=1]
 [ext_resource path="res://src/Level/LevelPreset.gd" type="Script" id=2]
@@ -12,6 +12,9 @@
 [ext_resource path="res://src/UserInterface/PauseMenu.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/UserInterface/LevelEndscreen.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/art/tileset/warped city files/demo/assets/environment/tileset_white.png" type="Texture" id=12]
+[ext_resource path="res://src/Main/Rain.shader" type="Shader" id=13]
+[ext_resource path="res://assets/art/Rain/rain 2- free texture.jpg" type="Texture" id=14]
+[ext_resource path="res://assets/audio/sfx/rain.wav" type="AudioStream" id=15]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -767,13 +770,29 @@ b = Vector2( 2.48193, 2.19098 )
 a = Vector2( 1412.46, 32.0171 )
 b = Vector2( -39.8416, 25.3428 )
 
-[sub_resource type="Environment" id=14]
+[sub_resource type="ShaderMaterial" id=14]
+shader = ExtResource( 13 )
+shader_param/scale = 0.5
+shader_param/rainAlpha = 0.45
+shader_param/intensety = 0.2
+shader_param/speed = 0.3
+shader_param/threshold = 0.4
+shader_param/direction = Vector2( -0.5, 3 )
+shader_param/colortilt = Color( 0.405998, 0.404846, 0.523438, 1 )
+shader_param/debug = false
+shader_param/rainNoise = ExtResource( 14 )
+
+[sub_resource type="Environment" id=15]
 background_mode = 4
-background_canvas_max_layer = 1
+background_canvas_max_layer = 2
+ambient_light_energy = 2.99
+ss_reflections_fade_in = 0.00269226
+ss_reflections_roughness = false
 glow_enabled = true
-glow_intensity = 1.06
-glow_strength = 1.36
+glow_intensity = 1.48
+glow_strength = 1.45
 glow_hdr_threshold = 0.24
+glow_bicubic_upscale = true
 
 [node name="Level" type="Node2D"]
 pause_mode = 1
@@ -807,6 +826,7 @@ format = 1
 z_index = 2
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 7 )]
+scroll_base_scale = Vector2( 1, 1 )
 
 [node name="Traps" type="Node" parent="."]
 
@@ -825,14 +845,44 @@ shape = SubResource( 12 )
 position = Vector2( -22, 624 )
 shape = SubResource( 13 )
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 14 )
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 10 )]
+visible = false
 
 [node name="LevelEndscreen" parent="CanvasLayer" instance=ExtResource( 11 )]
 visible = false
 
 [node name="Platforms" type="Node" parent="."]
+
+[node name="Rain" type="CanvasLayer" parent="."]
+layer = 3
+scale = Vector2( 2, 2 )
+transform = Transform2D( 2, 0, 0, 2, 0, 0 )
+
+[node name="RainRect" type="ColorRect" parent="Rain"]
+pause_mode = 1
+material = SubResource( 14 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -123.678
+margin_top = -137.948
+margin_right = -123.678
+margin_bottom = -137.948
+rect_scale = Vector2( 1.44433, 1.40465 )
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Rain"]
+stream = ExtResource( 15 )
+volume_db = -13.513
+autoplay = true
+bus = "SFX"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 15 )

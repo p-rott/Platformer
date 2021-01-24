@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Main/GrayscaleColor.shader" type="Shader" id=1]
 [ext_resource path="res://src/Main/Viewportshaders.gd" type="Script" id=2]
@@ -12,27 +12,28 @@ shader_param/ignore_pure_red = true
 shader_param/ignore_pure_green = false
 shader_param/ignore_pure_blue = false
 shader_param/threshold = 0.03
+shader_param/amount = 1.0
 
 [sub_resource type="GradientTexture" id=2]
 width = 1
 
-[sub_resource type="OpenSimplexNoise" id=6]
-seed = 2
+[sub_resource type="OpenSimplexNoise" id=3]
+seed = 12433112
+persistence = 0.0
+lacunarity = 2.48
 
-[sub_resource type="NoiseTexture" id=7]
+[sub_resource type="NoiseTexture" id=4]
 seamless = true
-noise = SubResource( 6 )
+noise = SubResource( 3 )
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 4 )
-shader_param/offset = 1.0
+shader_param/offset = 10.0
 shader_param/amount = 1.0
-shader_param/ignore_pure_red = null
+shader_param/ignore_pure_red = true
 shader_param/ignore_pure_green = null
 shader_param/ignore_pure_blue = null
-shader_param/noise = SubResource( 7 )
-
-[sub_resource type="ShaderMaterial" id=8]
+shader_param/noise = SubResource( 4 )
 
 [node name="Viewportshaders" type="CanvasLayer"]
 pause_mode = 2
@@ -64,30 +65,9 @@ rect = Rect2( 0, 0, 800, 480 )
 script = ExtResource( 3 )
 
 [node name="ChromaticAberration" type="TextureRect" parent="ChromaticAberrationBuffer"]
-material = SubResource( 4 )
+material = SubResource( 5 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = SubResource( 2 )
-expand = true
-flip_v = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RainBuffer" type="BackBufferCopy" parent="."]
-visible = false
-scale = Vector2( 1.5, 1.5 )
-copy_mode = 2
-rect = Rect2( 0, 0, 800, 480 )
-script = ExtResource( 3 )
-
-[node name="Rain" type="TextureRect" parent="RainBuffer"]
-visible = false
-material = SubResource( 8 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_vertical = 0
-size_flags_stretch_ratio = 0.0
 texture = SubResource( 2 )
 expand = true
 flip_v = true

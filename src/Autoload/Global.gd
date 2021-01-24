@@ -19,6 +19,7 @@ const defaultOptions = {
 	"sfxVolume": 100,
 	"fullscreen": true,
 	"grayscale": true,
+	"grayscaleAmount": 100,
 	"chromaticAberration":true,
 	"chromaticAberrationAmount":11,
 	"currentTrack":1
