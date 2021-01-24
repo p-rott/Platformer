@@ -15,10 +15,13 @@ func dir_worlds(path):
 		while file_name != "":
 			if dir.current_is_dir():
 				if not (file_name == "." or file_name ==".."):
+					var tabContainer = $"MarginBox/VBoxContainer/TabContainer"
 					var world = $"Template Gridbox".duplicate()
 					world.set_name(file_name)
 					worlds[file_name] = world
-					$"MarginBox/VBoxContainer/TabContainer".add_child(world)
+					tabContainer.add_child(world)
+					if file_name == "Levels":
+						tabContainer.move_child(world, 0)
 					dir_levels(path,file_name)
 			else:
 				pass
@@ -32,7 +35,6 @@ func dir_levels(path, world):
 	if dir.open(path+"/"+world) == OK:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
-		print(file_name)
 		while file_name != "":
 			if dir.current_is_dir():
 				if not (file_name == "." or file_name ==".."):
