@@ -1,11 +1,10 @@
 class_name Level
 extends Node2D
 
-#Camera limits
 const LIMIT_LEFT = -315
 const LIMIT_TOP = -250
 const LIMIT_RIGHT = 2000
-const LIMIT_BOTTOM = 950
+const LIMIT_BOTTOM_DICT = {"Roof0":750, "Roof1":980, "Roof2":800, "Roof3":1000, "Roof4":750, "Start":1000}
 onready var player = $Player
 onready var playerSpawn = $ControlNodes/PlayerSpawn
 onready var pauseMenu = $CanvasLayer/PauseMenu
@@ -26,7 +25,7 @@ func _ready():
 	camera.limit_left = LIMIT_LEFT
 	camera.limit_top = LIMIT_TOP
 	camera.limit_right = LIMIT_RIGHT
-	camera.limit_bottom = LIMIT_BOTTOM
+	camera.limit_bottom = LIMIT_BOTTOM_DICT[name.substr(0,5)]
 	spawnPlayer()
 	levelEndscreen.levelName = name
 

@@ -189,7 +189,7 @@ tracks/0/keys = {
 script = ExtResource( 3 )
 
 [node name="PlayerGoal" parent="ControlNodes" index="0"]
-position = Vector2( 672.4, 309.84 )
+position = Vector2( 272.804, 253.717 )
 
 [node name="PlayerSpawn" parent="ControlNodes" index="1"]
 position = Vector2( 230, -800 )
@@ -209,7 +209,7 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, -800, -100 )
 
 [node name="LaserEmitter" parent="Traps" index="0" instance=ExtResource( 2 )]
-position = Vector2( 92, 150.169 )
+position = Vector2( -264.656, 83.1887 )
 scale = Vector2( -1, 1 )
 z_index = 2
 scl = Vector2( -1, 1 )

@@ -37,9 +37,10 @@ script = ExtResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
+offset = Vector2( 400, 65 )
+transform = Transform2D( 1, 0, 0, 1, 400, 65 )
 
 [node name="StartscreenLevel" parent="CanvasLayer" instance=ExtResource( 5 )]
-position = Vector2( 398, 65 )
 setPlayerCurrentCamera = false
 
 [node name="PlayerGoal" parent="CanvasLayer/StartscreenLevel/ControlNodes" index="0"]
