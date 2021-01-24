@@ -4,6 +4,7 @@ export var usedAsVictoryScreen = false
 
 func _ready():
 	._ready()
+	get_node("CanvasLayer/PauseMenu").queue_free()
 	$Player/Sprite.flip_h = true
 	if usedAsVictoryScreen:
 		$Traps/LaserEmitter.visible = false

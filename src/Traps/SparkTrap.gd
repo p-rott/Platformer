@@ -16,3 +16,7 @@ func _ready():
 
 func _on_DesyncTimer_timeout():
 	animation.play_backwards("Flicker") if randf() > 0.5 else animation.play("Flicker")
+
+
+func _on_SparkTrap_body_entered(body):
+	playerHitTrap(body)

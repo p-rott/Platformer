@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://src/Traps/LargeSaw.gd" type="Script" id=1]
+[ext_resource path="res://src/Traps/SparkTrap.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/traps/lightning.png" type="Texture" id=2]
 [ext_resource path="res://assets/audio/sfx/100hzHum.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/audio/sfx/electric arc.wav" type="AudioStream" id=4]
@@ -99,8 +99,9 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[node name="SparkTrap" type="StaticBody2D"]
+[node name="SparkTrap" type="Area2D"]
 collision_layer = 2147483650
+collision_mask = 3
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -141,5 +142,5 @@ bus = "SFX"
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
 volume_db = -5.012
 max_distance = 400.0
-bus = "SFX"
+[connection signal="body_entered" from="." to="." method="_on_SparkTrap_body_entered"]
 [connection signal="timeout" from="DesyncTimer" to="." method="_on_DesyncTimer_timeout"]

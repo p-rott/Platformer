@@ -1,2 +1,5 @@
 class_name Trap
-extends StaticBody2D
+extends Area2D
+
+func playerHitTrap(player):
+	player.die()

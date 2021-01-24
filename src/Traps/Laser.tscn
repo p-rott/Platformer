@@ -6,7 +6,7 @@
 [sub_resource type="SegmentShape2D" id=1]
 b = Vector2( -32, 0 )
 
-[node name="Laser" type="StaticBody2D"]
+[node name="Laser" type="Area2D"]
 show_behind_parent = true
 position = Vector2( -21, 0 )
 collision_layer = 2
@@ -21,3 +21,4 @@ position = Vector2( 21, 16.5 )
 rotation = 3.14159
 texture = ExtResource( 1 )
 centered = false
+[connection signal="body_entered" from="." to="." method="_on_Laser_body_entered"]

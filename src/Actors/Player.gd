@@ -37,6 +37,7 @@ var alive = true
 export var disableInput = false
 onready var landingAudio = $LandingAudio
 onready var jumpingAudio = $JumpAudio
+onready var trapSensingArea = $TrapSensingArea
 
 func _ready():
 	coyote_time_s = coyote_time_ms / 1000.0
@@ -105,3 +106,28 @@ func _physics_process(_delta):
 		sprint_pressed()
 	elif Input.is_action_just_released("sprint"):
 		sprint_released()
+	elif Input.is_action_just_pressed("restart") and alive:
+		die()
+
+func die():
+	if alive:
+		alive = false
+		change_state("die")
+
+#Aberration increase near traps
+#Yet to be determined
+"""
+func _on_TrapSensingArea_body_entered(body):
+	if body is Trap:
+		var dist = body.position.distance_to(position)
+		#160 == 0%
+		#60 == 100%
+		var val = 150 - (dist - 60)
+		print (val)
+		Global.saveOption("chromaticAberrationAmount", val)
+		#get_node("../Viewportshaders/ChromaticAberration")
+		#ChromaticAberration.get_material().set_shader_param("amount", chromaticAberrationAmount /100)
+
+func _on_TrapSensingArea_body_exited(body):
+		Global.saveOption("chromaticAberrationAmount", Global.getOption("chromaticAberrationAmount") / 2)
+"""

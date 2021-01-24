@@ -91,5 +91,9 @@ alwaysDeadly = true
 
 [node name="CollisionShape2D3" parent="Killbox" index="2"]
 position = Vector2( -42.0226, 979.067 )
+[connection signal="body_entered" from="Traps/LaserEmitterGroup/LaserEmitterTrap/Laser" to="Traps/LaserEmitterGroup/LaserEmitterTrap/Laser" method="_on_Laser_body_entered"]
+[connection signal="body_entered" from="Traps/LaserEmitterGroup/LaserEmitterTrap2/Laser" to="Traps/LaserEmitterGroup/LaserEmitterTrap2/Laser" method="_on_Laser_body_entered"]
+[connection signal="body_entered" from="Traps/LaserEmitterGroup2/LaserEmitterTrap/Laser" to="Traps/LaserEmitterGroup2/LaserEmitterTrap/Laser" method="_on_Laser_body_entered"]
+[connection signal="body_entered" from="Traps/LaserEmitterGroup2/LaserEmitterTrap2/Laser" to="Traps/LaserEmitterGroup2/LaserEmitterTrap2/Laser" method="_on_Laser_body_entered"]
 
 [editable path="ParallaxBackground"]
