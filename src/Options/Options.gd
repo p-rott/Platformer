@@ -28,11 +28,9 @@ func chromaticAberration_changed(value):
 func chromaticAberrationAmount_changed(value):
 	Global.saveOption("chromaticAberrationAmount", value)	
 
-
 func _on_Fullscreen_toggled(button_pressed):
 	Global.saveOption("fullscreen", button_pressed)
 	OS.window_fullscreen = button_pressed
-
 
 func _on_GrayscaleAmount_value_changed(value):
 	Global.saveOption("grayscaleAmount", value)

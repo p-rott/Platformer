@@ -830,7 +830,7 @@ scroll_base_scale = Vector2( 1, 1 )
 
 [node name="Traps" type="Node" parent="."]
 
-[node name="Killbox" type="StaticBody2D" parent="."]
+[node name="Killbox" type="Area2D" parent="."]
 collision_layer = 2
 script = ExtResource( 8 )
 

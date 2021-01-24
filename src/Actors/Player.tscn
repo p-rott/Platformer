@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/robot_demo.png" type="Texture" id=2]
@@ -396,6 +396,9 @@ scale = 3.0
 scale_random = 0.51
 color_ramp = SubResource( 17 )
 
+[sub_resource type="CircleShape2D" id=22]
+radius = 66.2709
+
 [node name="Player" type="KinematicBody2D"]
 z_index = 100
 collision_mask = 30
@@ -483,3 +486,14 @@ bus = "SFX"
 [node name="RunningAudio" type="AudioStreamPlayer" parent="."]
 volume_db = -13.157
 bus = "SFX"
+
+[node name="TrapSensingArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="TrapSensingCollision" type="CollisionShape2D" parent="TrapSensingArea"]
+position = Vector2( 0, -14 )
+shape = SubResource( 22 )
+[connection signal="body_entered" from="TrapSensingArea" to="." method="_on_TrapSensingArea_body_entered"]
+[connection signal="body_exited" from="TrapSensingArea" to="." method="_on_TrapSensingArea_body_exited"]

@@ -35,3 +35,7 @@ func disableLaser():
 	active = false
 	$Sprite.visible = false
 	$CollisionShape2D.disabled = true
+
+
+func _on_Laser_body_entered(body):
+		playerHitTrap(body)
