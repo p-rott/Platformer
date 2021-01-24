@@ -42,6 +42,6 @@ void fragment(){
 	}
 }
 void light(){
-	//LIGHT_COLOR = LIGHT_VEC;
+	//LIGHT_COLOR = 255;
 	LIGHT = LIGHT;
 }

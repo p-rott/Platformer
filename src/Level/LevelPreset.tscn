@@ -843,7 +843,6 @@ format = 1
 z_index = 2
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 7 )]
-scroll_base_scale = Vector2( 1, 1 )
 
 [node name="Traps" type="Node" parent="."]
 
