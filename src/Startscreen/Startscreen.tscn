@@ -43,14 +43,11 @@ transform = Transform2D( 1, 0, 0, 1, 400, 65 )
 [node name="StartscreenLevel" parent="CanvasLayer" instance=ExtResource( 5 )]
 setPlayerCurrentCamera = false
 
-[node name="PlayerGoal" parent="CanvasLayer/StartscreenLevel/ControlNodes" index="0"]
-position = Vector2( 674.412, 307.219 )
+[node name="ParallaxBackground" parent="CanvasLayer/StartscreenLevel" index="5"]
+scroll_base_scale = Vector2( 1, 1 )
 
 [node name="RainRect" parent="CanvasLayer/StartscreenLevel/Rain" index="0"]
-pause_mode = 0
-
-[node name="AudioStreamPlayer" parent="CanvasLayer/StartscreenLevel/Rain" index="1"]
-volume_db = -17.272
+light_mask = 1
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 4

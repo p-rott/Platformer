@@ -9,7 +9,7 @@ uniform vec2 direction = vec2(0, 1f);
 uniform vec4 colortilt : hint_color = vec4(1f,1f,1f, 1f);
 
 uniform bool debug = false;
-
+uniform bool lightON = true;
 
 void fragment(){
 	vec2 movement = direction * speed * TIME;
@@ -40,8 +40,4 @@ void fragment(){
 			COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
 		
 	}
-}
-void light(){
-	//LIGHT_COLOR = LIGHT_VEC;
-	LIGHT = LIGHT;
 }

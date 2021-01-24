@@ -2,7 +2,7 @@ class_name Laser
 extends Trap
 
 var active = false
-
+onready var LaserLight : Light2D= $Sprite/LaserLight
 func _ready():
 	disableLaser()
 
@@ -27,12 +27,14 @@ func enableLaserWarning():
 
 func enableLaser():
 	active = true
+	LaserLight.enabled = true
 	$Sprite.visible = true
 	$Sprite.modulate = Color(1,1,1,1)
 	$CollisionShape2D.disabled = false
 
 func disableLaser():
 	active = false
+	LaserLight.enabled = true
 	$Sprite.visible = false
 	$CollisionShape2D.disabled = true
 

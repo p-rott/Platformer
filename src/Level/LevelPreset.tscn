@@ -809,6 +809,7 @@ shader_param/threshold = 0.4
 shader_param/direction = Vector2( -0.5, 3 )
 shader_param/colortilt = Color( 1, 1, 1, 1 )
 shader_param/debug = false
+shader_param/lightON = false
 shader_param/rainNoise = ExtResource( 14 )
 
 [node name="Level" type="Node2D"]
@@ -843,7 +844,6 @@ format = 1
 z_index = 2
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 7 )]
-scroll_base_scale = Vector2( 1, 1 )
 
 [node name="Traps" type="Node" parent="."]
 
@@ -880,6 +880,7 @@ transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
 [node name="RainRect" type="ColorRect" parent="Rain"]
 pause_mode = 1
+light_mask = -2147483647
 material = SubResource( 21 )
 anchor_right = 1.0
 anchor_bottom = 1.0

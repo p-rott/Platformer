@@ -23,6 +23,7 @@ centered = false
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 5 )
 color = Color( 0.12549, 0.690196, 0.764706, 1 )
-range_layer_max = 2
+energy = 1.85
+range_layer_max = 3
 range_item_cull_mask = -2147483647
 shadow_enabled = true
