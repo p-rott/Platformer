@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://src/Traps/LargeSaw.gd" type="Script" id=1]
+[ext_resource path="res://src/Traps/SparkTrap.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/traps/lightning.png" type="Texture" id=2]
 [ext_resource path="res://assets/audio/sfx/100hzHum.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/audio/sfx/electric arc.wav" type="AudioStream" id=4]

@@ -78,6 +78,7 @@ position = Vector2( 398, 65 )
 setPlayerCurrentCamera = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
 
 [node name="MainLevelsClearedScreen" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
@@ -147,7 +148,7 @@ text = "Continue"
 
 [node name="Label2" type="Label" parent="CanvasLayer/MainLevelsClearedScreen/MarginBox/HBoxContainer/VBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 357.0
+margin_top = 356.0
 margin_right = 480.0
 margin_bottom = 400.0
 text = "Paul Rotthues, Fabian Büdding und Fabian Ritter

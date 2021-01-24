@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Actors/PlayerStateMachine/death_state.gd"
 }, {
-"base": "Actor",
-"class": "Enemy",
-"language": "GDScript",
-"path": "res://src/Actors/Enemy.gd"
-}, {
 "base": "StaticBody2D",
 "class": "FallingPlatform",
 "language": "GDScript",
@@ -33,11 +28,6 @@ _global_script_classes=[ {
 "class": "FallingState",
 "language": "GDScript",
 "path": "res://src/Actors/PlayerStateMachine/falling_state.gd"
-}, {
-"base": "Position2D",
-"class": "Gun",
-"language": "GDScript",
-"path": "res://src/Actors/Gun.gd"
 }, {
 "base": "State",
 "class": "IdleState",
@@ -100,14 +90,9 @@ _global_script_classes=[ {
 "path": "res://src/Actors/PlayerStateMachine/slide_state.gd"
 }, {
 "base": "Trap",
-"class": "SmallSaw",
-"language": "GDScript",
-"path": "res://src/Traps/SmallSaw.gd"
-}, {
-"base": "Trap",
 "class": "SparkTrap",
 "language": "GDScript",
-"path": "res://src/Traps/LargeSaw.gd"
+"path": "res://src/Traps/SparkTrap.gd"
 }, {
 "base": "State",
 "class": "SpawnState",
@@ -152,10 +137,8 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Actor": "",
 "DeathState": "",
-"Enemy": "",
 "FallingPlatform": "",
 "FallingState": "",
-"Gun": "",
 "IdleState": "",
 "JumpState": "",
 "Laser": "",
@@ -168,7 +151,6 @@ _global_script_class_icons={
 "Player__": "",
 "RunState": "",
 "SlideState": "",
-"SmallSaw": "",
 "SparkTrap": "",
 "SpawnState": "",
 "SprintJumpState": "",
@@ -183,16 +165,9 @@ _global_script_class_icons={
 [application]
 
 config/name="Platformer 2D Softwarepraktikum"
-config/description="This demo is a pixel art 2D platformer with graphics and sound.
-
-It shows you how to code characters and physics-based objects
-in a real game context. This is a relatively complete demo
-where the player can jump, walk on slopes, fire bullets,
-interact with enemies, and more. It contains one closed
-level, and the player is invincible, unlike the enemies."
 run/main_scene="res://src/Startscreen/Startscreen.tscn"
 boot_splash/bg_color=Color( 0.101961, 0.101961, 0.101961, 1 )
-config/icon="res://icon.png"
+config/icon="res://CoverImage.png"
 target_fps="60"
 
 [autoload]
@@ -202,6 +177,7 @@ MusicController="*res://src/Autoload/Music Controller/Music Controller.tscn"
 
 [debug]
 
+settings/crash_handler/message=""
 gdscript/completion/autocomplete_setters_and_getters=true
 gdscript/warnings/unsafe_property_access=true
 gdscript/warnings/unsafe_method_access=true

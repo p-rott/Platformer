@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Project Mute Tileset V1.png-c6f9b17d8f4d5a660469da22d88dc246.stex"
+path="res://.import/CoverImage.png-37359a2a16a462708a2646c5ad0f317f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Project Mute Tileset V1.png"
-dest_files=[ "res://.import/Project Mute Tileset V1.png-c6f9b17d8f4d5a660469da22d88dc246.stex" ]
+source_file="res://CoverImage.png"
+dest_files=[ "res://.import/CoverImage.png-37359a2a16a462708a2646c5ad0f317f.stex" ]
 
 [params]
 

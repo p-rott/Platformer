@@ -96,10 +96,17 @@ custom_fonts/font = SubResource( 1 )
 text = "Unser Spielname"
 percent_visible = 0.0
 
-[node name="MenuOptions" type="VBoxContainer" parent="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer"]
-margin_top = 125.0
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 49.0
 margin_right = 394.0
-margin_bottom = 275.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 0, 60 )
+
+[node name="MenuOptions" type="VBoxContainer" parent="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer"]
+margin_top = 157.0
+margin_right = 394.0
+margin_bottom = 307.0
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.38
 custom_constants/separation = 10
@@ -156,6 +163,7 @@ visible = false
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Gamename"
 anims/Gamename = SubResource( 4 )
+[connection signal="body_entered" from="CanvasLayer/StartscreenLevel/Traps/LaserEmitter/Laser" to="CanvasLayer/StartscreenLevel/Traps/LaserEmitter/Laser" method="_on_Laser_body_entered"]
 [connection signal="pressed" from="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer/MenuOptions/Levels" to="." method="_on_Levels_pressed"]
 [connection signal="pressed" from="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer/MenuOptions/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer/MenuOptions/Options" to="CanvasLayer2/Options" method="show"]
