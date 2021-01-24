@@ -35,7 +35,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/only_red = true
+shader_param/only_red = false
 shader_param/only_green = false
 shader_param/only_blue = false
 
@@ -348,7 +348,7 @@ radius = 7.5
 height = 12.5
 
 [sub_resource type="Gradient" id=16]
-colors = PoolColorArray( 0.552941, 0, 0, 1, 0.157715, 0.157715, 0.157715, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.157715, 0.157715, 0.157715, 1 )
 
 [sub_resource type="GradientTexture" id=17]
 gradient = SubResource( 16 )
@@ -400,8 +400,6 @@ color_ramp = SubResource( 17 )
 radius = 66.2709
 
 [node name="Player" type="KinematicBody2D"]
-light_mask = 0
-z_index = 100
 collision_mask = 30
 script = ExtResource( 1 )
 sprintIncrease = 1.5
@@ -426,9 +424,9 @@ cast_to = Vector2( 6, 0 )
 collision_mask = 16
 
 [node name="Sprite" type="Sprite" parent="."]
-light_mask = -2147483647
 material = SubResource( 2 )
 position = Vector2( 0, -14 )
+z_index = 1
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 16

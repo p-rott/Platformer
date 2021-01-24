@@ -18,8 +18,8 @@ void fragment(){
 	vec2 displacement = vec2(normalize(noisePoint).r *0.05 * intensety);
 	
 	vec2 uv = SCREEN_UV + displacement;
-	if(uv.x < 0f){uv.x=0f}else if(uv.x>1f){uv.x = 1f}
-	if(uv.y < 0f){uv.y=0f}else if(uv.y>1f){uv.y = 1f}
+	if(uv.x < 0f){uv.x=0f;}else if(uv.x>1f){uv.x = 1f;}
+	if(uv.y < 0f){uv.y=0f;}else if(uv.y>1f){uv.y = 1f;}
 	if(noisePoint.r >=  threshold)
 	{
 		if(debug)
@@ -42,5 +42,6 @@ void fragment(){
 	}
 }
 void light(){
-	LIGHT = LIGHT_COLOR;
+	//LIGHT_COLOR = LIGHT_VEC;
+	LIGHT = LIGHT;
 }

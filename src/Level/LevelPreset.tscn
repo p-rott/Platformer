@@ -15,6 +15,7 @@
 [ext_resource path="res://src/Main/Rain.shader" type="Shader" id=13]
 [ext_resource path="res://assets/art/Rain/rain 2- free texture.jpg" type="Texture" id=14]
 [ext_resource path="res://assets/audio/sfx/rain.wav" type="AudioStream" id=15]
+[ext_resource path="res://src/Level/EnviromentNeonStyle.tres" type="Environment" id=16]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -806,24 +807,11 @@ shader_param/intensety = 0.2
 shader_param/speed = 0.3
 shader_param/threshold = 0.4
 shader_param/direction = Vector2( -0.5, 3 )
-shader_param/colortilt = Color( 0.405998, 0.404846, 0.523438, 1 )
+shader_param/colortilt = Color( 1, 1, 1, 1 )
 shader_param/debug = false
 shader_param/rainNoise = ExtResource( 14 )
 
-[sub_resource type="Environment" id=22]
-background_mode = 4
-background_canvas_max_layer = 2
-ambient_light_energy = 3.0
-auto_exposure_max_luma = 11.92
-ss_reflections_fade_in = 0.00269226
-ss_reflections_roughness = false
-glow_intensity = 1.48
-glow_strength = 1.45
-glow_hdr_threshold = 0.24
-glow_bicubic_upscale = true
-adjustment_brightness = 0.28
-
-[node name="LevelPreset" type="Node2D"]
+[node name="Level" type="Node2D"]
 pause_mode = 1
 script = ExtResource( 2 )
 
@@ -895,10 +883,10 @@ pause_mode = 1
 material = SubResource( 21 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -123.678
-margin_top = -137.948
-margin_right = -123.678
-margin_bottom = -137.948
+margin_left = -217.956
+margin_top = -195.01
+margin_right = -217.956
+margin_bottom = -195.01
 rect_scale = Vector2( 1.44433, 1.40465 )
 mouse_filter = 1
 size_flags_horizontal = 3
@@ -914,4 +902,4 @@ autoplay = true
 bus = "SFX"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 22 )
+environment = ExtResource( 16 )

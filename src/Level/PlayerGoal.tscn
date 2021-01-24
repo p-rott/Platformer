@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Level/PlayerGoal.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/goal/goal.png" type="Texture" id=2]
 [ext_resource path="res://assets/audio/sfx/50hzHum.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/art/lightTextures/bigbannerLight.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.08985, 19.5083 )
@@ -78,3 +79,11 @@ autoplay = true
 max_distance = 200.0
 attenuation = 0.482968
 bus = "SFX"
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 4 )
+color = Color( 0.901961, 0.54902, 0.972549, 1 )
+energy = 0.65
+range_layer_max = 2
+range_item_cull_mask = -2147483647
+shadow_enabled = true
