@@ -59,7 +59,7 @@ func playerGoal():
 
 func nextLevel():
 	var nextId = name.to_int() + 1
-	if nextId == 1:
+	if nextId == 5:
 		Global.goto_victoryscreen()
 	else:
 		var nextLevelname = "Roof" + str(nextId)
