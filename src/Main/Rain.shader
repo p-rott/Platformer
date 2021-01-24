@@ -42,5 +42,5 @@ void fragment(){
 	}
 }
 void light(){
-	LIGHT = COLOR*LIGHT_COLOR;
+	LIGHT = LIGHT_COLOR;
 }

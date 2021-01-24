@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/art/tileset/warped city files/ENVIRONMENT/props/banner-big/banner-big-2.png" type="Texture" id=2]
 [ext_resource path="res://assets/art/tileset/warped city files/ENVIRONMENT/props/banner-big/banner-big-4.png" type="Texture" id=3]
 [ext_resource path="res://assets/art/tileset/warped city files/ENVIRONMENT/props/banner-big/banner-big-1.png" type="Texture" id=4]
-[ext_resource path="res://assets/art/tileset/warped city files/ENVIRONMENT/props/banner-big/banner_light.png" type="Texture" id=5]
+[ext_resource path="res://assets/art/lightTextures/bigbannerLight.png" type="Texture" id=5]
 
 [sub_resource type="AnimatedTexture" id=1]
 frames = 4
@@ -17,10 +17,13 @@ frame_2/delay_sec = 0.0
 frame_3/texture = ExtResource( 3 )
 frame_3/delay_sec = 0.0
 
-[node name="Sprite" type="Sprite"]
+[node name="banner-big" type="Sprite"]
+modulate = Color( 0.203922, 0.203922, 0.203922, 1 )
 texture = SubResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 5 )
-color = Color( 0.505882, 0.823529, 0.113725, 1 )
-energy = 0.1
+color = Color( 0.647059, 0.92549, 0.588235, 0.905882 )
+range_layer_max = 2
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
