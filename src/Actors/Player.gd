@@ -106,10 +106,13 @@ func _physics_process(_delta):
 		sprint_pressed()
 	elif Input.is_action_just_released("sprint"):
 		sprint_released()
+	elif Input.is_action_just_pressed("restart") and alive:
+		die()
 
 func die():
-	alive = false
-	change_state("die")
+	if alive:
+		alive = false
+		change_state("die")
 
 #Aberration increase near traps
 #Yet to be determined
