@@ -8,7 +8,7 @@ func _ready():
 
 func _process(delta):
 	if active:
-		$Sprite.modulate = Color(rand_range(0.0, 1.0),1,1,1)
+		$Sprite.modulate = Color(rand_range(0.0, 1.0),rand_range(0.0, 1.0),rand_range(0.0, 1.0),1)
 
 func setLaserLength(length):
 	var factor = (length + 22) / 32

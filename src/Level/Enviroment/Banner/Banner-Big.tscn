@@ -24,8 +24,8 @@ texture = SubResource( 1 )
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 5 )
 color = Color( 0.647059, 0.92549, 0.588235, 1 )
-energy = 0.92
-range_layer_max = 7
+range_layer_min = -1
+range_layer_max = 3
 range_item_cull_mask = -2147483647
 shadow_enabled = true
 shadow_color = Color( 0, 0, 0, 1 )

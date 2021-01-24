@@ -46,9 +46,6 @@ position = Vector2( 717, 318 )
 [node name="Sprite2" parent="." index="5" instance=ExtResource( 4 )]
 position = Vector2( 50, 169 )
 
-[node name="ParallaxBackground" parent="." index="7"]
-scroll_base_scale = Vector2( 0.1, 0.1 )
-
 [node name="SparkTrap" parent="Traps" index="0" instance=ExtResource( 2 )]
 position = Vector2( 344.87, 388.628 )
 

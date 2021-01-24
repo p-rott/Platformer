@@ -40,4 +40,24 @@ void fragment(){
 			COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
 		
 	}
+	
+}
+void light(){
+	//LIGHT_COLOR = LIGHT_VEC;
+	vec2 movement = direction * speed * TIME;
+	vec3 noisePoint = texture(rainNoise, fract(SCREEN_UV/scale+movement)).rgb;
+	if(noisePoint.r >=  threshold )
+	{
+		if(lightON)
+		{
+		LIGHT_COLOR = LIGHT_COLOR*2f;
+		LIGHT = LIGHT;
+		}
+
+	}
+	else
+	{
+		LIGHT_COLOR = vec4(0f);
+		LIGHT = LIGHT
+	}
 }

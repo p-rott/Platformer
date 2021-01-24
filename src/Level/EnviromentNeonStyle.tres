@@ -2,7 +2,7 @@
 
 [resource]
 background_mode = 4
-background_canvas_max_layer = 3
+background_canvas_max_layer = 1
 ambient_light_color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
 ss_reflections_fade_in = 0.00269226
 ss_reflections_roughness = false
