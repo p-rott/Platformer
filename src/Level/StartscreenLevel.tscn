@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/Level/LevelPreset.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Traps/LaserEmitter.tscn" type="PackedScene" id=2]
@@ -185,6 +185,9 @@ tracks/0/keys = {
 } ]
 }
 
+[sub_resource type="OccluderPolygon2D" id=5]
+polygon = PoolVector2Array( 8.58002, -23.632, 80.08, 13.118, 81.08, 21.118, 57.58, 28.868, 28.33, 27.618, -8.66998, 23.618, -10.17, 27.618, -36.42, 27.618, -57.42, 15.368, -69.42, 16.368, -80.17, 5.61801, -82.67, -5.88199, -51.42, -24.382, -39.17, -24.382, -37.17, -30.382, -26.67, -30.132, -21.17, -24.882 )
+
 [node name="StartscreenLevel" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
@@ -233,6 +236,9 @@ position = Vector2( -970.83, -319.618 )
 z_index = 3
 texture = ExtResource( 4 )
 flip_h = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite" index="0"]
+occluder = SubResource( 5 )
 
 [node name="ExplosionSprite" type="Sprite" parent="." index="13"]
 visible = false

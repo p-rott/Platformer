@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://assets/art/tileset/warped city files/demo/assets/environment/tileset.png" type="Texture" id=1]
 [ext_resource path="res://src/Level/LevelPreset.gd" type="Script" id=2]
@@ -253,6 +253,15 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 48, 0, 48 )
 10/shape_one_way_margin = 0.0
 10/shapes = [  ]
 10/z_index = 0
+
+[sub_resource type="OccluderPolygon2D" id=22]
+polygon = PoolVector2Array( 8.77358, 0, 16, 0, 16, 16, 12.3252, 7.84398 )
+
+[sub_resource type="OccluderPolygon2D" id=23]
+polygon = PoolVector2Array( 0, 0, 7.34402, 0, 2.98337, 10.0677, 0, 16 )
+
+[sub_resource type="OccluderPolygon2D" id=24]
+polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="TileSet" id=17]
 0/name = "tileset.png 0"
@@ -528,6 +537,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 48, 0, 48 )
 20/region = Rect2( 96, 176, 16, 16 )
 20/tile_mode = 0
 20/occluder_offset = Vector2( 0, 0 )
+20/occluder = SubResource( 22 )
 20/navigation_offset = Vector2( 0, 0 )
 20/shape_offset = Vector2( 0, 0 )
 20/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -542,6 +552,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 48, 0, 48 )
 21/region = Rect2( 144, 176, 16, 16 )
 21/tile_mode = 0
 21/occluder_offset = Vector2( 0, 0 )
+21/occluder = SubResource( 23 )
 21/navigation_offset = Vector2( 0, 0 )
 21/shape_offset = Vector2( 0, 0 )
 21/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -612,6 +623,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 48, 0, 48 )
 26/region = Rect2( 112, 176, 16, 16 )
 26/tile_mode = 0
 26/occluder_offset = Vector2( 0, 0 )
+26/occluder = SubResource( 24 )
 26/navigation_offset = Vector2( 0, 0 )
 26/shape_offset = Vector2( 0, 0 )
 26/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -803,14 +815,15 @@ b = Vector2( -39.8416, 25.3428 )
 [sub_resource type="ShaderMaterial" id=21]
 shader = ExtResource( 13 )
 shader_param/scale = 0.5
-shader_param/rainAlpha = 0.45
-shader_param/intensety = 0.2
-shader_param/speed = 0.3
+shader_param/rainAlpha = 1.0
+shader_param/intensety = 0.15
+shader_param/speed = 0.5
 shader_param/threshold = 0.4
 shader_param/direction = Vector2( -0.5, 3 )
 shader_param/colortilt = Color( 1, 1, 1, 1 )
 shader_param/debug = false
 shader_param/lightON = true
+shader_param/lightMix = 0.5
 shader_param/rainNoise = ExtResource( 14 )
 
 [node name="Level" type="Node2D"]
@@ -875,9 +888,23 @@ visible = false
 [node name="Platforms" type="Node" parent="."]
 
 [node name="DebugLight" type="Light2D" parent="."]
-position = Vector2( 528.535, 461.637 )
+visible = false
+position = Vector2( 877.535, 286.637 )
 editor_only = true
 texture = ExtResource( 17 )
+color = Color( 1, 0.0705882, 0, 1 )
+energy = 2.05
+range_layer_min = -1
+range_layer_max = 3
+shadow_enabled = true
+
+[node name="DebugLight2" type="Light2D" parent="."]
+visible = false
+position = Vector2( 384.535, 369.637 )
+editor_only = true
+texture = ExtResource( 17 )
+color = Color( 0, 0.0156863, 1, 1 )
+energy = 2.05
 range_layer_min = -1
 range_layer_max = 3
 shadow_enabled = true
@@ -886,6 +913,7 @@ shadow_enabled = true
 layer = 3
 scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 0, 0 )
+follow_viewport_enable = true
 
 [node name="RainRect" type="ColorRect" parent="Rain"]
 pause_mode = 1
@@ -893,10 +921,10 @@ light_mask = -2147483647
 material = SubResource( 21 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -217.956
-margin_top = -195.01
-margin_right = -217.956
-margin_bottom = -195.01
+margin_left = -184.956
+margin_top = -191.51
+margin_right = -184.956
+margin_bottom = -191.51
 rect_scale = Vector2( 1.44433, 1.40465 )
 mouse_filter = 1
 size_flags_horizontal = 3

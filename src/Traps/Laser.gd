@@ -22,6 +22,7 @@ func setPositionAndTarget(pos, target):
 	scale.x = factor
 
 func enableLaserWarning():
+	LaserLight.enabled = false
 	$Sprite.visible = true
 	$Sprite.modulate = Color(1,1,1,0.3)
 

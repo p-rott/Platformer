@@ -10,6 +10,7 @@ uniform vec4 colortilt : hint_color = vec4(1f,1f,1f, 1f);
 
 uniform bool debug = false;
 uniform bool lightON = true;
+uniform float lightMix :hint_range(0f,1f, 0.1) = 0.1;
 
 void fragment(){
 	vec2 movement = direction * speed * TIME;
@@ -50,14 +51,14 @@ void light(){
 	{
 		if(lightON)
 		{
-		LIGHT_COLOR = LIGHT_COLOR*2f;
-		LIGHT = LIGHT;
+		
+		LIGHT = LIGHT_COLOR*2f;
 		}
 
 	}
 	else
 	{
 		LIGHT_COLOR = vec4(0f);
-		LIGHT = LIGHT
+		//LIGHT = LIGHT
 	}
 }

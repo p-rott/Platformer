@@ -9,7 +9,7 @@
 [ext_resource path="res://src/Main/Rain.shader" type="Shader" id=7]
 [ext_resource path="res://assets/art/Rain/rain 2- free texture.jpg" type="Texture" id=8]
 
-[sub_resource type="ShaderMaterial" id=21]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 7 )
 shader_param/scale = 0.5
 shader_param/rainAlpha = 0.45
@@ -20,20 +20,20 @@ shader_param/direction = Vector2( -0.5, 3 )
 shader_param/colortilt = Color( 1, 1, 1, 1 )
 shader_param/debug = false
 shader_param/lightON = true
+shader_param/lightMix = 0.1
 shader_param/rainNoise = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 36
 font_data = ExtResource( 4 )
 
-[sub_resource type="InputEventAction" id=2]
+[sub_resource type="InputEventAction" id=3]
 action = "ui_accept"
 
-[sub_resource type="ShortCut" id=3]
-shortcut = SubResource( 2 )
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 3 )
 
-[sub_resource type="Animation" id=4]
-resource_name = "Gamename"
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer/Spielname:percent_visible")
 tracks/0/interp = 1
@@ -61,15 +61,21 @@ setPlayerCurrentCamera = false
 [node name="ParallaxBackground" parent="CanvasLayer/StartscreenLevel" index="5"]
 scroll_base_scale = Vector2( 1, 1 )
 
+[node name="DebugLight" parent="CanvasLayer/StartscreenLevel" index="14"]
+position = Vector2( 528.535, 461.637 )
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+
+[node name="DebugLight2" parent="CanvasLayer/StartscreenLevel" index="15"]
+visible = false
+position = Vector2( 384.535, 369.637 )
+color = Color( 0, 0.0156863, 1, 1 )
+
+[node name="Rain" parent="CanvasLayer/StartscreenLevel" index="16"]
+follow_viewport_enable = false
+
 [node name="RainRect" parent="CanvasLayer/StartscreenLevel/Rain" index="0"]
-pause_mode = 1
-material = SubResource( 21 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_scale = Vector2( 1.44433, 1.40465 )
-mouse_filter = 1
-size_flags_horizontal = 3
-size_flags_vertical = 3
+material = SubResource( 1 )
 
 [node name="AudioStreamPlayer" parent="CanvasLayer/StartscreenLevel/Rain" index="1"]
 volume_db = -13.513
@@ -115,7 +121,7 @@ margin_bottom = 400.0
 [node name="Spielname" type="Label" parent="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer"]
 margin_right = 394.0
 margin_bottom = 45.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Unser Spielname"
 percent_visible = 0.0
 
@@ -144,7 +150,7 @@ margin_top = 40.0
 margin_right = 394.0
 margin_bottom = 70.0
 shortcut_in_tooltip = false
-shortcut = SubResource( 3 )
+shortcut = SubResource( 4 )
 text = "Continue"
 
 [node name="Options" type="Button" parent="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer/MenuOptions"]
@@ -185,7 +191,7 @@ visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Gamename"
-anims/Gamename = SubResource( 4 )
+anims/Gamename = SubResource( 5 )
 [connection signal="body_entered" from="CanvasLayer/StartscreenLevel/Traps/LaserEmitter/Laser" to="CanvasLayer/StartscreenLevel/Traps/LaserEmitter/Laser" method="_on_Laser_body_entered"]
 [connection signal="pressed" from="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer/MenuOptions/Levels" to="." method="_on_Levels_pressed"]
 [connection signal="pressed" from="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer/MenuOptions/Continue" to="." method="_on_Continue_pressed"]
