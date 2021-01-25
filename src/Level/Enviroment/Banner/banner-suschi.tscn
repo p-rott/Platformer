@@ -15,7 +15,6 @@ frame_2/delay_sec = 0.0
 
 [node name="banner-suschi" type="Sprite"]
 texture = SubResource( 1 )
-centered = false
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 2 )

@@ -21,6 +21,7 @@ texture = SubResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 1 )
+texture_scale = 0.44
 color = Color( 0.839216, 0.101961, 0.392157, 1 )
 energy = 1.43
 range_layer_min = -1

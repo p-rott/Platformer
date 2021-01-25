@@ -10,7 +10,7 @@ func _on_Levels_pressed():
 	Global.goto_levelchooser()
 
 func _on_Options_pressed():
-	$"Options".show()
+	($"Options" as TextureRect).show()
 
 func _on_Quit_pressed():
 	Global.save_savefile()

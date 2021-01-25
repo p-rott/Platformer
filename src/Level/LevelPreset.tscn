@@ -254,16 +254,16 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 48, 0, 48 )
 10/shapes = [  ]
 10/z_index = 0
 
-[sub_resource type="OccluderPolygon2D" id=22]
+[sub_resource type="OccluderPolygon2D" id=17]
 polygon = PoolVector2Array( 8.77358, 0, 16, 0, 16, 16, 12.3252, 7.84398 )
 
-[sub_resource type="OccluderPolygon2D" id=23]
+[sub_resource type="OccluderPolygon2D" id=18]
 polygon = PoolVector2Array( 0, 0, 7.34402, 0, 2.98337, 10.0677, 0, 16 )
 
-[sub_resource type="OccluderPolygon2D" id=24]
+[sub_resource type="OccluderPolygon2D" id=19]
 polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
-[sub_resource type="TileSet" id=17]
+[sub_resource type="TileSet" id=20]
 0/name = "tileset.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -537,7 +537,7 @@ polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 20/region = Rect2( 96, 176, 16, 16 )
 20/tile_mode = 0
 20/occluder_offset = Vector2( 0, 0 )
-20/occluder = SubResource( 22 )
+20/occluder = SubResource( 17 )
 20/navigation_offset = Vector2( 0, 0 )
 20/shape_offset = Vector2( 0, 0 )
 20/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -552,7 +552,7 @@ polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 21/region = Rect2( 144, 176, 16, 16 )
 21/tile_mode = 0
 21/occluder_offset = Vector2( 0, 0 )
-21/occluder = SubResource( 23 )
+21/occluder = SubResource( 18 )
 21/navigation_offset = Vector2( 0, 0 )
 21/shape_offset = Vector2( 0, 0 )
 21/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -623,7 +623,7 @@ polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 26/region = Rect2( 112, 176, 16, 16 )
 26/tile_mode = 0
 26/occluder_offset = Vector2( 0, 0 )
-26/occluder = SubResource( 24 )
+26/occluder = SubResource( 19 )
 26/navigation_offset = Vector2( 0, 0 )
 26/shape_offset = Vector2( 0, 0 )
 26/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -800,24 +800,24 @@ polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 38/shapes = [  ]
 38/z_index = 0
 
-[sub_resource type="SegmentShape2D" id=18]
+[sub_resource type="SegmentShape2D" id=21]
 a = Vector2( -31.407, 608.573 )
 b = Vector2( -17.5176, 66.1906 )
 
-[sub_resource type="SegmentShape2D" id=19]
+[sub_resource type="SegmentShape2D" id=22]
 a = Vector2( 6.48193, -583.809 )
 b = Vector2( 2.48193, 2.19098 )
 
-[sub_resource type="SegmentShape2D" id=20]
+[sub_resource type="SegmentShape2D" id=23]
 a = Vector2( 1412.46, 32.0171 )
 b = Vector2( -39.8416, 25.3428 )
 
-[sub_resource type="ShaderMaterial" id=21]
+[sub_resource type="ShaderMaterial" id=24]
 shader = ExtResource( 13 )
-shader_param/scale = 0.5
+shader_param/scale = 0.06
 shader_param/rainAlpha = 1.0
-shader_param/intensety = 0.15
-shader_param/speed = 0.5
+shader_param/intensety = 7.75
+shader_param/speed = 0.2
 shader_param/threshold = 0.4
 shader_param/direction = Vector2( -0.5, 3 )
 shader_param/colortilt = Color( 1, 1, 1, 1 )
@@ -848,7 +848,7 @@ format = 1
 tile_data = PoolIntArray( 1048580, 4, 0, 1048602, 4, 0, 1245188, 4, 0, 1245210, 4, 0, 1507332, 4, 0, 1507354, 4, 0, 1703940, 4, 0, 1703962, 4, 0 )
 
 [node name="Decoration" type="TileMap" parent="."]
-tile_set = SubResource( 17 )
+tile_set = SubResource( 20 )
 cell_size = Vector2( 16, 16 )
 collision_layer = 0
 collision_mask = 0
@@ -866,15 +866,15 @@ collision_layer = 2
 script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killbox"]
-shape = SubResource( 18 )
+shape = SubResource( 21 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Killbox"]
 position = Vector2( 1622, 626 )
-shape = SubResource( 19 )
+shape = SubResource( 22 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Killbox"]
 position = Vector2( -22, 624 )
-shape = SubResource( 20 )
+shape = SubResource( 23 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 4
@@ -909,23 +909,24 @@ range_layer_min = -1
 range_layer_max = 3
 shadow_enabled = true
 
-[node name="Rain" type="CanvasLayer" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 16 )
+
+[node name="Node" type="CanvasLayer" parent="."]
 layer = 3
-scale = Vector2( 2, 2 )
-transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 follow_viewport_enable = true
 
-[node name="RainRect" type="ColorRect" parent="Rain"]
+[node name="RainRect" type="ColorRect" parent="Node"]
 pause_mode = 1
 light_mask = -2147483647
-material = SubResource( 21 )
+material = SubResource( 24 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -184.956
-margin_top = -191.51
-margin_right = -184.956
-margin_bottom = -191.51
-rect_scale = Vector2( 1.44433, 1.40465 )
+margin_left = -1821.0
+margin_top = -894.462
+margin_right = -1021.0
+margin_bottom = -444.462
+rect_scale = Vector2( 5.81462, 5.81462 )
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -933,11 +934,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Rain"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node/RainRect"]
 stream = ExtResource( 15 )
 volume_db = -8.01
 autoplay = true
 bus = "SFX"
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource( 16 )

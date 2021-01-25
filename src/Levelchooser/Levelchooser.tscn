@@ -1,13 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/theme/MainTheme.tres" type="Theme" id=1]
 [ext_resource path="res://src/Levelchooser/Levelchooser.gd" type="Script" id=2]
 [ext_resource path="res://src/Levelchooser/templateButton.gd" type="Script" id=3]
 
-[node name="Levelchooser" type="ColorRect"]
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0.146417, 1 )
+colors = PoolColorArray( 0, 0, 0.0941176, 1, 0, 0, 0.266667, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 3 )
+
+[node name="Levelchooser" type="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.0627451, 0, 0, 1 )
+texture = SubResource( 2 )
+expand = true
+stretch_mode = 2
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false

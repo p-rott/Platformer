@@ -20,7 +20,7 @@ export var setPlayerCurrentCamera = true
 
 func _ready():
 	if setPlayerCurrentCamera:
-		$Player/Camera.current = true
+		($Player/Camera as Camera2D).current = true
 	var camera = player.get_node("Camera")
 	camera.limit_left = LIMIT_LEFT
 	camera.limit_top = LIMIT_TOP

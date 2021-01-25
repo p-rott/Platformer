@@ -3,17 +3,18 @@ extends Trap
 
 var active = false
 onready var LaserLight : Light2D= $Sprite/LaserLight
+onready var LaserSprite : Sprite = $Sprite
 func _ready():
 	disableLaser()
 
-func _process(delta):
+func _process(_delta):
 	if active:
-		$Sprite.modulate = Color(rand_range(0.0, 1.0),rand_range(0.0, 1.0),rand_range(0.0, 1.0),1)
+		LaserSprite.modulate = Color(rand_range(0.0, 1.0),rand_range(0.0, 1.0),rand_range(0.0, 1.0),1)
 
 func setLaserLength(length):
 	var factor = (length + 22) / 32
-	$Sprite.scale.x = factor
-	$CollisionShape2D.scale.x = factor
+	LaserSprite.scale.x = factor
+	($CollisionShape2D as CollisionShape2D).scale.x = factor
 
 func setPositionAndTarget(pos, target):
 	var dist = pos.distance_to(target)
@@ -23,21 +24,21 @@ func setPositionAndTarget(pos, target):
 
 func enableLaserWarning():
 	LaserLight.enabled = false
-	$Sprite.visible = true
-	$Sprite.modulate = Color(1,1,1,0.3)
+	LaserSprite.visible = true
+	LaserSprite.modulate = Color(1,1,1,0.3)
 
 func enableLaser():
 	active = true
 	LaserLight.enabled = true
-	$Sprite.visible = true
-	$Sprite.modulate = Color(1,1,1,1)
-	$CollisionShape2D.disabled = false
+	LaserSprite.visible = true
+	LaserSprite.modulate = Color(1,1,1,1)
+	($CollisionShape2D as CollisionShape2D).disabled = false
 
 func disableLaser():
 	active = false
 	LaserLight.enabled = true
-	$Sprite.visible = false
-	$CollisionShape2D.disabled = true
+	LaserSprite.visible = false
+	($CollisionShape2D as CollisionShape2D).disabled = true
 
 
 func _on_Laser_body_entered(body):

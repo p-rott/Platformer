@@ -1,4 +1,4 @@
-extends ColorRect
+extends TextureRect
 onready var anim = $AnimationPlayer
 func _ready():
 	$"MarginContainer/VBoxContainer/MasterVolume".value = Global.getOption("masterVolume")

@@ -248,10 +248,4 @@ z_index = 4
 texture = ExtResource( 5 )
 hframes = 6
 frame = 5
-
-[node name="RainRect" parent="Rain" index="0"]
-margin_left = -110.314
-margin_top = -117.903
-margin_right = -110.314
-margin_bottom = -117.903
 [connection signal="body_entered" from="Traps/LaserEmitter/Laser" to="Traps/LaserEmitter/Laser" method="_on_Laser_body_entered"]

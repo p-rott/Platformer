@@ -23,7 +23,7 @@ func _ready():
 	if !get_parent().name == "LaserEmitterGroup":
 		setTimersAndStart()
 
-func _process(delta):
+func _process(_delta):
 	updateLaserReach()
 
 func updateLaserReach():
@@ -38,35 +38,35 @@ func setTimersAndStart():
 	if firstDelay == -1:
 		return
 	laserBeam.disableLaser()
-	$CooldownTimer.stop()
-	$CooldownTimer.set_one_shot(true)
-	$CooldownTimer.set_wait_time(laserCooldown)
-	$LaserActiveTimer.stop()
-	$LaserActiveTimer.set_one_shot(true)
-	$LaserActiveTimer.set_wait_time(laserActive)
-	$LaserWarningTimer.stop()
-	$LaserWarningTimer.set_one_shot(true)
-	$LaserWarningTimer.set_wait_time(laserWarning)
+	($CooldownTimer as Timer).stop()
+	($CooldownTimer as Timer).set_one_shot(true)
+	($CooldownTimer as Timer).set_wait_time(laserCooldown)
+	($LaserActiveTimer as Timer).stop()
+	($LaserActiveTimer as Timer).set_one_shot(true)
+	($LaserActiveTimer as Timer).set_wait_time(laserActive)
+	($LaserWarningTimer as Timer).stop()
+	($LaserWarningTimer as Timer).set_one_shot(true)
+	($LaserWarningTimer as Timer).set_wait_time(laserWarning)
 	if firstDelay != 0.0:
-		$FirstDelayTimer.set_wait_time(firstDelay)
-		$FirstDelayTimer.start()
+		($FirstDelayTimer as Timer).set_wait_time(firstDelay)
+		($FirstDelayTimer as Timer).start()
 	else:
-		$CooldownTimer.start()
+		($CooldownTimer as Timer).start()
 
 func _on_CooldownTimer_timeout():
-	$CooldownTimer.stop()
+	($CooldownTimer as Timer).stop()
 	laserBeam.enableLaserWarning()
-	$LaserWarningTimer.start()
+	($LaserWarningTimer as Timer).start()
 
 func _on_FirstDelayTimer_timeout():
-	$CooldownTimer.start()
+	($CooldownTimer as Timer).start()
 
 func _on_LaserActiveTimer_timeout():
-	$LaserActiveTimer.stop()
+	($LaserActiveTimer as Timer).stop()
 	laserBeam.disableLaser()
-	$CooldownTimer.start()
+	($CooldownTimer as Timer).start()
 
 func _on_LaserWarningTimer_timeout():
-	$LaserWarningTimer.stop()
+	($LaserWarningTimer as Timer).stop()
 	laserBeam.enableLaser()
-	$LaserActiveTimer.start()
+	($LaserActiveTimer as Timer).start()

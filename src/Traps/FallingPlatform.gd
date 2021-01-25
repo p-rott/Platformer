@@ -7,15 +7,15 @@ func _ready():
 	reset()
 
 func reset():
-	$CollisionShape2D.disabled = false
+	($CollisionShape2D as CollisionShape2D).disabled = false
 	hasFallen = false
-	$AnimationPlayer.stop()
-	$Sprite.set_modulate(Color(1,1,1,1))
+	($AnimationPlayer as AnimationPlayer).stop()
+	($Sprite as Sprite).set_modulate(Color(1,1,1,1))
 
 func touched():
 	if !hasFallen:
 		hasFallen = true
-		$AnimationPlayer.play("fall")
+		($AnimationPlayer as AnimationPlayer).play("fall")
 
 func fall():
-	$CollisionShape2D.disabled = true
+	($CollisionShape2D as CollisionShape2D).disabled = true

@@ -5,7 +5,6 @@ var change_state
 var animationPlayer
 var sprite : Sprite
 var persistent_state 
-
 func _physics_process(_delta):#
 	if(persistent_state.jump_buffer > 0 and is_on_floor()):
 		persistent_state.change_state("jump")
@@ -29,11 +28,11 @@ func _physics_process(_delta):#
 	persistent_state.move_and_slide(persistent_state._velocity, Vector2.UP, true)
 	pass
 
-func setup(change_state, animationPlayer, sprite, persistent_state):
-	self.change_state = change_state
-	self.animationPlayer = animationPlayer
-	self.sprite = sprite
-	self.persistent_state = persistent_state
+func setup(change_state_p, animationPlayer_p, sprite_p, persistent_state_p):
+	self.change_state = change_state_p
+	self.animationPlayer = animationPlayer_p
+	self.sprite = sprite_p
+	self.persistent_state = persistent_state_p
 
 func move_left():
 	pass
