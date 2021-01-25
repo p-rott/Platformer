@@ -430,7 +430,7 @@ z_index = 1
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 16
-frame = 4
+frame = 17
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.6

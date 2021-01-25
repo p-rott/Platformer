@@ -912,12 +912,12 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 16 )
 
-[node name="Node" type="CanvasLayer" parent="."]
+[node name="Rain" type="CanvasLayer" parent="."]
 layer = 3
 follow_viewport_enable = true
 follow_viewport_scale = 0.8
 
-[node name="RainRect" type="ColorRect" parent="Node"]
+[node name="RainRect" type="ColorRect" parent="Rain"]
 pause_mode = 1
 light_mask = -2147483647
 material = SubResource( 24 )
@@ -935,7 +935,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node/RainRect"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Rain/RainRect"]
 stream = ExtResource( 15 )
 volume_db = -8.01
 autoplay = true

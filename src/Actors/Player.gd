@@ -50,7 +50,7 @@ func spawn(pos: Vector2):
 	position = pos
 	alive = true
 	_velocity = Vector2.ZERO
-	change_state("spawn")
+	change_state_to_spawn()
 
 func informLevelOfDeath():
 	get_parent().playerDeath()
@@ -82,9 +82,19 @@ func sprint_released():
 	state.sprint_released()
 
 func change_state(new_state_name):
+	if state is DeathState:
+		return
 	if is_instance_valid(state):
 		state.queue_free()
 	state = state_factory.get_state(new_state_name).new()
+	state.setup(funcref(self, "change_state"), animation_player, sprite, self)
+	state.name = "current_state"
+	add_child(state)
+	
+func change_state_to_spawn():
+	if is_instance_valid(state):
+		state.queue_free()
+	state = state_factory.get_state("spawn").new()
 	state.setup(funcref(self, "change_state"), animation_player, sprite, self)
 	state.name = "current_state"
 	add_child(state)
@@ -112,7 +122,7 @@ func _physics_process(_delta):
 func die():
 	if alive:
 		alive = false
-		change_state("die")
+		state.die()
 
 #Aberration increase near traps
 #Yet to be determined

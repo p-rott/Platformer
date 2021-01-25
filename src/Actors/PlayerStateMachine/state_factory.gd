@@ -17,7 +17,6 @@ func _init():
 }
 
 func get_state(state_name):
-	#print(state_name)
 	if states.has(state_name):
 		return states.get(state_name)
 	else:

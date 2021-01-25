@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://src/Startscreen/Startscreen.gd" type="Script" id=2]
@@ -6,7 +6,23 @@
 [ext_resource path="res://assets/theme/fonts/kenney_mini_square.tres" type="DynamicFontData" id=4]
 [ext_resource path="res://src/Level/StartscreenLevel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Options/Options.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Main/Rain.shader" type="Shader" id=7]
+[ext_resource path="res://assets/art/Rain/rain 2- free texture.jpg" type="Texture" id=8]
 [ext_resource path="res://assets/audio/sfx/rain.wav" type="AudioStream" id=9]
+
+[sub_resource type="ShaderMaterial" id=24]
+shader = ExtResource( 7 )
+shader_param/scale = 0.06
+shader_param/rainAlpha = 1.0
+shader_param/intensety = 7.75
+shader_param/speed = 0.2
+shader_param/threshold = 0.4
+shader_param/direction = Vector2( -0.5, 3 )
+shader_param/colortilt = Color( 1, 1, 1, 1 )
+shader_param/debug = false
+shader_param/lightON = true
+shader_param/lightMix = 0.5
+shader_param/rainNoise = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 36
@@ -51,8 +67,33 @@ position = Vector2( 528.535, 461.637 )
 color = Color( 1, 1, 1, 1 )
 energy = 1.0
 
-[node name="Node" parent="CanvasLayer/StartscreenLevel" index="17"]
-follow_viewport_scale = 1.0
+[node name="Node" type="CanvasLayer" parent="CanvasLayer/StartscreenLevel" index="17"]
+layer = 3
+follow_viewport_enable = true
+
+[node name="RainRect" type="ColorRect" parent="CanvasLayer/StartscreenLevel/Node" index="0"]
+pause_mode = 1
+light_mask = -2147483647
+material = SubResource( 24 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1821.0
+margin_top = -894.462
+margin_right = -1021.0
+margin_bottom = -444.462
+rect_scale = Vector2( 5.81462, 5.81462 )
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/StartscreenLevel/Node/RainRect" index="0"]
+stream = ExtResource( 9 )
+volume_db = -8.01
+autoplay = true
+bus = "SFX"
 
 [node name="Rain" type="CanvasLayer" parent="CanvasLayer/StartscreenLevel"]
 layer = 3

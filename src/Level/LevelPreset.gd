@@ -38,6 +38,7 @@ func resetLevel():
 			child.setTimersAndStart()
 
 func spawnPlayer():
+
 	resetLevel()
 	var s = playerSpawn.getSpawn()
 	player.spawn(s)
