@@ -51,6 +51,9 @@ position = Vector2( 528.535, 461.637 )
 color = Color( 1, 1, 1, 1 )
 energy = 1.0
 
+[node name="Node" parent="CanvasLayer/StartscreenLevel" index="17"]
+follow_viewport_scale = 1.0
+
 [node name="Rain" type="CanvasLayer" parent="CanvasLayer/StartscreenLevel"]
 layer = 3
 scale = Vector2( 2, 2 )

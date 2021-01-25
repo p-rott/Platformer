@@ -915,6 +915,7 @@ environment = ExtResource( 16 )
 [node name="Node" type="CanvasLayer" parent="."]
 layer = 3
 follow_viewport_enable = true
+follow_viewport_scale = 0.8
 
 [node name="RainRect" type="ColorRect" parent="Node"]
 pause_mode = 1

@@ -3,18 +3,17 @@
 [ext_resource path="res://assets/theme/MainTheme.tres" type="Theme" id=1]
 [ext_resource path="res://src/Options/Options.gd" type="Script" id=2]
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.146417, 1 )
 colors = PoolColorArray( 0, 0, 0.0941176, 1, 0, 0, 0.266667, 1 )
 
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "Background in"
+[sub_resource type="Animation" id=3]
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:color")
+tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -23,14 +22,13 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0.0627451, 0, 0, 0 ), Color( 0.0627451, 0, 0, 1 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Background out"
+[sub_resource type="Animation" id=4]
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:color")
+tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -39,14 +37,14 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0.0627451, 0, 0, 1 ), Color( 0.0627451, 0, 0, 0 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [node name="Options" type="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -3.05176e-05
-texture = SubResource( 4 )
+texture = SubResource( 2 )
 expand = true
 stretch_mode = 2
 script = ExtResource( 2 )
@@ -238,9 +236,8 @@ margin_bottom = 399.0
 text = "Back"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-"anims/Background in" = SubResource( 1 )
-"anims/Background in 2" = SubResource( 1 )
-"anims/Background out" = SubResource( 2 )
+"anims/Background in" = SubResource( 3 )
+"anims/Background out" = SubResource( 4 )
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/MasterVolume" to="." method="masterVolume_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/MusicVolume" to="." method="musicVolume_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/SFXVolume" to="." method="sfxVolume_changed"]

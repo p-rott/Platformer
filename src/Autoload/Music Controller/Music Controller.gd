@@ -14,7 +14,7 @@ func _ready():
 				songs.append(load(musicPath+file_name))
 			file_name = dir.get_next()
 	else:
-		print("An error occurred when trying to access Music")
+		print_debug("An error occurred when trying to access Music")
 	if(Global.getOption("currentTrack")<songs.size()):
 		play(songs[Global.getOption("currentTrack")])
 		
