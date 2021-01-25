@@ -1,11 +1,12 @@
 extends Control
 
-onready var resume_button = $VBoxContainer/ResumeButton
+onready var resume_button = $Menu/VBoxContainer/ResumeButton
 func _ready():
 	visible = false
 
 func close():
 	visible = false
+	$Options.hide()
 
 func open():
 	visible = true

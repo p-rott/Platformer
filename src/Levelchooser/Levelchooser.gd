@@ -49,3 +49,8 @@ func dir_levels(path, world):
 			file_name = dir.get_next()
 	else:
 		print("An error occurred when trying to access the path.")
+
+func _unhandled_input(event):
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().set_input_as_handled()
+		Global.goto_startscreen()
