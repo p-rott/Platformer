@@ -164,7 +164,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Platformer 2D Softwarepraktikum"
+config/name="Cokeboy"
+config/description="Skillbased Platformer in a dark Cyberbunk setting"
 run/main_scene="res://src/Startscreen/Startscreen.tscn"
 boot_splash/bg_color=Color( 0.101961, 0.101961, 0.101961, 1 )
 config/icon="res://CoverImage.png"
