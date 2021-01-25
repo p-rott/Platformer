@@ -20,7 +20,7 @@ shortcut = SubResource( 2 )
 
 [sub_resource type="Animation" id=4]
 tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer/Spielname:percent_visible")
+tracks/0/path = NodePath("CanvasLayer2/Menu/MarginBox/HBoxContainer/VBoxContainer/Spielname:percent_visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -65,7 +65,7 @@ bus = "SFX"
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 4
 
-[node name="Startscreen" type="ColorRect" parent="CanvasLayer2"]
+[node name="Menu" type="ColorRect" parent="CanvasLayer2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 6.10352e-05
@@ -76,7 +76,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginBox" type="MarginContainer" parent="CanvasLayer2/Startscreen"]
+[node name="MarginBox" type="MarginContainer" parent="CanvasLayer2/Menu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 40.0
@@ -87,7 +87,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/Startscreen/MarginBox"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/Menu/MarginBox"]
 margin_right = 720.0
 margin_bottom = 400.0
 size_flags_horizontal = 7
@@ -96,25 +96,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/Startscreen/MarginBox/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/Menu/MarginBox/HBoxContainer"]
 margin_right = 394.0
 margin_bottom = 400.0
 
-[node name="Spielname" type="Label" parent="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer"]
+[node name="Spielname" type="Label" parent="CanvasLayer2/Menu/MarginBox/HBoxContainer/VBoxContainer"]
 margin_right = 394.0
 margin_bottom = 45.0
 custom_fonts/font = SubResource( 1 )
 text = "Cokeboy"
 percent_visible = 0.0
 
-[node name="HSeparator" type="HSeparator" parent="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer2/Menu/MarginBox/HBoxContainer/VBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
 margin_top = 49.0
 margin_right = 394.0
 margin_bottom = 109.0
 rect_min_size = Vector2( 0, 60 )
 
-[node name="MenuOptions" type="VBoxContainer" parent="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer"]
+[node name="MenuOptions" type="VBoxContainer" parent="CanvasLayer2/Menu/MarginBox/HBoxContainer/VBoxContainer"]
 margin_top = 157.0
 margin_right = 394.0
 margin_bottom = 307.0
@@ -122,12 +122,12 @@ size_flags_vertical = 6
 size_flags_stretch_ratio = 0.38
 custom_constants/separation = 10
 
-[node name="Levels" type="Button" parent="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer/MenuOptions"]
+[node name="Levels" type="Button" parent="CanvasLayer2/Menu/MarginBox/HBoxContainer/VBoxContainer/MenuOptions"]
 margin_right = 394.0
 margin_bottom = 30.0
 text = "Levels"
 
-[node name="Continue" type="Button" parent="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer/MenuOptions"]
+[node name="Continue" type="Button" parent="CanvasLayer2/Menu/MarginBox/HBoxContainer/VBoxContainer/MenuOptions"]
 margin_top = 40.0
 margin_right = 394.0
 margin_bottom = 70.0
@@ -135,32 +135,32 @@ shortcut_in_tooltip = false
 shortcut = SubResource( 3 )
 text = "Continue"
 
-[node name="Options" type="Button" parent="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer/MenuOptions"]
+[node name="Options" type="Button" parent="CanvasLayer2/Menu/MarginBox/HBoxContainer/VBoxContainer/MenuOptions"]
 margin_top = 80.0
 margin_right = 394.0
 margin_bottom = 110.0
 text = "Options"
 
-[node name="Quit" type="Button" parent="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer/MenuOptions"]
+[node name="Quit" type="Button" parent="CanvasLayer2/Menu/MarginBox/HBoxContainer/VBoxContainer/MenuOptions"]
 margin_top = 120.0
 margin_right = 394.0
 margin_bottom = 150.0
 text = "Save'n'Quit"
 
-[node name="Label2" type="Label" parent="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="CanvasLayer2/Menu/MarginBox/HBoxContainer/VBoxContainer"]
 margin_top = 356.0
 margin_right = 394.0
 margin_bottom = 400.0
 text = "Paul Rotthues, Fabian Büdding und Fabian Ritter
 Software Praktikum"
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer2/Startscreen/MarginBox/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer2/Menu/MarginBox/HBoxContainer"]
 margin_left = 398.0
 margin_right = 720.0
 margin_bottom = 400.0
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/CenterContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2/Menu/MarginBox/HBoxContainer/CenterContainer"]
 visible = false
 margin_left = 129.0
 margin_top = 168.0
@@ -175,9 +175,9 @@ visible = false
 autoplay = "Gamename"
 anims/Gamename = SubResource( 4 )
 [connection signal="body_entered" from="CanvasLayer/StartscreenLevel/Traps/LaserEmitter/Laser" to="CanvasLayer/StartscreenLevel/Traps/LaserEmitter/Laser" method="_on_Laser_body_entered"]
-[connection signal="pressed" from="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer/MenuOptions/Levels" to="." method="_on_Levels_pressed"]
-[connection signal="pressed" from="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer/MenuOptions/Continue" to="." method="_on_Continue_pressed"]
-[connection signal="pressed" from="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer/MenuOptions/Options" to="CanvasLayer2/Options" method="show"]
-[connection signal="pressed" from="CanvasLayer2/Startscreen/MarginBox/HBoxContainer/VBoxContainer/MenuOptions/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Menu/MarginBox/HBoxContainer/VBoxContainer/MenuOptions/Levels" to="." method="_on_Levels_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Menu/MarginBox/HBoxContainer/VBoxContainer/MenuOptions/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Menu/MarginBox/HBoxContainer/VBoxContainer/MenuOptions/Options" to="CanvasLayer2/Options" method="show"]
+[connection signal="pressed" from="CanvasLayer2/Menu/MarginBox/HBoxContainer/VBoxContainer/MenuOptions/Quit" to="." method="_on_Quit_pressed"]
 
 [editable path="CanvasLayer/StartscreenLevel"]

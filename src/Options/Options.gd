@@ -9,7 +9,7 @@ func _ready():
 	$"MarginContainer/VBoxContainer/ChrAbeAmount".value = Global.getOption("chromaticAberrationAmount")
 	$MarginContainer/VBoxContainer/ChromaticAberration.pressed = Global.getOption("chromaticAberration")
 	$MarginContainer/VBoxContainer/Fullscreen.pressed = Global.getOption("fullscreen")
-	
+
 func masterVolume_changed(value):
 	Global.set_masterVolume(value)
 	
@@ -38,6 +38,14 @@ func _on_GrayscaleAmount_value_changed(value):
 
 func backgroundOut():
 	anim.play("Background out")
-	
+
 func backgroundIn():
 	anim.play("Background in")
+
+func show():
+	get_node("../Menu").visible = false
+	.show()
+
+func hide():
+	get_node("../Menu").visible = true
+	.hide()

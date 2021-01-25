@@ -61,8 +61,8 @@ func nextLevel():
 	if nextId == 5:
 		Global.goto_victoryscreen()
 	else:
-		var nextLevelname = "Roof" + str(nextId)
-		Global.goto_scene("res://src/Level/areas/Levels/" + nextLevelname + ".tscn")
+		var nextLevelname = "Roof" + str(nextId) + ("Remix" if name.ends_with("Remix") else "")
+		Global.goto_scene("res://src/Level/areas/" + ("Remixes/" if name.ends_with("Remix") else "Levels/") + nextLevelname + ".tscn")
 
 func gotToMainMenu():
 	levelEndscreen.hide()
