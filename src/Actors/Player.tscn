@@ -12,6 +12,10 @@ uniform bool only_red;
 uniform bool only_green;
 uniform bool only_blue;
 
+uniform float lightHeight;
+uniform vec2 lightVEC;
+uniform vec2 shadowVEC;
+uniform vec3 normal;
 void fragment() {
 	vec4 tex_color = texture(TEXTURE, UV);
 	
@@ -31,13 +35,18 @@ void fragment() {
 	{
 		COLOR = tex_color;
 	}
-}"
+}
+"
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
 shader_param/only_red = false
 shader_param/only_green = false
 shader_param/only_blue = false
+shader_param/lightHeight = 100.0
+shader_param/lightVEC = null
+shader_param/shadowVEC = null
+shader_param/normal = Vector3( 1, 1, 1 )
 
 [sub_resource type="Animation" id=3]
 length = 0.01
@@ -424,6 +433,8 @@ cast_to = Vector2( 6, 0 )
 collision_mask = 16
 
 [node name="Sprite" type="Sprite" parent="."]
+show_behind_parent = true
+light_mask = -2147483647
 material = SubResource( 2 )
 position = Vector2( 0, -14 )
 z_index = 1
@@ -448,10 +459,12 @@ anims/spawn = SubResource( 13 )
 anims/standing_weapon_ready = SubResource( 14 )
 
 [node name="Camera" type="Camera2D" parent="."]
+light_mask = 0
 position = Vector2( 0, -28 )
 process_mode = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
 position = Vector2( 0, -13.5 )
 shape = SubResource( 15 )
 

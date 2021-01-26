@@ -4,6 +4,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
 [node name="PlayerSpawn" type="Sprite"]
+light_mask = 0
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 centered = false

@@ -34,6 +34,10 @@ scale = Vector2( 1, -1 )
 rot = 90
 scl = Vector2( 1, -1 )
 laserCooldown = 0.0
+laserActive = 1.0
+laserWarning = 1.0
+firstDelay = 0.0
+autostart = true
 
 [node name="LaserEmitterTrap2" parent="Traps/LaserEmitterGroup" index="1" instance=ExtResource( 4 )]
 position = Vector2( 672.535, 815 )
@@ -42,6 +46,10 @@ scale = Vector2( 1, -1 )
 rot = 90
 scl = Vector2( 1, -1 )
 laserCooldown = 0.0
+laserActive = 1.0
+laserWarning = 1.0
+firstDelay = 0.0
+autostart = true
 
 [node name="LaserEmitterGroup2" parent="Traps" index="1" instance=ExtResource( 1 )]
 position = Vector2( 0, 138 )
@@ -54,13 +62,23 @@ firstDelay = 0.6
 position = Vector2( 206.515, 815 )
 rotation = 1.5708
 rot = 90
+scl = Vector2( 1, 1 )
 laserCooldown = 0.0
+laserActive = 1.0
+laserWarning = 1.0
+firstDelay = 0.0
+autostart = true
 
 [node name="LaserEmitterTrap2" parent="Traps/LaserEmitterGroup2" index="1" instance=ExtResource( 4 )]
 position = Vector2( 549.131, 815.561 )
 rotation = 1.5708
 rot = 90
+scl = Vector2( 1, 1 )
 laserCooldown = 0.0
+laserActive = 1.0
+laserWarning = 1.0
+firstDelay = 0.0
+autostart = true
 
 [node name="Sparks" type="Node2D" parent="Traps" index="2"]
 position = Vector2( 0, -897.064 )
@@ -90,18 +108,14 @@ alwaysDeadly = true
 [node name="CollisionShape2D3" parent="Killbox" index="2"]
 position = Vector2( -42.0226, 979.067 )
 
-[node name="DebugLight" parent="." index="10"]
-visible = false
-
-[node name="DebugLight2" parent="." index="11"]
-visible = false
-
 [node name="banner-side" parent="." index="12" instance=ExtResource( 5 )]
-position = Vector2( 4.71027, 725.349 )
+position = Vector2( 5.09448, 444.008 )
 
 [node name="RainRect" parent="Rain" index="0"]
-margin_left = -220.788
-margin_right = -220.788
+margin_left = -479.079
+margin_top = -1394.47
+margin_right = -479.079
+margin_bottom = -944.474
 [connection signal="body_entered" from="Traps/LaserEmitterGroup/LaserEmitterTrap/Laser" to="Traps/LaserEmitterGroup/LaserEmitterTrap/Laser" method="_on_Laser_body_entered"]
 [connection signal="body_entered" from="Traps/LaserEmitterGroup/LaserEmitterTrap2/Laser" to="Traps/LaserEmitterGroup/LaserEmitterTrap2/Laser" method="_on_Laser_body_entered"]
 [connection signal="body_entered" from="Traps/LaserEmitterGroup2/LaserEmitterTrap/Laser" to="Traps/LaserEmitterGroup2/LaserEmitterTrap/Laser" method="_on_Laser_body_entered"]

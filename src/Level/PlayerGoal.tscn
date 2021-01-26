@@ -83,8 +83,9 @@ bus = "SFX"
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 4 )
 color = Color( 0.901961, 0.54902, 0.972549, 1 )
-energy = 0.65
+energy = 1.09
 range_layer_min = -1
 range_layer_max = 3
 range_item_cull_mask = -2147483647
 shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )

@@ -59,7 +59,7 @@ void light(){
 	{
 		if(lightON)
 		{
-		LIGHT = mix(LIGHT, LIGHT_COLOR, lightMix)*1.25;
+		LIGHT = mix(LIGHT, LIGHT_COLOR, lightMix);
 		}
 		else
 		{

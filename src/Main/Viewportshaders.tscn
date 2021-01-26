@@ -41,12 +41,14 @@ script = ExtResource( 2 )
 
 [node name="GrayscaleBuffer" type="BackBufferCopy" parent="."]
 visible = false
+light_mask = 0
 scale = Vector2( 1.5, 1.5 )
 copy_mode = 2
 rect = Rect2( 0, 0, 800, 480 )
 script = ExtResource( 3 )
 
 [node name="GrayscaleColor" type="TextureRect" parent="GrayscaleBuffer"]
+light_mask = 0
 material = SubResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -59,12 +61,14 @@ __meta__ = {
 
 [node name="ChromaticAberrationBuffer" type="BackBufferCopy" parent="."]
 visible = false
+light_mask = -2147483648
 scale = Vector2( 1.5, 1.5 )
 copy_mode = 2
 rect = Rect2( 0, 0, 800, 480 )
 script = ExtResource( 3 )
 
 [node name="ChromaticAberration" type="TextureRect" parent="ChromaticAberrationBuffer"]
+light_mask = 0
 material = SubResource( 5 )
 anchor_right = 1.0
 anchor_bottom = 1.0

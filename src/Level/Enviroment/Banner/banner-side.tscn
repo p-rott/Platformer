@@ -20,12 +20,12 @@ frame_3/delay_sec = 0.0
 texture = SubResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
+modulate = Color( 1.2, 1.2, 1.2, 1 )
 texture = ExtResource( 1 )
 texture_scale = 0.44
 color = Color( 0.839216, 0.101961, 0.392157, 1 )
-energy = 1.43
+energy = 1.69
 range_layer_min = -1
 range_layer_max = 3
 shadow_enabled = true
 shadow_color = Color( 0, 0, 0, 1 )
-shadow_gradient_length = 22.9

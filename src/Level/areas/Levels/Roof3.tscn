@@ -63,4 +63,10 @@ position = Vector2( -42.0226, 979.067 )
 position = Vector2( 1348.78, 390.918 )
 
 [node name="banner-suschi" parent="." index="14" instance=ExtResource( 3 )]
-position = Vector2( 193.629, 411.748 )
+position = Vector2( 208.118, 411.118 )
+
+[node name="RainRect" parent="Rain" index="0"]
+margin_left = -4749.04
+margin_top = -1427.52
+margin_right = -3949.04
+margin_bottom = -977.521

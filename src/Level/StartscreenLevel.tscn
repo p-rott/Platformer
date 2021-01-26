@@ -215,6 +215,7 @@ transform = Transform2D( 1, 0, 0, 1, -800, -100 )
 position = Vector2( -264.656, 83.1887 )
 scale = Vector2( -1, 1 )
 z_index = 2
+rot = 0
 scl = Vector2( -1, 1 )
 laserCooldown = 1.2
 laserActive = 0.4
