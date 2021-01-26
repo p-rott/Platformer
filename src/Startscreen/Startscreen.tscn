@@ -62,9 +62,6 @@ setPlayerCurrentCamera = false
 [node name="ParallaxBackground" parent="CanvasLayer/StartscreenLevel" index="5"]
 scroll_base_scale = Vector2( 1, 1 )
 
-[node name="LaserEmitter" parent="CanvasLayer/StartscreenLevel/Traps" index="0"]
-rot = 0
-
 [node name="DebugLight" parent="CanvasLayer/StartscreenLevel" index="14"]
 position = Vector2( 528.535, 461.637 )
 color = Color( 1, 1, 1, 1 )

@@ -408,7 +408,9 @@ color_ramp = SubResource( 17 )
 [sub_resource type="CircleShape2D" id=22]
 radius = 66.2709
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"Player",
+]]
 collision_mask = 30
 script = ExtResource( 1 )
 sprintIncrease = 1.5
@@ -506,7 +508,6 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="TrapSensingCollision" type="CollisionShape2D" parent="TrapSensingArea"]
+visible = false
 position = Vector2( 0, -14 )
 shape = SubResource( 22 )
-[connection signal="body_entered" from="TrapSensingArea" to="." method="_on_TrapSensingArea_body_entered"]
-[connection signal="body_exited" from="TrapSensingArea" to="." method="_on_TrapSensingArea_body_exited"]

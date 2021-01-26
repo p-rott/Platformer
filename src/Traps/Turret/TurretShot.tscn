@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/art/tileset/warped city files/SPRITES/misc/shot/shot-2.png" type="Texture" id=1]
+[ext_resource path="res://TurretShot.gd" type="Script" id=2]
+[ext_resource path="res://assets/art/lightTextures/lightcircle.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 4.12311
+
+[node name="TurretShot" type="Area2D"]
+collision_layer = 0
+collision_mask = 2147483675
+audio_bus_name = "SFX"
+script = ExtResource( 2 )
+
+[node name="Turret Hit" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 3 )
+color = Color( 0, 1, 0.941176, 1 )
+energy = 0.5
+range_layer_min = -1
+range_layer_max = 3
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+flip_h = true
+[connection signal="body_entered" from="." to="." method="_on_TurretShot_body_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="queue_free"]
