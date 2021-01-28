@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/art/tileset/warped city files/SPRITES/misc/shot/shot-2.png" type="Texture" id=1]
-[ext_resource path="res://TurretShot.gd" type="Script" id=2]
+[ext_resource path="res://src/Traps/Turret/TurretShot.gd" type="Script" id=2]
 [ext_resource path="res://assets/art/lightTextures/lightcircle.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -27,6 +27,5 @@ range_layer_max = 3
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-flip_h = true
 [connection signal="body_entered" from="." to="." method="_on_TurretShot_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="queue_free"]

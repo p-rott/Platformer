@@ -1,5 +1,5 @@
 extends StaticBody2D
-
+class_name Turret
 export var rotate_speed = 90.0
 export var turretShot : PackedScene
 export var shotsPerSec : float = 10
@@ -69,7 +69,6 @@ func shoot(normal:Vector2)->void:
 		add_child(temp)
 		temp.global_position = TurretHead.global_position
 		temp.rotation_degrees = TurretHead.rotation_degrees
-		print(rotation_degrees)
 		temp.setup(normal.rotated(deg2rad(-rotation_degrees)))
 		
 func bodyEntered(body:Node)->void:

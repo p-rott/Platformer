@@ -42,4 +42,5 @@ func disableLaser():
 
 
 func _on_Laser_body_entered(body):
+	if(body.is_in_group("Player")):
 		playerHitTrap(body)

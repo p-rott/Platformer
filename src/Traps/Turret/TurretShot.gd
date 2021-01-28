@@ -1,4 +1,4 @@
-extends "res://src/Traps/Trap.gd"
+extends Trap
 class_name TurretShot
 
 var movementDirection:= Vector2.ZERO

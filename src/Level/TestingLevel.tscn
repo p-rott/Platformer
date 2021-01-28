@@ -1,7 +1,29 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Level/LevelPreset.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Traps/Turret/Turrtet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Traps/Turret/TurrtetLaser.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+background_canvas_max_layer = 3
+ambient_light_color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
+ss_reflections_fade_in = 0.00269226
+ss_reflections_roughness = false
+ssao_intensity = 128.0
+glow_enabled = true
+glow_levels/1 = true
+glow_levels/2 = true
+glow_levels/4 = true
+glow_levels/6 = true
+glow_levels/7 = true
+glow_intensity = 1.31
+glow_strength = 0.99
+glow_blend_mode = 0
+glow_hdr_threshold = 0.24
+glow_bicubic_upscale = true
+adjustment_enabled = true
+adjustment_contrast = 1.09
 
 [node name="TestingLevel" instance=ExtResource( 1 )]
 
@@ -14,21 +36,40 @@ position = Vector2( 69.8467, 750.38 )
 [node name="Level" parent="." index="2"]
 tile_data = PoolIntArray( 1048580, 4, 0, 1048602, 4, 0, 1245188, 4, 0, 1245210, 4, 0, 1507332, 4, 0, 1507354, 4, 0, 1703940, 4, 0, 1703962, 4, 0, 2359340, 0, 0, 2359359, 0, 0, 2424876, 0, 0, 2424895, 0, 0, 2490412, 0, 0, 2490431, 0, 0, 2555948, 0, 0, 2555967, 0, 0, 2621484, 0, 0, 2621503, 0, 0, 2687020, 0, 0, 2687039, 0, 0, 2752556, 0, 0, 2752575, 0, 0, 2818092, 0, 0, 2818111, 0, 0, 2883628, 0, 0, 2883647, 0, 0, 2949141, 0, 0, 2949142, 0, 0, 2949143, 0, 0, 2949144, 0, 0, 2949145, 0, 0, 2949164, 0, 0, 2949183, 0, 0, 3014700, 0, 0, 3014719, 0, 0, 3080236, 0, 0, 3080255, 0, 0, 3145772, 0, 0, 3145791, 0, 0, 3211299, 6, 0, 3211308, 0, 0, 3211309, 0, 0, 3211310, 0, 0, 3211311, 0, 0, 3211312, 0, 0, 3211313, 0, 0, 3211314, 0, 0, 3211315, 0, 0, 3211316, 0, 0, 3211317, 0, 0, 3211318, 0, 0, 3211319, 0, 0, 3211320, 0, 0, 3211321, 0, 0, 3211322, 0, 0, 3211323, 0, 0, 3211324, 0, 0, 3211325, 0, 0, 3211326, 0, 0, 3211327, 0, 0, 3276814, 0, 0, 3276815, 0, 0, 3276816, 0, 0, 3276817, 0, 0, 3276818, 0, 0, 3276829, 0, 0, 3276830, 0, 0, 3276831, 0, 0, 3276832, 0, 0, 3276833, 0, 0, 3276834, 0, 0, 3276863, 0, 0, 3342399, 0, 0, 3407907, 6, 0, 3407935, 0, 0, 3473471, 0, 0, 3539007, 0, 0, 3604480, 0, 0, 3604481, 0, 0, 3604482, 0, 0, 3604483, 0, 0, 3604484, 0, 0, 3604485, 0, 0, 3604486, 0, 0, 3604487, 0, 0, 3604488, 0, 0, 3604489, 0, 0, 3604490, 0, 0, 3604491, 0, 0, 3604492, 0, 0, 3604493, 0, 0, 3604494, 0, 0, 3604495, 0, 0, 3604496, 0, 0, 3604497, 0, 0, 3604498, 0, 0, 3604499, 0, 0, 3604500, 0, 0, 3604501, 0, 0, 3604502, 0, 0, 3604503, 0, 0, 3604504, 0, 0, 3604505, 0, 0, 3604506, 0, 0, 3604507, 0, 0, 3604508, 0, 0, 3604509, 0, 0, 3604510, 0, 0, 3604511, 0, 0, 3604512, 0, 0, 3604513, 0, 0, 3604514, 0, 0, 3604515, 0, 0, 3604516, 0, 0, 3604517, 0, 0, 3604518, 0, 0, 3604519, 0, 0, 3604520, 0, 0, 3604521, 0, 0, 3604522, 0, 0, 3604523, 0, 0, 3604524, 0, 0, 3604525, 0, 0, 3604526, 0, 0, 3604527, 0, 0, 3604528, 0, 0, 3604529, 0, 0, 3604530, 0, 0, 3604531, 0, 0, 3604532, 0, 0, 3604533, 0, 0, 3604534, 0, 0, 3604535, 0, 0, 3604536, 0, 0, 3604537, 0, 0, 3604538, 0, 0, 3604539, 0, 0, 3604540, 0, 0, 3604541, 0, 0, 3604542, 0, 0, 3604543, 0, 0 )
 
+[node name="WorldEnvironment" parent="." index="12"]
+environment = SubResource( 1 )
+
 [node name="Turrtet" parent="." index="13" instance=ExtResource( 2 )]
-position = Vector2( 381.422, 869.809 )
+position = Vector2( 486.208, 788.384 )
 rotate_speed = 360.0
 coneDegree = 360.0
 coneDirection = Vector2( 1, 0 )
 
 [node name="Turrtet2" parent="." index="14" instance=ExtResource( 2 )]
-position = Vector2( 790.838, 806.169 )
+position = Vector2( 258.906, 822.187 )
 rotation = 3.14159
 rotate_speed = 90.0
 coneDegree = 180.0
 shootOnSight = true
 
-[node name="Turrtet3" parent="." index="15" instance=ExtResource( 2 )]
-position = Vector2( 692.55, 718.487 )
+[node name="TurrtetLaser" parent="." index="15" instance=ExtResource( 3 )]
+position = Vector2( 385.111, 869.398 )
+rotate_speed = 100.0
+coneDegree = 360.0
+coneDirection = Vector2( 0, -1 )
+shootOnSight = true
+color = Color( 1, 0, 0, 1 )
+
+[node name="TurrtetLaser2" parent="." index="16" instance=ExtResource( 3 )]
+position = Vector2( 383.109, 741.921 )
+rotation = 3.12141
+rotate_speed = 100.0
+coneDegree = 360.0
+coneDirection = Vector2( 0, 1 )
+shootOnSight = true
+
+[node name="Turrtet3" parent="." index="17" instance=ExtResource( 2 )]
+position = Vector2( 544.383, 843.294 )
 rotation = 4.71239
 rotate_speed = 90.0
 shotsPerSec = 2.0
@@ -36,7 +77,7 @@ coneDegree = 180.0
 shootOnSight = true
 
 [node name="RainRect" parent="Rain" index="0"]
-margin_left = -4369.62
-margin_top = -1370.22
-margin_right = -3569.62
-margin_bottom = -920.215
+margin_left = -4361.61
+margin_top = -1385.57
+margin_right = -3561.61
+margin_bottom = -935.566
