@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Landung.wav-aebce6df74a56a04a1929b4558fd91ad.sample"
+
+[deps]
+
+source_file="res://assets/audio/Cokeboy Sound Fx/Landung.wav"
+dest_files=[ "res://.import/Landung.wav-aebce6df74a56a04a1929b4558fd91ad.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

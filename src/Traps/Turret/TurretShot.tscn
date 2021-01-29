@@ -8,6 +8,7 @@
 radius = 4.12311
 
 [node name="TurretShot" type="Area2D"]
+z_index = -1
 collision_layer = 0
 collision_mask = 2147483675
 audio_bus_name = "SFX"
@@ -24,6 +25,8 @@ color = Color( 0, 1, 0.941176, 1 )
 energy = 0.5
 range_layer_min = -1
 range_layer_max = 3
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

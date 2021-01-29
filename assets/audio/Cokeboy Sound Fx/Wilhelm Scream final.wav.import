@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Wilhelm Scream final.wav-8dd37f406cca7e5c3fad64c14ddf1b15.sample"
+
+[deps]
+
+source_file="res://assets/audio/Cokeboy Sound Fx/Wilhelm Scream final.wav"
+dest_files=[ "res://.import/Wilhelm Scream final.wav-8dd37f406cca7e5c3fad64c14ddf1b15.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0

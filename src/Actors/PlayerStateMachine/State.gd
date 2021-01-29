@@ -13,16 +13,16 @@ func _physics_process(_delta):#
 		persistent_state.jump_buffer -= _delta
 	else:
 		persistent_state.jump_buffer = 0
-	
-	persistent_state._velocity.y = min(persistent_state._velocity.y +persistent_state.gravity, persistent_state.maxRunSpeed)
-	var collision = persistent_state.move_and_collide(persistent_state._velocity * _delta)
-	if collision:
-		persistent_state._velocity = persistent_state._velocity.slide(collision.normal)
-		if collision.collider is PlayerGoal and persistent_state.alive:
-			persistent_state.goalReached()
-		elif collision.collider is FallingPlatform:
-			collision.collider.touched()
-	persistent_state.move_and_slide(persistent_state._velocity, Vector2.UP, true)
+	if persistent_state.alive:
+		persistent_state._velocity.y = min(persistent_state._velocity.y +persistent_state.gravity, persistent_state.maxRunSpeed)
+		var collision = persistent_state.move_and_collide(persistent_state._velocity * _delta)
+		if collision:
+			persistent_state._velocity = persistent_state._velocity.slide(collision.normal)
+			if collision.collider is PlayerGoal and persistent_state.alive:
+				persistent_state.goalReached()
+			elif collision.collider is FallingPlatform:
+				collision.collider.touched()
+		persistent_state.move_and_slide(persistent_state._velocity, Vector2.UP, true)
 	pass
 
 func setup(change_state_p, animationPlayer_p, sprite_p, persistent_state_p):

@@ -3,7 +3,7 @@ extends State
 class_name DeathState
 
 func _ready():
-	persistent_state._velocity.y = -400
+	persistent_state._velocity = Vector2.ZERO
 	animationPlayer.play("die")
 
 func _physics_process(_delta):

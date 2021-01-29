@@ -1,52 +1,12 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/robot_demo.png" type="Texture" id=2]
-[ext_resource path="res://assets/audio/sfx/landing.wav" type="AudioStream" id=3]
-[ext_resource path="res://assets/audio/sfx/robotJump.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/Cokeboy Sound Fx/Landung.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/audio/Cokeboy Sound Fx/Sprung.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/audio/sfx/running.wav" type="AudioStream" id=5]
-
-[sub_resource type="Shader" id=1]
-code = "shader_type canvas_item;
-uniform bool only_red;
-uniform bool only_green;
-uniform bool only_blue;
-
-uniform float lightHeight;
-uniform vec2 lightVEC;
-uniform vec2 shadowVEC;
-uniform vec3 normal;
-void fragment() {
-	vec4 tex_color = texture(TEXTURE, UV);
-	
-	if(only_red)
-	{
-		COLOR= vec4(tex_color.r, 0, 0, tex_color.a);
-	}
-	else if(only_green)
-	{
-		COLOR= vec4(0, tex_color.g, 0, tex_color.a);
-	}
-		else if(only_blue)
-	{
-		COLOR= vec4(0, 0, tex_color.b, tex_color.a);
-	}
-	else
-	{
-		COLOR = tex_color;
-	}
-}
-"
-
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
-shader_param/only_red = false
-shader_param/only_green = false
-shader_param/only_blue = false
-shader_param/lightHeight = 100.0
-shader_param/lightVEC = null
-shader_param/shadowVEC = null
-shader_param/normal = Vector3( 1, 1, 1 )
+[ext_resource path="res://src/Main/Shockwave.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/audio/Cokeboy Sound Fx/Wilhelm Scream final.wav" type="AudioStream" id=7]
 
 [sub_resource type="Animation" id=3]
 length = 0.01
@@ -73,7 +33,7 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
@@ -85,7 +45,7 @@ tracks/1/path = NodePath("Sprite:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/keys = {
 "times": PoolRealArray( 0, 1.2 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -97,7 +57,7 @@ tracks/2/path = NodePath("Sprite:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/keys = {
 "times": PoolRealArray( 0, 1.2 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -109,7 +69,7 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/keys = {
 "times": PoolRealArray( 1.2 ),
 "transitions": PoolRealArray( 1 ),
@@ -129,6 +89,20 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
+}
+tracks/5/type = "audio"
+tracks/5/path = NodePath("Animation Audio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=5]
@@ -250,7 +224,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 0 ]
 }
 tracks/1/type = "audio"
-tracks/1/path = NodePath("RunningAudio")
+tracks/1/path = NodePath("Animation Audio")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -408,6 +382,48 @@ color_ramp = SubResource( 17 )
 [sub_resource type="CircleShape2D" id=22]
 radius = 66.2709
 
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+uniform bool only_red;
+uniform bool only_green;
+uniform bool only_blue;
+
+uniform float lightHeight;
+uniform vec2 lightVEC;
+uniform vec2 shadowVEC;
+uniform vec3 normal;
+void fragment() {
+	vec4 tex_color = texture(TEXTURE, UV);
+	
+	if(only_red)
+	{
+		COLOR= vec4(tex_color.r, 0, 0, tex_color.a);
+	}
+	else if(only_green)
+	{
+		COLOR= vec4(0, tex_color.g, 0, tex_color.a);
+	}
+		else if(only_blue)
+	{
+		COLOR= vec4(0, 0, tex_color.b, tex_color.a);
+	}
+	else
+	{
+		COLOR = tex_color;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/only_red = false
+shader_param/only_green = false
+shader_param/only_blue = false
+shader_param/lightHeight = 100.0
+shader_param/lightVEC = null
+shader_param/shadowVEC = null
+shader_param/normal = Vector3( 1, 1, 1 )
+
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
@@ -415,6 +431,7 @@ collision_mask = 30
 script = ExtResource( 1 )
 sprintIncrease = 1.5
 acceleration = 100
+shockwave = ExtResource( 6 )
 
 [node name="PlatformDetector" type="RayCast2D" parent="."]
 enabled = true
@@ -433,17 +450,6 @@ position = Vector2( 5, -15 )
 enabled = true
 cast_to = Vector2( 6, 0 )
 collision_mask = 16
-
-[node name="Sprite" type="Sprite" parent="."]
-show_behind_parent = true
-light_mask = -2147483647
-material = SubResource( 2 )
-position = Vector2( 0, -14 )
-z_index = 1
-texture = ExtResource( 2 )
-vframes = 2
-hframes = 16
-frame = 17
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.6
@@ -490,15 +496,14 @@ process_material = SubResource( 21 )
 
 [node name="LandingAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -10.0
 bus = "SFX"
 
 [node name="JumpAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = -21.277
 bus = "SFX"
 
-[node name="RunningAudio" type="AudioStreamPlayer" parent="."]
+[node name="Animation Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 volume_db = -13.157
 bus = "SFX"
 
@@ -511,3 +516,16 @@ collision_mask = 2
 visible = false
 position = Vector2( 0, -14 )
 shape = SubResource( 22 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Sprite" type="Sprite" parent="."]
+show_behind_parent = true
+light_mask = -2147483647
+material = SubResource( 2 )
+position = Vector2( 0, -14 )
+rotation = 4.46638e-06
+z_index = 1
+texture = ExtResource( 2 )
+vframes = 2
+hframes = 16

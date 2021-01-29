@@ -80,3 +80,4 @@ occluder = SubResource( 3 )
 [connection signal="timeout" from="LaserWarningTimer" to="." method="_on_LaserWarningTimer_timeout"]
 [connection signal="timeout" from="LaserActiveTimer" to="." method="_on_LaserActiveTimer_timeout"]
 [connection signal="timeout" from="FirstDelayTimer" to="." method="_on_FirstDelayTimer_timeout"]
+[connection signal="body_entered" from="Laser" to="Laser" method="_on_Laser_body_entered"]

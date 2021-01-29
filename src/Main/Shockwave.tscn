@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/audio/Cokeboy Sound Fx/Dying Sound.wav" type="AudioStream" id=1]
+[ext_resource path="res://src/Main/Shockwave.shader" type="Shader" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://src/Main/Shockwave.gd" type="Script" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/force = 0.1
+shader_param/size = 0.0
+shader_param/width = 0.04
+shader_param/caFactor = 0.2
+
+[sub_resource type="Animation" id=2]
+resource_name = "playShockwave"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 0.5, 0.5, 1 ),
+"update": 0,
+"values": [ 0.0, 0.5, 0.6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:shader_param/force")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 0.5, 0.5, 1 ),
+"update": 0,
+"values": [ 0.1, 0.0, 0.0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[node name="Shockwave" type="Node2D"]
+light_mask = 0
+z_index = 1000
+z_as_relative = false
+script = ExtResource( 4 )
+size = 500.0
+
+[node name="ShockwaveShader" type="Sprite" parent="."]
+material = SubResource( 1 )
+scale = Vector2( 4.6875, 4.6875 )
+texture = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ShockwaveShader"]
+autoplay = "playShockwave"
+anims/playShockwave = SubResource( 2 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -5.0
+autoplay = true
+bus = "SFX"

@@ -25,7 +25,7 @@ export(int, 0, 60) var blocked_wall_jump_frames = 5
 
 var state : State
 var state_factory
-
+export var shockwave : PackedScene
 onready var platform_detector = $PlatformDetector
 onready var wall_detector_left = $WallDetectorLeft
 onready var wall_detector_right = $WallDetectorRight
@@ -38,15 +38,21 @@ export var disableInput = false
 onready var landingAudio = $LandingAudio
 onready var jumpingAudio = $JumpAudio
 onready var trapSensingArea = $TrapSensingArea
+onready var camera: Camera2D = $Camera
+onready var tween: Tween = $Tween
 
 func _ready():
 	coyote_time_s = coyote_time_ms / 1000.0
-	var camera: Camera2D = $Camera
 	camera.custom_viewport = $"../.."
 	state_factory = StateFactory.new()
 	setIdleState()
 
 func spawn(pos: Vector2):
+	Engine.time_scale = 1
+	#MusicController.pause(false)
+	tween.stop_all()
+
+	tween.start()
 	position = pos
 	alive = true
 	_velocity = Vector2.ZERO
@@ -121,6 +127,17 @@ func _physics_process(_delta):
 
 func die():
 	if alive:
+		#Engine.time_scale = 0.25
+		#MusicController.pause(true)
+		tween.stop_all()
+		tween.interpolate_property(camera, "zoom", Vector2(1,1), Vector2(1.25,1.25), .1)
+		tween.interpolate_property(self, "position", position, (get_parent() as Level).playerSpawn.getSpawn(), 0.5)
+		tween.interpolate_property(camera, "zoom", Vector2(1.25,1.25), Vector2(1,1), .1, 0,0,.4)
+		tween.interpolate_callback(self, 0.5, "informLevelOfDeath")
+		tween.start()
+		var tmp = shockwave.instance()
+		tmp.setup(global_position)
+		get_parent().add_child(tmp)
 		alive = false
 		state.die()
 

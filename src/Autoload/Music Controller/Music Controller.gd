@@ -31,7 +31,8 @@ func stop():
 #Calling this function will pause/unpause music
 func toggle_pause():
 	_player.stream_paused = not _player.stream_paused
-	
+func pause(pausing : bool):
+	_player.stream_paused = pausing
 func nextTrack():
 	
 	var currentTrack = Global.getOption("currentTrack")

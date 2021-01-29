@@ -4,6 +4,7 @@ class_name TurretShot
 var movementDirection:= Vector2.ZERO
 export var speed := 500.0
 
+
 func _ready():
 	pass
 
@@ -21,4 +22,5 @@ func _on_TurretShot_body_entered(body):
 		pass
 	elif !body.is_a_parent_of(self):
 		queue_free()
+
 

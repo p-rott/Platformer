@@ -915,7 +915,6 @@ environment = ExtResource( 16 )
 [node name="Rain" type="CanvasLayer" parent="."]
 layer = 3
 follow_viewport_enable = true
-follow_viewport_scale = 0.8
 
 [node name="RainRect" type="ColorRect" parent="Rain"]
 pause_mode = 1
@@ -937,6 +936,6 @@ __meta__ = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Rain/RainRect"]
 stream = ExtResource( 15 )
-volume_db = -8.01
+volume_db = -11.903
 autoplay = true
 bus = "SFX"

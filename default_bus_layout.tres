@@ -10,8 +10,8 @@ threshold_db = -5.1
 
 [sub_resource type="AudioEffectLimiter" id=3]
 resource_name = "Limiter"
-ceiling_db = -0.2
-threshold_db = -5.5
+ceiling_db = -7.8
+threshold_db = -4.9
 
 [resource]
 bus/0/effect/0/effect = SubResource( 1 )
