@@ -5,7 +5,8 @@ export var size := 100.0
 func _ready():
 	ShockwaveShader.scale = Vector2(size/64,size/64)
 	pass
-
+func _exit_tree():
+	pass
 func setup(globalPosition: Vector2) -> void:
 	global_position = globalPosition
 	pass

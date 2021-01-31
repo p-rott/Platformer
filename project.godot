@@ -84,6 +84,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Actors/PlayerBackup.gd"
 }, {
+"base": "Node2D",
+"class": "RespawnBeam",
+"language": "GDScript",
+"path": "res://src/Level/RespawnBeam.gd"
+}, {
 "base": "State",
 "class": "RunState",
 "language": "GDScript",
@@ -170,6 +175,7 @@ _global_script_class_icons={
 "Player": "",
 "PlayerGoal": "",
 "Player__": "",
+"RespawnBeam": "",
 "RunState": "",
 "SlideState": "",
 "SparkTrap": "",

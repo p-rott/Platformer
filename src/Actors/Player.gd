@@ -26,6 +26,7 @@ export(int, 0, 60) var blocked_wall_jump_frames = 5
 var state : State
 var state_factory
 export var shockwave : PackedScene
+export var respawnBeam : PackedScene
 onready var platform_detector = $PlatformDetector
 onready var wall_detector_left = $WallDetectorLeft
 onready var wall_detector_right = $WallDetectorRight
@@ -130,14 +131,17 @@ func die():
 		#Engine.time_scale = 0.25
 		#MusicController.pause(true)
 		tween.stop_all()
-		tween.interpolate_property(camera, "zoom", Vector2(1,1), Vector2(1.25,1.25), .1)
-		tween.interpolate_property(self, "position", position, (get_parent() as Level).playerSpawn.getSpawn(), 0.5)
-		tween.interpolate_property(camera, "zoom", Vector2(1.25,1.25), Vector2(1,1), .1, 0,0,.4)
+		tween.interpolate_property(camera, "zoom", Vector2(1,1), Vector2(1.25,1.25), .25, 0, Tween.EASE_OUT)
+		tween.interpolate_property(self, "position", position, (get_parent() as Level).playerSpawn.getSpawn(), 0.5, 0, Tween.EASE_OUT_IN)
+		tween.interpolate_property(camera, "zoom", Vector2(1.25,1.25), Vector2(1,1), .25, 0,Tween.EASE_IN,.25)
 		tween.interpolate_callback(self, 0.5, "informLevelOfDeath")
+		var tmpRespawnBeam : RespawnBeam = respawnBeam.instance()
+		tmpRespawnBeam.setup(self.global_position, get_parent().playerSpawn.getSpawn(), Color(1), .5)
+		get_parent().add_child(tmpRespawnBeam)
 		tween.start()
-		var tmp = shockwave.instance()
-		tmp.setup(global_position)
-		get_parent().add_child(tmp)
+		var tmpShockwave = shockwave.instance()
+		tmpShockwave.setup(global_position)
+		get_parent().add_child(tmpShockwave)
 		alive = false
 		state.die()
 

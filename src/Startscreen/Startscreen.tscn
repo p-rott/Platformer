@@ -43,6 +43,9 @@ transform = Transform2D( 1, 0, 0, 1, 400, 65 )
 [node name="StartscreenLevel" parent="CanvasLayer" instance=ExtResource( 5 )]
 setPlayerCurrentCamera = false
 
+[node name="Player" parent="CanvasLayer/StartscreenLevel" index="4"]
+respawnBeam = null
+
 [node name="ParallaxBackground" parent="CanvasLayer/StartscreenLevel" index="5"]
 scroll_base_scale = Vector2( 1, 1 )
 

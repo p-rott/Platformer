@@ -8,7 +8,7 @@
 [ext_resource path="res://src/Main/Shockwave.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/audio/Cokeboy Sound Fx/Wilhelm Scream final.wav" type="AudioStream" id=7]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 length = 0.01
 loop = true
 step = 0.25
@@ -25,7 +25,7 @@ tracks/0/keys = {
 "values": [ 22 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "die"
 length = 1.2
 tracks/0/type = "value"
@@ -57,12 +57,12 @@ tracks/2/path = NodePath("Sprite:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
-tracks/2/enabled = false
+tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0, 1.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"transitions": PoolRealArray( 2.15792e-05, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 0 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/3/type = "method"
 tracks/3/path = NodePath(".")
@@ -105,7 +105,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 length = 0.01
 loop = true
 step = 0.25
@@ -122,7 +122,7 @@ tracks/0/keys = {
 "values": [ 21 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 length = 0.5
 loop = true
 step = 0.25
@@ -139,7 +139,7 @@ tracks/0/keys = {
 "values": [ 26 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 length = 7.0
 loop = true
 step = 0.25
@@ -156,7 +156,7 @@ tracks/0/keys = {
 "values": [ 16, 17, 18, 16, 19, 20, 19, 16 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=6]
 length = 0.5
 loop = true
 step = 0.25
@@ -173,7 +173,7 @@ tracks/0/keys = {
 "values": [ 25 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 length = 0.5
 loop = true
 step = 0.25
@@ -190,7 +190,7 @@ tracks/0/keys = {
 "values": [ 23, 24, 23 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=8]
 length = 0.5
 loop = true
 step = 0.25
@@ -207,7 +207,7 @@ tracks/0/keys = {
 "values": [ 26 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=9]
 length = 1.25
 loop = true
 step = 0.25
@@ -238,7 +238,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=10]
 length = 1.25
 loop = true
 step = 0.25
@@ -255,7 +255,7 @@ tracks/0/keys = {
 "values": [ 5, 6, 7, 8, 9, 5 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=11]
 resource_name = "spawn"
 length = 1.2
 tracks/0/type = "value"
@@ -275,7 +275,7 @@ tracks/1/path = NodePath("Sprite:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/keys = {
 "times": PoolRealArray( 0, 1.1 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -309,7 +309,7 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=12]
 length = 1.25
 loop = true
 step = 0.25
@@ -326,17 +326,17 @@ tracks/0/keys = {
 "values": [ 10, 11, 12, 13, 14, 5 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=15]
+[sub_resource type="CapsuleShape2D" id=13]
 radius = 7.5
 height = 12.5
 
-[sub_resource type="Gradient" id=16]
+[sub_resource type="Gradient" id=14]
 colors = PoolColorArray( 1, 1, 1, 1, 0.157715, 0.157715, 0.157715, 1 )
 
-[sub_resource type="GradientTexture" id=17]
-gradient = SubResource( 16 )
+[sub_resource type="GradientTexture" id=15]
+gradient = SubResource( 14 )
 
-[sub_resource type="ParticlesMaterial" id=18]
+[sub_resource type="ParticlesMaterial" id=16]
 flag_disable_z = true
 direction = Vector3( 0, -1, 0 )
 spread = 26.02
@@ -350,18 +350,18 @@ damping = 4.62
 damping_random = 0.1
 scale = 3.0
 scale_random = 0.51
-color_ramp = SubResource( 17 )
+color_ramp = SubResource( 15 )
 
-[sub_resource type="Curve" id=19]
+[sub_resource type="Curve" id=17]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.984894, 0 ), -0.0313447, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=20]
+[sub_resource type="CurveTexture" id=18]
 width = 32
-curve = SubResource( 19 )
+curve = SubResource( 17 )
 
-[sub_resource type="ParticlesMaterial" id=21]
+[sub_resource type="ParticlesMaterial" id=19]
 trail_divisor = 2
-trail_size_modifier = SubResource( 20 )
+trail_size_modifier = SubResource( 18 )
 flag_disable_z = true
 direction = Vector3( 0, -1, 0 )
 flatness = 0.76
@@ -377,12 +377,12 @@ damping_random = 0.1
 angle = 158.2
 scale = 3.0
 scale_random = 0.51
-color_ramp = SubResource( 17 )
+color_ramp = SubResource( 15 )
 
-[sub_resource type="CircleShape2D" id=22]
+[sub_resource type="CircleShape2D" id=20]
 radius = 66.2709
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id=21]
 code = "shader_type canvas_item;
 uniform bool only_red;
 uniform bool only_green;
@@ -414,8 +414,8 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
+[sub_resource type="ShaderMaterial" id=22]
+shader = SubResource( 21 )
 shader_param/only_red = false
 shader_param/only_green = false
 shader_param/only_blue = false
@@ -453,18 +453,18 @@ collision_mask = 16
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.6
-anims/crouch = SubResource( 3 )
-anims/die = SubResource( 4 )
-anims/falling = SubResource( 5 )
-anims/falling_weapon = SubResource( 6 )
-anims/idle = SubResource( 7 )
-anims/idle_weapon = SubResource( 8 )
-anims/jumping = SubResource( 9 )
-anims/jumping_weapon = SubResource( 10 )
-anims/run = SubResource( 11 )
-anims/run_weapon = SubResource( 12 )
-anims/spawn = SubResource( 13 )
-anims/standing_weapon_ready = SubResource( 14 )
+anims/crouch = SubResource( 1 )
+anims/die = SubResource( 2 )
+anims/falling = SubResource( 3 )
+anims/falling_weapon = SubResource( 4 )
+anims/idle = SubResource( 5 )
+anims/idle_weapon = SubResource( 6 )
+anims/jumping = SubResource( 7 )
+anims/jumping_weapon = SubResource( 8 )
+anims/run = SubResource( 9 )
+anims/run_weapon = SubResource( 10 )
+anims/spawn = SubResource( 11 )
+anims/standing_weapon_ready = SubResource( 12 )
 
 [node name="Camera" type="Camera2D" parent="."]
 light_mask = 0
@@ -474,7 +474,7 @@ process_mode = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 0
 position = Vector2( 0, -13.5 )
-shape = SubResource( 15 )
+shape = SubResource( 13 )
 
 [node name="Trail" type="Particles2D" parent="."]
 emitting = false
@@ -483,7 +483,7 @@ explosiveness = 0.24
 randomness = 0.43
 local_coords = false
 draw_order = 1
-process_material = SubResource( 18 )
+process_material = SubResource( 16 )
 
 [node name="Puff" type="Particles2D" parent="."]
 emitting = false
@@ -492,7 +492,7 @@ one_shot = true
 explosiveness = 1.0
 local_coords = false
 draw_order = 1
-process_material = SubResource( 21 )
+process_material = SubResource( 19 )
 
 [node name="LandingAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
@@ -515,17 +515,19 @@ collision_mask = 2
 [node name="TrapSensingCollision" type="CollisionShape2D" parent="TrapSensingArea"]
 visible = false
 position = Vector2( 0, -14 )
-shape = SubResource( 22 )
+shape = SubResource( 20 )
 
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 show_behind_parent = true
 light_mask = -2147483647
-material = SubResource( 2 )
+material = SubResource( 22 )
 position = Vector2( 0, -14 )
-rotation = 4.46638e-06
+rotation = 6.28319
 z_index = 1
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 16
+frame = 20

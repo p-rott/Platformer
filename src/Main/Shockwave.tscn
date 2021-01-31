@@ -10,7 +10,7 @@ shader = ExtResource( 2 )
 shader_param/force = 0.1
 shader_param/size = 0.0
 shader_param/width = 0.04
-shader_param/caFactor = 0.2
+shader_param/caFactor = 0.0
 
 [sub_resource type="Animation" id=2]
 resource_name = "playShockwave"
@@ -56,7 +56,7 @@ tracks/2/keys = {
 
 [node name="Shockwave" type="Node2D"]
 light_mask = 0
-z_index = 1000
+z_index = 1001
 z_as_relative = false
 script = ExtResource( 4 )
 size = 500.0
