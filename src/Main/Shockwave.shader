@@ -13,10 +13,9 @@ void fragment()
 	vec2 dispR = normalize(UV-center-caFactor) * force * mask;
 	vec2 dispG = normalize(UV-center) * force * mask;
 	vec2 dispB = normalize(UV-center+caFactor) * force * mask;
-	COLOR.r = texture(SCREEN_TEXTURE, SCREEN_UV - dispR).r; //+UV*SCREEN_PIXEL_SIZE
+	COLOR.r = texture(SCREEN_TEXTURE, SCREEN_UV - dispR).r; 
 	COLOR.g = texture(SCREEN_TEXTURE, SCREEN_UV - dispG).g;
 	COLOR.b = texture(SCREEN_TEXTURE, SCREEN_UV - dispB).b;
-	//COLOR.rgb =  vec3(mask);
 }
 void light()
 {

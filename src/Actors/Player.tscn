@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/robot_demo.png" type="Texture" id=2]
@@ -379,10 +379,7 @@ scale = 3.0
 scale_random = 0.51
 color_ramp = SubResource( 15 )
 
-[sub_resource type="CircleShape2D" id=20]
-radius = 66.2709
-
-[sub_resource type="Shader" id=21]
+[sub_resource type="Shader" id=20]
 code = "shader_type canvas_item;
 uniform bool only_red;
 uniform bool only_green;
@@ -414,8 +411,8 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id=22]
-shader = SubResource( 21 )
+[sub_resource type="ShaderMaterial" id=21]
+shader = SubResource( 20 )
 shader_param/only_red = false
 shader_param/only_green = false
 shader_param/only_blue = false
@@ -507,23 +504,12 @@ stream = ExtResource( 5 )
 volume_db = -13.157
 bus = "SFX"
 
-[node name="TrapSensingArea" type="Area2D" parent="."]
-visible = false
-collision_layer = 0
-collision_mask = 2
-
-[node name="TrapSensingCollision" type="CollisionShape2D" parent="TrapSensingArea"]
-visible = false
-position = Vector2( 0, -14 )
-shape = SubResource( 20 )
-
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 show_behind_parent = true
 light_mask = -2147483647
-material = SubResource( 22 )
+material = SubResource( 21 )
 position = Vector2( 0, -14 )
 rotation = 6.28319
 z_index = 1
