@@ -23,9 +23,6 @@ tile_data = PoolIntArray( -1179600, 3, 0, -1179599, 3, 0, -1179598, 3, 0, -11795
 [node name="Player" parent="." index="4"]
 position = Vector2( 0, 50.7239 )
 
-[node name="ParallaxBackground" parent="." index="5"]
-scroll_base_scale = Vector2( 0.1, 0.1 )
-
 [node name="Sparks" type="Node2D" parent="Traps" index="0"]
 
 [node name="SparkTrap" parent="Traps/Sparks" index="0" instance=ExtResource( 3 )]
@@ -70,7 +67,12 @@ firstDelay = 2.0
 [node name="LaserEmitterTrap2" parent="Traps/LaserEmitterGroup3" index="0" instance=ExtResource( 5 )]
 position = Vector2( -19.8214, 388.427 )
 scale = Vector2( -1, 1 )
+rot = 0
 scl = Vector2( -1, 1 )
+laserActive = 1.0
+laserWarning = 1.0
+firstDelay = 0.0
+autostart = true
 
 [node name="LaserEmitterGroup2" parent="Traps" index="2" instance=ExtResource( 4 )]
 laserCooldown = 0.5
@@ -80,7 +82,12 @@ firstDelay = 1.0
 [node name="LaserEmitterTrap" parent="Traps/LaserEmitterGroup2" index="0" instance=ExtResource( 5 )]
 position = Vector2( 700.355, 286.938 )
 scale = Vector2( 1, -1 )
+rot = 0
 scl = Vector2( 1, -1 )
+laserActive = 1.0
+laserWarning = 1.0
+firstDelay = 0.0
+autostart = true
 
 [node name="LaserEmitterGroup" parent="Traps" index="3" instance=ExtResource( 4 )]
 laserCooldown = 0.7
@@ -89,9 +96,21 @@ laserWarning = 0.7
 
 [node name="LaserEmitter" parent="Traps/LaserEmitterGroup" index="0" instance=ExtResource( 5 )]
 position = Vector2( 768, 80 )
+rot = 0
+scl = Vector2( 1, 1 )
+laserActive = 1.0
+laserWarning = 1.0
+firstDelay = 0.0
+autostart = true
 
 [node name="LaserEmitter2" parent="Traps/LaserEmitterGroup" index="1" instance=ExtResource( 5 )]
 position = Vector2( 768, 112 )
+rot = 0
+scl = Vector2( 1, 1 )
+laserActive = 1.0
+laserWarning = 1.0
+firstDelay = 0.0
+autostart = true
 
 [node name="CollisionShape2D3" parent="Killbox" index="2"]
 position = Vector2( -16.3877, 750.838 )

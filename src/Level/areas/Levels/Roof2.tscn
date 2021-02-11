@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Traps/LaserEmitterGroup.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Level/LevelPreset.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Traps/LaserEmitter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Level/Enviroment/Banner/banner-side.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Level/Enviroment/Banner/Banner-Big.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Level/Enviroment/Banner/Sreen.tscn" type="PackedScene" id=6]
 
 [node name="Roof2" instance=ExtResource( 2 )]
 
@@ -57,6 +60,15 @@ visible = false
 
 [node name="CollisionShape2D3" parent="Killbox" index="2"]
 position = Vector2( -16.3877, 750.838 )
+
+[node name="banner-big" parent="." index="14" instance=ExtResource( 5 )]
+position = Vector2( 722.229, -76.2484 )
+
+[node name="Screen" parent="." index="15" instance=ExtResource( 6 )]
+position = Vector2( 218.229, 448.388 )
+
+[node name="banner-side" parent="." index="16" instance=ExtResource( 4 )]
+position = Vector2( 606.109, 445.174 )
 [connection signal="body_entered" from="Traps/LaserEmitterGroup/LaserEmitterTrap/Laser" to="Traps/LaserEmitterGroup/LaserEmitterTrap/Laser" method="_on_Laser_body_entered"]
 [connection signal="body_entered" from="Traps/LaserEmitterGroup/LaserEmitterTrap2/Laser" to="Traps/LaserEmitterGroup/LaserEmitterTrap2/Laser" method="_on_Laser_body_entered"]
 [connection signal="body_entered" from="Traps/LaserEmitterGroup/LaserEmitterTrap3/Laser" to="Traps/LaserEmitterGroup/LaserEmitterTrap3/Laser" method="_on_Laser_body_entered"]

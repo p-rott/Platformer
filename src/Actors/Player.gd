@@ -38,7 +38,6 @@ var alive = true
 export var disableInput = false
 onready var landingAudio = $LandingAudio
 onready var jumpingAudio = $JumpAudio
-onready var trapSensingArea = $TrapSensingArea
 onready var camera: Camera2D = $Camera
 onready var tween: Tween = $Tween
 

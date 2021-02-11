@@ -17,12 +17,11 @@ frame_3/texture = ExtResource( 5 )
 frame_3/delay_sec = 0.0
 
 [node name="banner-side" type="Sprite"]
+modulate = Color( 2.31, 2.31, 2.31, 1 )
 texture = SubResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
-modulate = Color( 1.2, 1.2, 1.2, 1 )
 texture = ExtResource( 1 )
-color = Color( 1, 0.505882, 0.701961, 1 )
 energy = 2.4
 range_layer_min = -1
 range_layer_max = 3
